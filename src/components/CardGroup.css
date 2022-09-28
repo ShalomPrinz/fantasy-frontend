@@ -1,8 +1,8 @@
 .card-bg-image {
   background-image:
     radial-gradient(
-      honeydew,
-      antiquewhite
+      royalblue,
+      darkblue
     );
   text-align: center;
   transition: all .5s;

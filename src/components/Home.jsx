@@ -9,7 +9,6 @@ const Home = () => {
       {
         title: "Create your league",
         text: "play the ultimate fantasy game with friends",
-        smallText: "small lines example",
         icon: faTrophy
       },
       {

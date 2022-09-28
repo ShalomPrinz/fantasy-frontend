@@ -13,7 +13,7 @@ function NavBar() {
 
   return (
     <Navbar className="navbar" expand="lg" expanded={expanded}>
-      <NavLink className="navbar-brand" to="/">
+      <NavLink className="navbar-brand fs-1" to="/">
         <Image 
           height="90px"
           className="p-2 m-3 filter-invert" 
