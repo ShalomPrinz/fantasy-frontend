@@ -1,0 +1,13 @@
+.card-bg-image {
+  background-image:
+    radial-gradient(
+      honeydew,
+      antiquewhite
+    );
+  text-align: center;
+  transition: all .5s;
+}
+
+.card-bg-image:hover {
+   transform: scale(1.2); 
+}
