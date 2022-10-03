@@ -8,7 +8,7 @@ let key = 0;
 
 function AppCardGroup({items}) {
   return (
-    <div className="d-flex justify-content-center text-white">
+    <div className="container d-flex justify-content-center text-white">
         {items.map((item) => (
             <Card className="pt-3 m-4 w-25 card-bg-image" key={key++} >
                 {item.icon && <FontAwesomeIcon className="fa-6x" icon={item.icon} />}
