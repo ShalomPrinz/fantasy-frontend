@@ -14,7 +14,7 @@ function AppCardGroup({items}) {
                 {item.icon && <FontAwesomeIcon className="fa-6x" icon={item.icon} />}
                 <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
-                    <Card.Text>{item.text}</Card.Text>
+                    <Card.Text className="fw-light" >{item.text}</Card.Text>
                 </Card.Body>
             </Card>
         ))}

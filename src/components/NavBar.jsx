@@ -8,6 +8,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
 import "./NavBar.css";
 
+const pages = [
+  {
+    name: "First",
+    url: "/"
+  },
+  {
+    name: "Second",
+    url: "/"
+  },
+  {
+    name: "Third",
+    url: "/"
+  }
+]
+
 function NavBar() {
   const [expanded, setExpanded] = useState(false);
 
@@ -35,21 +50,11 @@ function NavBar() {
             if (expanded) setExpanded(!expanded);
           }}
         >
-          <NavLink className="nav-item nav-links" to="/">
-            Guide
-          </NavLink>
-          <NavLink className="nav-item nav-links" to="/">
-            Lessons
-          </NavLink>
-          <NavLink className="nav-item nav-links" to="/">
-            Hotkeys
-          </NavLink>
-          <NavLink className="nav-item nav-links" to="/">
-            Autopilots
-          </NavLink>
-          <NavLink className="nav-item nav-links" to="/">
-            Learn Hotkeys
-          </NavLink>
+          {pages.map((page) => (
+            <NavLink className="nav-item nav-links fw-light" to={page.url}>
+              {page.name}
+            </NavLink>
+          ))}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

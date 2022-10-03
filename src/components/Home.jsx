@@ -31,7 +31,7 @@ const Home = () => {
       <div className="position-relative text-center">
         <Image className="w-100 mb-3" src="./src/res/cl_field.jpg" alt="Field" />          
         <div className="position-absolute top-50 start-50 translate-middle text-white">
-          <h1>Champions League Fantasy.</h1>
+          <h1 className="fw-bold" >Champions League Fantasy.</h1>
           <h4>Play Now</h4>
         </div>
       </div>
