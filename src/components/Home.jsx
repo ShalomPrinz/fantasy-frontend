@@ -28,14 +28,19 @@ const Home = () => {
   
   return (
     <>
-      <div className="position-relative text-center">
-        <Image className="w-100 mb-3" src="./src/res/cl_field.jpg" alt="Field" />          
-        <div className="position-absolute top-50 start-50 translate-middle text-white">
+      <div className="position-relative text-center overflow-hidden">
+        <Image src="./src/res/cl_field.jpg" alt="Field" />          
+        <div className="position-absolute top-50 start-50 translate-middle text-white w-100">
           <h1 className="fw-bold" >Champions League Fantasy.</h1>
           <h4>Play Now</h4>
         </div>
       </div>
-      <CardGroup {...context} />
+      <div className="bg-white overlap-above rounded-top mx-5" >
+        <CardGroup {...context} />
+        <div className="text-center fw-bold fs-3">
+          Simple. Fast. Addictive.
+        </div>
+      </div>
     </>
   );
 };

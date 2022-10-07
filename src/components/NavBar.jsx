@@ -23,6 +23,8 @@ const pages = [
   }
 ]
 
+let key = 0;
+
 function NavBar() {
   const [expanded, setExpanded] = useState(false);
 
@@ -51,7 +53,7 @@ function NavBar() {
           }}
         >
           {pages.map((page) => (
-            <NavLink className="nav-item nav-links fw-light" to={page.url}>
+            <NavLink className="nav-item nav-links fw-light" to={page.url} key={key++}>
               {page.name}
             </NavLink>
           ))}

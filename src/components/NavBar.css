@@ -1,9 +1,9 @@
 .filter-invert {
-    filter: invert(1);
+  filter: invert(1);
 }
 
 .nav-links:hover {
-    color: #ffdd40 !important;
+  color: #ffdd40 !important;
 }
 
 .navbar-brand {
@@ -11,55 +11,55 @@
 }
 
 .navbar {
-    background-color: #0E1E5B;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: sticky;
-    top: 0;
-    vertical-align: middle;
-  }
+  align-items: center;
+  background-color: #0E1E5B;
+  color: white;
+  display: flex;
+  font-size: 1.2rem;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  vertical-align: middle;
+}
   
-  .nav-links {
-    color: #fff;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-  }
+.nav-links {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
   
-  .nav-item {
-    line-height: 40px;
-    margin-right: 1rem;
-  }
+.nav-item {
+  line-height: 40px;
+  margin-right: 1rem;
+}
+
+.nav-item:after {
+  content: "";
+  background: transparent;
+  display: block;
+  height: 3px;
+  transition: width 0.7s ease, background-color 0.5s ease;
+  width: 0;
+}
+
+.nav-item:hover:after {
+  background: #ffdd40;
+  width: 100%;
+}
   
-  .nav-item:after {
-    content: "";
-    display: block;
-    height: 3px;
-    width: 0;
-    background: transparent;
-    transition: width 0.7s ease, background-color 0.5s ease;
-  }
-  
-  .nav-item:hover:after {
-    width: 100%;
-    background: #ffdd40;
-  }
-  
+.nav-item .active {
+  border: 1px solid #ffdd40;
+  color: #ffdd40;
+}
+
+@media screen and (max-width: 960px) {
   .nav-item .active {
+    border: none;
     color: #ffdd40;
-    border: 1px solid #ffdd40;
   }
-  
-  @media screen and (max-width: 960px) {
-    .nav-item .active {
-      color: #ffdd40;
-      border: none;
-    }
-    .nav-links {
-      padding: 1.5rem;
-      width: 100%;
-      display: table;
-    }
+  .nav-links {
+    display: table;
+    padding: 1.5rem;
+    width: 100%;
   }
+}

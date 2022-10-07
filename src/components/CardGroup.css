@@ -4,10 +4,11 @@
       royalblue,
       darkblue
     );
+  flex: 1 0 180px;
   text-align: center;
-  transition: all .5s;
+  transition: all .4s;
 }
 
 .card-bg-image:hover {
-   transform: scale(1.2); 
+   transform: scale(1.1); 
 }
