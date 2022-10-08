@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+=======
+**/*.trace
+**/*.zip
+**/*.tar.gz
+**/*.tgz
+**/*.log
+
+package-lock.json
+**/*.bun
+
+>>>>>>> cb864bb55ef9551531b6caabcb591f089ddc51fe
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -21,3 +33,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
+=======
+
+instructions.txt
+>>>>>>> cb864bb55ef9551531b6caabcb591f089ddc51fe
