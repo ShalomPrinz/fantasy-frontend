@@ -4,7 +4,7 @@ import { Image } from "react-bootstrap";
 
 import CardGroup from "./CardGroup";
 
-import field from "../res/cl_field.jpg";
+import grass from "../res/wide_grass.jpg";
 
 const context = {
   items: [
@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <>
       <div className="position-relative text-center overflow-hidden">
-        <Image src={field} alt="Field" />          
+        <Image src={grass} alt="Original Soccer Grass" />          
         <div className="position-absolute top-50 start-50 translate-middle text-white w-100">
           <h1 className="fw-bold" >Champions League Fantasy.</h1>
           <h4>Play Now</h4>

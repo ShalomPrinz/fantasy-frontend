@@ -12,8 +12,8 @@ import "./NavBar.css";
 
 const pages = [
   {
-    name: "First",
-    url: "/"
+    name: "My Team",
+    url: "/team"
   },
   {
     name: "Second",
@@ -31,7 +31,7 @@ function NavBar() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <Navbar className="navbar" expand="lg" expanded={expanded}>
+    <Navbar className="navbar bg-default" expand="lg" expanded={expanded}>
       <NavLink className="navbar-brand fs-1" to="/">
         <Image 
           height="90px"
