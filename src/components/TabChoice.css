@@ -1,0 +1,17 @@
+
+.tab-choice {
+    border: 4px solid white;
+    border-style: solid;
+}
+
+.tab-choice:first-child {
+    border-right: 3px solid white;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.tab-choice:last-child {
+    border-left: 3px solid white;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}

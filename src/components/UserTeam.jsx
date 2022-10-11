@@ -1,6 +1,8 @@
 import React from "react";
 
+import TabChoice from "./TabChoice";
 import TeamLayout from "./TeamLayout";
+import TeamList from "./TeamList";
 import "./UserTeam.css";
 
 const UserTeam = ({ user }) => {
@@ -17,6 +19,14 @@ const UserTeam = ({ user }) => {
           ATT: [{name: "Mokuku", team: "Dortmund"}]
       }
   }
+
+  const players = Object.values(user.team).reduce((sum, current) => sum + current.length, 0)
+  const selectedPlayersBackground = () => players === 11 ? "success" : "danger"
+
+  const tabs = {
+    "Field": <TeamLayout team={user.team}/>,
+    "List": <TeamList team={user.team} />
+  }
   
   return (
     <main className="container w-75 p-4 my-4 rounded bg-team-form">
@@ -31,11 +41,11 @@ const UserTeam = ({ user }) => {
             </div>
             <h2 className="py-3 centered-flex">
                 Players Selected:
-                <div className="bg-light-danger mx-3 p-2 rounded"> 0 / 11 </div>
+                <div className={`bg-light-${selectedPlayersBackground()} mx-3 p-2 rounded`}> {players} / 11 </div>
             </h2>
         </div>
 
-        <TeamLayout team={user.team} />
+        <TabChoice tabs={tabs} defaultTab={tabs.Field} />
     </main>
   );
 };
