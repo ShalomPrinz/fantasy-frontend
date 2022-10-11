@@ -13,7 +13,7 @@ function useWindowSize(callback) {
     window.addEventListener("resize", updateSize);
     updateSize();
     return () => window.removeEventListener("resize", updateSize);
-  }, []);
+  }, [callback]);
   return size;
 }
 
