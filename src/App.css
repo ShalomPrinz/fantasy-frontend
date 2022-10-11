@@ -55,3 +55,9 @@
 .bg-light-danger {
   background-color: #ff4e4e;
 }
+
+.centered-flex {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
