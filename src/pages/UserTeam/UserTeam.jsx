@@ -1,8 +1,6 @@
 import React from "react";
 
-import TabChoice from "./TabChoice";
-import TeamLayout from "./TeamLayout";
-import TeamList from "./TeamList";
+import { TabChoice, TeamLayout, TeamList } from "../../components";
 import "./UserTeam.css";
 
 const UserTeam = ({ user }) => {

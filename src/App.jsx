@@ -1,9 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Home from "./components/Home";
-import NavBar from "./components/NavBar";
-import UserTeam from "./components/UserTeam";
+import { Home, UserTeam } from "./pages";
+import { NavBar } from "./components";
 
 import "./App.css";
 

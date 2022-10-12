@@ -4,7 +4,7 @@ import Image from "react-bootstrap/Image";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
-import logo from "../res/cl_logo.png";
+import { cl_logo } from "../../res";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
@@ -36,7 +36,7 @@ function NavBar() {
         <Image 
           height="90px"
           className="p-2 m-3 filter-invert" 
-          src={logo} 
+          src={cl_logo} 
           title="Champions League" 
         />
         Fantasy
