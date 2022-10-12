@@ -9,11 +9,9 @@ import Player from './Player';
 import TeamList from './TeamList';
 
 import useWindowSize from '../hooks/useWindowSize';
+import { FIELD_IMAGE_DEFAULT_WIDTH, FIELD_LAYOUT_MIN_WIDTH } from '../constants'; 
 
 let key = 0;
-
-const FIELD_IMAGE_DEFAULT_WIDTH = 550;
-const FIELD_LAYOUT_MIN_WIDTH = 800;
 
 const TeamLayout = ({ team }) => {
 

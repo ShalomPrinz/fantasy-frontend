@@ -1,9 +1,15 @@
 import React from "react";
 
+import { toast } from "react-toastify";
+
 import { TabChoice, TeamLayout, TeamList } from "../../components";
 import "./UserTeam.css";
 
+import { FIELD_LAYOUT_MIN_WIDTH } from '../../constants'; 
+import useWindowSize from "../../hooks/useWindowSize";
+
 const UserTeam = ({ user }) => {
+  const { width } = useWindowSize()
 
   if (!user) {
       return <h1 className="text-center m-5 p-5 bg-danger text-white">Please Log In to view your team</h1>
@@ -22,8 +28,16 @@ const UserTeam = ({ user }) => {
   const selectedPlayersBackground = () => players === 11 ? "success" : "danger"
 
   const tabs = {
-    "Field": <TeamLayout team={user.team}/>,
-    "List": <TeamList team={user.team} />
+    "Field": {
+        "Component": <TeamLayout team={user.team}/>,
+        "OnClick": () => {
+            if (width <= FIELD_LAYOUT_MIN_WIDTH)
+                toast.warn('Your screen is too small')
+        }
+    },
+    "List": {
+        "Component": <TeamList team={user.team} />,
+    }
   }
   
   return (

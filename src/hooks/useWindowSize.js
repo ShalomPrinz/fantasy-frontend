@@ -8,7 +8,8 @@ function useWindowSize(callback) {
         width: window.innerWidth,
         height: window.innerHeight
       });
-      callback();
+      if (callback)
+        callback();
     }
     window.addEventListener("resize", updateSize);
     updateSize();
