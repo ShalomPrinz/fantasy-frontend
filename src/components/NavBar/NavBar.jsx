@@ -1,15 +1,15 @@
 import React, { useCallback, useState } from "react";
-import { NavLink } from "react-router-dom";
+
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from "react-bootstrap/Image";
-import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { NavLink } from "react-router-dom";
 
 import { cl_logo } from "../../res";
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
-import "./NavBar.css";
 import ConditionalList from "../ConditionalList";
+import "./NavBar.css";
 
 const pages = [
   {

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { toast } from "react-toastify";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import { toast } from "react-toastify";
 
 import { PlayerJersey, Search, TabChoice, Table, TeamLayout, TeamList } from "../../components";
-import "./UserTeam.css";
-
 import { FIELD_LAYOUT_MIN_WIDTH } from '../../constants'; 
 import useWindowSize from "../../hooks/useWindowSize";
+import "./UserTeam.css";
 
 const UserTeam = ({ user }) => {
   const { width } = useWindowSize()

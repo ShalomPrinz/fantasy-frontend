@@ -1,9 +1,10 @@
 import React, { useCallback } from "react";
-import Card from 'react-bootstrap/Card';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './CardGroup.css';
+import Card from 'react-bootstrap/Card';
+
 import ConditionalList from "../ConditionalList";
+import './CardGroup.css';
 
 function CardGroup({ cards }) {
 

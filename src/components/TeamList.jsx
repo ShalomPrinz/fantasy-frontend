@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react';
+
+import { slice } from 'lodash';
+import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
-import PlayerJersey from './PlayerJersey';
 import ConditionalList from './ConditionalList';
-import { slice } from 'lodash';
+import PlayerJersey from './PlayerJersey';
 
 const TeamList = ({ team }) => {
 

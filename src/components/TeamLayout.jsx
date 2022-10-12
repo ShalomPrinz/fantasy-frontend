@@ -1,16 +1,16 @@
 import React, { useCallback, useRef, useState } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Image from 'react-bootstrap/Image';
 
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
+
+import { FIELD_IMAGE_DEFAULT_WIDTH, FIELD_LAYOUT_MIN_WIDTH } from '../constants'; 
+import useWindowSize from '../hooks/useWindowSize';
 import field from "../res/field.png";
+import ConditionalList from './ConditionalList';
 import Player from './Player';
 import TeamList from './TeamList';
-
-import useWindowSize from '../hooks/useWindowSize';
-import { FIELD_IMAGE_DEFAULT_WIDTH, FIELD_LAYOUT_MIN_WIDTH } from '../constants'; 
-import ConditionalList from './ConditionalList';
 
 let key = 0;
 

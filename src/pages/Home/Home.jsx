@@ -1,9 +1,9 @@
 import React from "react";
-import { faTrophy, faRankingStar, faImage } from '@fortawesome/free-solid-svg-icons';
+
+import { faImage, faRankingStar, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { Image } from "react-bootstrap";
 
 import { CardGroup } from "../../components";
-
 import { wide_grass } from "../../res";
 
 const cards = [

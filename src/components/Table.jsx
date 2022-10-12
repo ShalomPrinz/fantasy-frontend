@@ -1,4 +1,5 @@
 import React from "react";
+
 import TableBody from "./TableBody";
 
 const Table = ({ columns, data, scrollable, className }) => (
