@@ -6,25 +6,23 @@ import { CardGroup } from "../../components";
 
 import { wide_grass } from "../../res";
 
-const context = {
-  items: [
-    {
-      title: "Create your league",
-      text: "play the ultimate fantasy game with friends",
-      icon: faTrophy
-    },
-    {
-      title: "Podium",
-      text: "observe some interesting stats",
-      icon: faRankingStar
-    },
-    {
-      title: "Another thing",
-      text: "wow another one",
-      icon: faImage
-    }
-  ]
-}
+const cards = [
+  {
+    title: "Create your league",
+    text: "play the ultimate fantasy game with friends",
+    icon: faTrophy
+  },
+  {
+    title: "Podium",
+    text: "observe some interesting stats",
+    icon: faRankingStar
+  },
+  {
+    title: "Another thing",
+    text: "wow another one",
+    icon: faImage
+  }
+]
 
 const Home = () => {
   
@@ -38,7 +36,7 @@ const Home = () => {
         </div>
       </div>
       <div className="bg-white overlap-above rounded-top mx-5" >
-        <CardGroup {...context} />
+        <CardGroup cards={cards} />
         <div className="text-center fw-bold fs-3">
           Simple. Fast. Addictive.
         </div>

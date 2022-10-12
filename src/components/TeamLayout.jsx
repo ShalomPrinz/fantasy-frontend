@@ -10,6 +10,7 @@ import TeamList from './TeamList';
 
 import useWindowSize from '../hooks/useWindowSize';
 import { FIELD_IMAGE_DEFAULT_WIDTH, FIELD_LAYOUT_MIN_WIDTH } from '../constants'; 
+import ConditionalList from './ConditionalList';
 
 let key = 0;
 
@@ -39,23 +40,27 @@ const TeamLayout = ({ team }) => {
     const imageWidth = `${width / 10}px`;
     const rowMargin = windowSize.width > 1500 ? "my-3" : "my-1";
 
+    const columnCallback = (player) => (
+        <Col className="mx-auto" key={key++}>
+            <Player 
+                {...player}
+                width={imageWidth}
+                textWidth={textWidth}
+            />
+        </Col>
+    );
+
+    const rowCallback = (role) => (
+        <Row className={rowMargin} key={key++}>
+            <ConditionalList itemCallback={columnCallback} list={role} />
+        </Row>
+    );
+
     return (
         <div className="position-relative" ref={fieldRef}>
             <Image className="w-100" src={field} alt="Team Field Background" rounded />
             <Container className="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden" >
-                {Object.values(team).map((role) => (
-                    <Row className={rowMargin} key={key++}>
-                        {role.map((player) => (
-                            <Col className="mx-auto" key={key++}>
-                                <Player 
-                                    {...player}
-                                    width={imageWidth}
-                                    textWidth={textWidth}
-                                />
-                            </Col>
-                        ))}
-                    </Row>
-                ))}
+                <ConditionalList itemCallback={rowCallback} list={Object.values(team)} />
             </Container>
         </div>       
     )

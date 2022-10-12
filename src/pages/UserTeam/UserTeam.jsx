@@ -133,7 +133,7 @@ const UserTeam = ({ user }) => {
             </Col>
             <Col className="ps-1" >
                 <Search onChange={(v) => setQuery(v)} value={query} />
-                <Table style="bg-white" columns={columns} data={data} />
+                <Table className="bg-white" columns={columns} data={data} />
             </Col>
         </Row>
     </main>

@@ -1,25 +1,27 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Card from 'react-bootstrap/Card';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './CardGroup.css';
+import ConditionalList from "../ConditionalList";
 
-let key = 0;
+function CardGroup({ cards }) {
 
-function AppCardGroup({items}) {
+  const cardCallback = useCallback(({icon, text, title}, index) => (
+    <Card className="pt-3 m-4 w-25 card-bg-image" key={index} >
+        {icon && <FontAwesomeIcon className="fa-6x" icon={icon} />}
+        <Card.Body>
+          <Card.Title> {title} </Card.Title>
+          <Card.Text className="fw-light"> {text} </Card.Text>
+        </Card.Body>
+    </Card>
+  ), []);
+  
   return (
     <div className="container d-flex flex-wrap justify-content-center text-white">
-        {items.map((item) => (
-            <Card className="pt-3 m-4 w-25 card-bg-image" key={key++} >
-                {item.icon && <FontAwesomeIcon className="fa-6x" icon={item.icon} />}
-                <Card.Body>
-                    <Card.Title>{item.title}</Card.Title>
-                    <Card.Text className="fw-light" >{item.text}</Card.Text>
-                </Card.Body>
-            </Card>
-        ))}
+      <ConditionalList itemCallback={cardCallback} list={cards} />
     </div>
   );
 }
 
-export default AppCardGroup;
+export default CardGroup;

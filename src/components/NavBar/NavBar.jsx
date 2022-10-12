@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import Navbar from "react-bootstrap/Navbar";
@@ -9,6 +9,7 @@ import { cl_logo } from "../../res";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
 import "./NavBar.css";
+import ConditionalList from "../ConditionalList";
 
 const pages = [
   {
@@ -30,6 +31,14 @@ let key = 0;
 function NavBar() {
   const [expanded, setExpanded] = useState(false);
 
+  const pageCallback = useCallback((page) => (
+    <NavLink className="nav-item nav-links fw-light" to={page.url} key={key++}>
+      {page.name}
+    </NavLink>
+  ), []);
+
+  const icon = expanded ? faTimes : faBars;
+
   return (
     <Navbar className="navbar bg-default" expand="lg" expanded={expanded}>
       <NavLink className="navbar-brand fs-1" to="/">
@@ -45,20 +54,11 @@ function NavBar() {
         aria-controls="responsive-navbar-nav"
         onClick={() => setExpanded(!expanded)}
       >
-        {expanded && <FontAwesomeIcon color="white" icon={faTimes} />}
-        {!expanded && <FontAwesomeIcon color="white" icon={faBars} />}
+        <FontAwesomeIcon color="white" icon={icon} />
       </Navbar.Toggle>
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav
-          onClick={() => {
-            if (expanded) setExpanded(!expanded);
-          }}
-        >
-          {pages.map((page) => (
-            <NavLink className="nav-item nav-links fw-light" to={page.url} key={key++}>
-              {page.name}
-            </NavLink>
-          ))}
+        <Nav onClick={() => expanded && setExpanded(!expanded)}>
+          <ConditionalList itemCallback={pageCallback} list={pages} />
         </Nav>
       </Navbar.Collapse>
     </Navbar>

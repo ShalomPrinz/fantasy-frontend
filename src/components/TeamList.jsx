@@ -1,31 +1,37 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import PlayerJersey from './PlayerJersey';
+import ConditionalList from './ConditionalList';
+import { slice } from 'lodash';
 
 const TeamList = ({ team }) => {
 
-    const roles = Object.entries(team).map(([role, players], index) => (
+    const playerCallback = useCallback(({name, team}, index) => (
+        <div className="d-flex align-items-center ps-5" key={index}>
+            <PlayerJersey team={team} width="60px" />
+            <h4 className="text-truncate ps-2 my-0"> {name} </h4>
+        </div>
+    ), []);
+
+    const roleCallback = useCallback(([role, players], index) => (
         <Col className="w-50" key={index}>
-            <h1 className="centered-flex pt-4">{role}</h1>
-            {players.map((p, index) => (
-                <div className="d-flex align-items-center ps-5" key={index}>
-                    <PlayerJersey team={p.team} width="60px" />
-                    <h4 className="text-truncate ps-2 my-0"> {p.name} </h4>
-                </div>
-            ))}
+            <h1 className="centered-flex pt-4"> {role} </h1>
+            <ConditionalList itemCallback={playerCallback} list={players} />
         </Col>
-    ))
+    ), [playerCallback]);
+
+    const roles = Object.entries(team);
 
     return (
         <Container>
             <Row>
-                {roles.splice(0, 2)}
+                <ConditionalList itemCallback={roleCallback} list={slice(roles, 0, 2)} />
             </Row>
             <Row>
-                {roles}
+                <ConditionalList itemCallback={roleCallback} list={slice(roles, 2, 4)} />
             </Row>
         </Container>
     )
