@@ -13,7 +13,10 @@ function App() {
   return (
     <>
       <NavBar />
-      <ToastContainer autoClose="2500" />
+      <ToastContainer 
+        autoClose="2500" 
+        pauseOnFocusLoss="false"
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/team" element={<UserTeam user={{name: "Shalom"}} />} />

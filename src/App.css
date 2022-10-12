@@ -37,6 +37,10 @@
   }
 }
 
+tbody > tr:last-child > td {
+  border-bottom: 0;
+}
+
 .overlap-above {
   position: relative;
   top: -4vh;
@@ -64,4 +68,8 @@
   align-items: center;
   display: flex;
   justify-content: center;
+}
+
+.clickable {
+  cursor: pointer;
 }

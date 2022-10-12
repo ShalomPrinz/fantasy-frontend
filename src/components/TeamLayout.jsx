@@ -35,7 +35,8 @@ const TeamLayout = ({ team }) => {
     if (windowSize.width <= FIELD_LAYOUT_MIN_WIDTH) 
         return (<TeamList team={team} />);
     
-    const imageWidth = `${width / 8}px`;
+    const textWidth = `${width / 8}px`;
+    const imageWidth = `${width / 10}px`;
     const rowMargin = windowSize.width > 1500 ? "my-3" : "my-1";
 
     return (
@@ -45,10 +46,11 @@ const TeamLayout = ({ team }) => {
                 {Object.values(team).map((role) => (
                     <Row className={rowMargin} key={key++}>
                         {role.map((player) => (
-                            <Col className="mx-2" key={key++}>
+                            <Col className="mx-auto" key={key++}>
                                 <Player 
                                     {...player}
                                     width={imageWidth}
+                                    textWidth={textWidth}
                                 />
                             </Col>
                         ))}
