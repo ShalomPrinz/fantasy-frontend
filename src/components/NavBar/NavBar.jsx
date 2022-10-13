@@ -26,13 +26,11 @@ const pages = [
   }
 ]
 
-let key = 0;
-
 function NavBar() {
   const [expanded, setExpanded] = useState(false);
 
   const pageCallback = useCallback((page) => (
-    <NavLink className="nav-item nav-links fw-light" to={page.url} key={key++}>
+    <NavLink className="nav-item nav-links fw-light" to={page.url}>
       {page.name}
     </NavLink>
   ), []);

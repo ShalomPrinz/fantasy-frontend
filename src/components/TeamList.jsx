@@ -10,15 +10,15 @@ import PlayerJersey from './PlayerJersey';
 
 const TeamList = ({ team }) => {
 
-    const playerCallback = useCallback(({name, team}, index) => (
-        <div className="d-flex align-items-center ps-5" key={index}>
+    const playerCallback = useCallback(({name, team}) => (
+        <div className="d-flex align-items-center ps-5">
             <PlayerJersey team={team} width="60px" />
             <h4 className="text-truncate ps-2 my-0"> {name} </h4>
         </div>
     ), []);
 
-    const roleCallback = useCallback(([role, players], index) => (
-        <Col className="w-50" key={index}>
+    const roleCallback = useCallback(([role, players]) => (
+        <Col className="w-50">
             <h1 className="centered-flex pt-4"> {role} </h1>
             <ConditionalList itemCallback={playerCallback} list={players} />
         </Col>

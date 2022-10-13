@@ -8,10 +8,9 @@ const TabChoice = ({ tabs, defaultTab }) => {
 
     const [view, setView] = useState(defaultTab?.Component);
 
-    const tabCallback = useCallback(([name, {Component, OnClick}], index) => (
+    const tabCallback = useCallback(([name, {Component, OnClick}]) => (
         <button 
             className="fs-2 bg-default py-2 px-5 tab-choice"
-            key={index}
             onClick={() => {
                 setView(Component);
                 if (OnClick)

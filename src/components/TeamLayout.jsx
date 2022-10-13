@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -12,36 +12,24 @@ import ConditionalList from './ConditionalList';
 import Player from './Player';
 import TeamList from './TeamList';
 
-let key = 0;
-
 const TeamLayout = ({ team }) => {
 
-    const fieldRef = useRef(null);
     const [width, setWidth] = useState(FIELD_IMAGE_DEFAULT_WIDTH);
 
-    const windowSize = useWindowSize(
-        useCallback( () => {
-            new Promise(() => {
-                let times = 1;
-                const interval = setInterval(() => {
-                    if (fieldRef?.current?.clientWidth || times++ === 10) {
-                        clearInterval(interval);
-                        setWidth(fieldRef?.current?.clientWidth || width)
-                    }
-                }, 1)
-            })
-        }, [width])
-    );
+    const { width: windowWidth } = useWindowSize();
 
-    if (windowSize.width <= FIELD_LAYOUT_MIN_WIDTH) 
-        return (<TeamList team={team} />);
-    
+    const fieldRef = useCallback(node => {
+        if (node !== null) {
+            setWidth(node.getBoundingClientRect().width);
+        }
+    }, [windowWidth]);
+  
     const textWidth = `${width / 8}px`;
     const imageWidth = `${width / 10}px`;
-    const rowMargin = windowSize.width > 1500 ? "my-3" : "my-1";
+    const rowMargin = `my-${width > 600 ? 3 : 1}`;
 
     const columnCallback = (player) => (
-        <Col className="mx-auto" key={key++}>
+        <Col className="mx-auto">
             <Player 
                 {...player}
                 width={imageWidth}
@@ -51,7 +39,7 @@ const TeamLayout = ({ team }) => {
     );
 
     const rowCallback = (role) => (
-        <Row className={rowMargin} key={key++}>
+        <Row className={rowMargin}>
             <ConditionalList itemCallback={columnCallback} list={role} />
         </Row>
     );
@@ -66,4 +54,15 @@ const TeamLayout = ({ team }) => {
     )
 }
 
-export default TeamLayout;
+const TeamLayoutWrapper = ({ team }) => {
+
+    const { width } = useWindowSize();
+    if (width <= FIELD_LAYOUT_MIN_WIDTH) 
+        return (<TeamList team={team} />);
+
+    return (
+        <TeamLayout team={team} />   
+    )
+}
+
+export default TeamLayoutWrapper;

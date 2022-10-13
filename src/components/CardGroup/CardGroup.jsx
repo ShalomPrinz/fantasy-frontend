@@ -8,8 +8,8 @@ import './CardGroup.css';
 
 function CardGroup({ cards }) {
 
-  const cardCallback = useCallback(({icon, text, title}, index) => (
-    <Card className="pt-3 m-4 w-25 card-bg-image" key={index} >
+  const cardCallback = useCallback(({icon, text, title}) => (
+    <Card className="pt-3 m-4 w-25 card-bg-image" >
         {icon && <FontAwesomeIcon className="fa-6x" icon={icon} />}
         <Card.Body>
           <Card.Title> {title} </Card.Title>
