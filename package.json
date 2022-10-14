@@ -11,7 +11,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.1",
-    "eslint-plugin-import": "^2.26.0",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
@@ -26,7 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "npx eslint 'src/**' --fix"
+    "lint": "npx eslint 'src/**' --fix",
+    "coverage": "npm test -- --coverage --collectCoverageFrom=src/**/*.{js,jsx}"
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-import": "^2.26.0",
+    "react-test-renderer": "^18.2.0"
   }
 }
