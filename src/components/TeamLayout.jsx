@@ -24,16 +24,14 @@ const TeamLayout = ({ team }) => {
         }
     }, [windowWidth]);
   
-    const textWidth = `${width / 8}px`;
-    const imageWidth = `${width / 10}px`;
     const rowMargin = `my-${width > 600 ? 3 : 1}`;
 
     const columnCallback = (player) => (
         <Col className="mx-auto">
             <Player 
                 {...player}
-                width={imageWidth}
-                textWidth={textWidth}
+                width={width / 10}
+                widthUnits='px'
             />
         </Col>
     );
