@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,8 +12,8 @@ function App() {
     <>
       <NavBar />
       <ToastContainer 
-        autoClose="2500" 
-        pauseOnFocusLoss="false"
+        autoClose={2500} 
+        pauseOnFocusLoss={false}
       />
       <Routes>
         <Route path="/" element={<Home />} />

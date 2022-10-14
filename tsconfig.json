@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "alwaysStrict": true,
+        "baseUrl": "src",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react-jsx",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noEmit": false,
+        "noImplicitAny": false,
+        "noLib": false,
+        "noUnusedLocals": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
+        "outDir": "dist",
+        "sourceMap": true,
+        "target": "es2018"
+    },
+    "compileOnSave": true,
+    "include": ["src/**/*.ts", "src/__tests__/App.test.tsx"],
+    "exclude": ["node_modules"]
+}
+  
