@@ -70,39 +70,51 @@ const UserTeam = ({ user }) => {
   const data = [
     {
         id: 0,
-        name: "Pena",
-        role: "GK",
-        team: "Barcelona"
+        props: {
+            name: "Pena",
+            role: "GK",
+            team: "Barcelona"
+        }
     },
     {
         id: 1,
-        name: "Hummels",
-        role: "DEF",
-        team: "Dortmund"
+        props: {
+            name: "Hummels",
+            role: "DEF",
+            team: "Dortmund"
+        }
     },
     {
         id: 2,
-        name: "Pedri",
-        role: "MID",
-        team: "Barcelona"
+        props: {
+            name: "Pedri",
+            role: "MID",
+            team: "Barcelona"
+        }
     },
     {
         id: 3,
-        name: "Dembele",
-        role: "ATT",
-        team: "Barcelona"
+        props: {
+            name: "Dembele",
+            role: "ATT",
+            team: "Barcelona"
+        }
     },
     {
         id: 4,
-        name: "Ansu Fati",
-        role: "ATT",
-        team: "Barcelona"
+        props: {
+            name: "Ansu Fati",
+            role: "ATT",
+            team: "Barcelona"
+        }
     },
     {
         id: 5,
-        name: "Mokuku",
-        role: "ATT",
-        team: "Dortmund"
+        props: {
+            name: "Mokuku",
+            role: "ATT",
+            team: "Dortmund"
+        }
     }
   ]
   

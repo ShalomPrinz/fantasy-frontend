@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render with props should render a scrollable table 1`] = `
+<div
+  className="table-responsive mt-0 border-bottom scrollable"
+>
+  <table
+    className="table rounded"
+  >
+    <tbody>
+      <tr>
+        <td
+          className="align-middle"
+        >
+          Label
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`render with props should render a styled table 1`] = `
+<div
+  className="table-responsive mt-0"
+>
+  <table
+    className="table rounded bg-default"
+  >
+    <tbody>
+      <tr>
+        <td
+          className="align-middle"
+        >
+          Label
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

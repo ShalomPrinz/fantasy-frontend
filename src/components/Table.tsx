@@ -1,10 +1,13 @@
-import React from "react";
+import TableBody, { TableBodyProps } from "./TableBody"
 
-import TableBody from "./TableBody";
+interface TableProps extends TableBodyProps {
+  className?: string,
+  scrollable?: Boolean
+}
 
-const Table = ({ columns, data, scrollable, className }) => (
+const Table = ({ className, columns, data, scrollable }: TableProps) => (
   <>
-    {data && data.length !== 0 && (
+    {data.length !== 0 && (
       <div className={`table-responsive mt-0${
           scrollable ? " border-bottom scrollable" : "" 
         }`} >

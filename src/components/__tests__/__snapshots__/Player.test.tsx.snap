@@ -1,10 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render partial props should not render anything when not getting width 1`] = `null`;
-
-exports[`render partial props should not render anything when not getting widthUnits 1`] = `null`;
-
-exports[`render partial props should render Player with default Jersey and without name label 1`] = `
+exports[`render with props should render Player component 1`] = `
 <div
   className="text-center"
   style={
@@ -15,14 +11,19 @@ exports[`render partial props should render Player with default Jersey and witho
 >
   <img
     className=""
-    src="Barcelona.png"
+    src="Dortmund.png"
     style={
       Object {
-        "width": 10,
+        "width": "10px",
       }
     }
-    title="Barcelona"
+    title="Dortmund"
   />
+  <div
+    className="text-truncate bg-default rounded p-1 w-100"
+  >
+    Shalom
+  </div>
 </div>
 `;
 
@@ -40,7 +41,7 @@ exports[`render with props should render full Player component 1`] = `
     src="Dortmund.png"
     style={
       Object {
-        "width": 10,
+        "width": "10px",
       }
     }
     title="Dortmund"
@@ -52,5 +53,3 @@ exports[`render with props should render full Player component 1`] = `
   </div>
 </div>
 `;
-
-exports[`render without props should not render anything 1`] = `null`;

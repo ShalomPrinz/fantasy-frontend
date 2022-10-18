@@ -9,7 +9,7 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "noEmit": false,
-        "noImplicitAny": false,
+        "noImplicitAny": true,
         "noLib": false,
         "noUnusedLocals": true,
         "strictNullChecks": true,
@@ -19,7 +19,7 @@
         "target": "es2018"
     },
     "compileOnSave": true,
-    "include": ["src/**/*.ts", "src/__tests__/App.test.tsx"],
+    "include": ["src/**/*"],
     "exclude": ["node_modules"]
 }
   
