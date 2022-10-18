@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 
 import { slice } from 'lodash';
 import Col from 'react-bootstrap/Col';
@@ -7,17 +7,22 @@ import Row from 'react-bootstrap/Row';
 
 import ConditionalList from './ConditionalList';
 import PlayerJersey from './PlayerJersey';
+import { Player, TeamRole } from 'interfaces';
 
-const TeamList = ({ team }) => {
+interface TeamListProps {
+    team: Array<TeamRole>
+}
 
-    const playerCallback = useCallback(({name, team}) => (
+const TeamList = ({ team }: TeamListProps) => {
+
+    const playerCallback = useCallback(({ name, team }: Player) => (
         <div className="d-flex align-items-center ps-5">
             <PlayerJersey team={team} width="60px" />
             <h4 className="text-truncate ps-2 my-0"> {name} </h4>
         </div>
     ), []);
 
-    const roleCallback = useCallback(({ label, players }) => (
+    const roleCallback = useCallback(({ label, players }: TeamRole) => (
         <Col className="w-50">
             <h1 className="centered-flex pt-4"> {label} </h1>
             <ConditionalList itemCallback={playerCallback} list={players} />
