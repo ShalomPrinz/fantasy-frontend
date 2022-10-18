@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { Search } from '../';
@@ -10,25 +10,23 @@ beforeEach(() => {
     tree = null
 })
 
-describe('render', () => {
+describe('Search', () => {
     it('should render Search component', () => {
-            const value = "";
-            const onChange = () => {};
-        
-            tree = getJSON(<Search onChange={onChange} value={value} />);
-        
-            expect(tree).toMatchSnapshot();
+        const value = "";
+        const onChange = () => {};
+    
+        tree = getJSON(<Search onChange={onChange} value={value} />);
+    
+        expect(tree).toMatchSnapshot();
     })
-})
 
-describe('behavior', () => {
-    describe('input change', () => {
+    describe('when input changes', () => {
         it('should call onChange with the new input as argument', () => {
             let value = ""
             const onChange = (v: string) => value += v
-            const { getByPlaceholderText } = render(<Search onChange={onChange} value={value} />)
+            render(<Search onChange={onChange} value={value} />)
             
-            const Component = getByPlaceholderText('Search...')
+            const Component = screen.getByRole('textbox')
             const input = "NEW INPUT"
             userEvent.type(Component, input)
 

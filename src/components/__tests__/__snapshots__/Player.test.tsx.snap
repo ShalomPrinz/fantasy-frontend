@@ -1,33 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render with props should render Player component 1`] = `
-<div
-  className="text-center"
-  style={
-    Object {
-      "width": "14px",
-    }
-  }
->
-  <img
-    className=""
-    src="Dortmund.png"
-    style={
-      Object {
-        "width": "10px",
-      }
-    }
-    title="Dortmund"
-  />
-  <div
-    className="text-truncate bg-default rounded p-1 w-100"
-  >
-    Shalom
-  </div>
-</div>
-`;
-
-exports[`render with props should render full Player component 1`] = `
+exports[`Player should render Player component 1`] = `
 <div
   className="text-center"
   style={

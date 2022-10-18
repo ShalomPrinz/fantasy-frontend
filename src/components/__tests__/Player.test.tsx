@@ -8,12 +8,10 @@ beforeEach(() => {
     tree = null
 })
 
-describe('render', () => {
-    describe('with props', () => {
-        it ('should render Player component', () => {
-            tree = getJSON(<Player name="Shalom" team="Dortmund" width={10} widthUnits="px" />);
-    
-            expect(tree).toMatchSnapshot();
-        })
+describe('Player', () => {
+    it ('should render Player component', () => {
+        tree = getJSON(<Player name="Shalom" team="Dortmund" width={10} widthUnits="px" />);
+
+        expect(tree).toMatchSnapshot();
     })
 })

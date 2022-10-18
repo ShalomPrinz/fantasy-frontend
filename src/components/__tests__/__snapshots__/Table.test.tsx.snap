@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render with props should render a scrollable table 1`] = `
+exports[`Table should render a scrollable table 1`] = `
 <div
   className="table-responsive mt-0 border-bottom scrollable"
 >
@@ -20,7 +20,7 @@ exports[`render with props should render a scrollable table 1`] = `
 </div>
 `;
 
-exports[`render with props should render a styled table 1`] = `
+exports[`Table should render a styled table 1`] = `
 <div
   className="table-responsive mt-0"
 >

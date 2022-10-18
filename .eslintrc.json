@@ -1,4 +1,10 @@
 {
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/react"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": ["./tsconfig.json"],

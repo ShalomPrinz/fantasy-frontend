@@ -9,11 +9,13 @@ beforeEach(() => {
     tree = null
 })
 
-it('should render app component', () => {
-    tree = getJSON(
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    );
-    expect(tree).toMatchSnapshot();
-});
+describe('App', () => {
+    it('should render app component', () => {
+        tree = getJSON(
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        );
+        expect(tree).toMatchSnapshot();
+    });
+})
