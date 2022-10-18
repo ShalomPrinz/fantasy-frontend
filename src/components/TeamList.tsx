@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 
+import { Player, TeamRole } from 'interfaces';
 import { slice } from 'lodash';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -7,10 +8,9 @@ import Row from 'react-bootstrap/Row';
 
 import ConditionalList from './ConditionalList';
 import PlayerJersey from './PlayerJersey';
-import { Player, TeamRole } from 'interfaces';
 
 interface TeamListProps {
-    team: Array<TeamRole>
+    team: TeamRole[]
 }
 
 const TeamList = ({ team }: TeamListProps) => {

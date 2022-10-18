@@ -2,7 +2,7 @@ import { cloneElement } from 'react';
 
 interface ConditionalListProps {
     itemCallback: Function,
-    list: Array<any>
+    list: any[]
 }
 
 const ConditionalList = ({ itemCallback, list }: ConditionalListProps) =>

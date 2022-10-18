@@ -7,5 +7,5 @@ export interface Player {
 export interface TeamRole {
     id: number,
     label: string,
-    players: Array<Player>
+    players: Player[]
 }

@@ -26,4 +26,14 @@ describe('Table', () => {
 
         expect(tree).toMatchSnapshot();
     })
+
+    it('should render a column by content callback', () => {
+        const data = [{ id: 1, props: { label: 'Label' } }]
+        const content = ({ label }: { [key: string]: string }) => (<h1>{label}</h1>)
+        const columns = [{ id: 0, path: 'label', content: content}]
+
+        tree = getJSON(<Table data={data} columns={columns} className="bg-default" />)
+
+        expect(tree).toMatchSnapshot();
+    })
 })

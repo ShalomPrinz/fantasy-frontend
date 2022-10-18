@@ -18,8 +18,8 @@ interface TableData {
 }
 
 export interface TableBodyProps {
-  columns: Array<TableColumn>,
-  data: Array<TableData>
+  columns: TableColumn[],
+  data: TableData[]
 }
 
 const TableBody = ({ columns, data }: TableBodyProps) => {

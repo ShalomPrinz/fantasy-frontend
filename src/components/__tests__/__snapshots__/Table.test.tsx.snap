@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Table should render a column by content callback 1`] = `
+<div
+  className="table-responsive mt-0"
+>
+  <table
+    className="table rounded bg-default"
+  >
+    <tbody>
+      <tr>
+        <td
+          className="align-middle"
+        >
+          <h1>
+            Label
+          </h1>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`Table should render a scrollable table 1`] = `
 <div
   className="table-responsive mt-0 border-bottom scrollable"
