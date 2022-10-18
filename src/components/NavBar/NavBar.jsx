@@ -13,14 +13,17 @@ import "./NavBar.css";
 
 const pages = [
   {
+    id: 0,
     name: "My Team",
     url: "/team"
   },
   {
+    id: 1,
     name: "Second",
     url: "/"
   },
   {
+    id: 2,
     name: "Third",
     url: "/"
   }

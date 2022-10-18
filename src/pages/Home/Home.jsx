@@ -8,16 +8,19 @@ import { wide_grass } from "../../res";
 
 const cards = [
   {
+    id: 0,
     title: "Create your league",
     text: "play the ultimate fantasy game with friends",
     icon: faTrophy
   },
   {
+    id: 1,
     title: "Podium",
     text: "observe some interesting stats",
     icon: faRankingStar
   },
   {
+    id: 2,
     title: "Another thing",
     text: "wow another one",
     icon: faImage

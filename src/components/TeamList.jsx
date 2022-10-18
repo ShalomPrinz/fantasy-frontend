@@ -17,22 +17,20 @@ const TeamList = ({ team }) => {
         </div>
     ), []);
 
-    const roleCallback = useCallback(([role, players]) => (
+    const roleCallback = useCallback(({ label, players }) => (
         <Col className="w-50">
-            <h1 className="centered-flex pt-4"> {role} </h1>
+            <h1 className="centered-flex pt-4"> {label} </h1>
             <ConditionalList itemCallback={playerCallback} list={players} />
         </Col>
     ), [playerCallback]);
 
-    const roles = Object.entries(team);
-
     return (
         <Container>
             <Row>
-                <ConditionalList itemCallback={roleCallback} list={slice(roles, 0, 2)} />
+                <ConditionalList itemCallback={roleCallback} list={slice(team, 0, 2)} />
             </Row>
             <Row>
-                <ConditionalList itemCallback={roleCallback} list={slice(roles, 2, 4)} />
+                <ConditionalList itemCallback={roleCallback} list={slice(team, 2, 4)} />
             </Row>
         </Container>
     )

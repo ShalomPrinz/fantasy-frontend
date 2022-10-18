@@ -20,36 +20,58 @@ const UserTeam = ({ user }) => {
   }
 
   if (!user.team) {
-      user.team = {
-          GK: [{name: "Ter Stegen", team: "Barcelona"}],
-          DEF: [{name: "Pique", team: "Barcelona"}, {name: "Kounde", team: "Barcelona"}, {name: "Araujo", team: "Barcelona"}],
-          MID: [{name: "Bellingham", team: "Dortmund"}],
-          ATT: [{name: "Mokuku", team: "Dortmund"}]
-      }
+      user.team = [
+          {
+              id: 0,
+              label: 'GK',
+              players: [{id: 0, name: "Ter Stegen", team: "Barcelona"}]
+          },
+          {
+              id: 1,
+              label: 'DEF',
+              players: [{id: 1, name: "Pique", team: "Barcelona"}, {id: 2, name: "Kounde", team: "Barcelona"}, {id: 3, name: "Araujo", team: "Barcelona"}]
+          },
+          {
+              id: 2,
+              label: 'MID',
+              players: [{id: 4, name: "Bellingham", team: "Dortmund"}]
+          },
+          {
+              id: 3,
+              label: 'ATT',
+              players: [{id: 5, name: "Mokuku", team: "Dortmund"}]
+          }
+      ]
   }
 
-  const players = Object.values(user.team).reduce((sum, current) => sum + current.length, 0)
-  const selectedPlayersBackground = () => players === 11 ? "success" : "danger"
+  const chosenPlayers = user.team.reduce((sum, { players }) => sum + players.length, 0)
+  const selectedPlayersBackground = () => chosenPlayers === 11 ? "success" : "danger"
 
-  const tabs = {
-    "Field": {
-        "Component": <TeamLayout team={user.team}/>,
-        "OnClick": () => {
-            if (width <= FIELD_LAYOUT_MIN_WIDTH)
-                toast.warn('Your screen is too small')
+  const tabs = [
+        {
+            id: 0,
+            label: 'Field',
+            Component: <TeamLayout team={user.team}/>,
+            OnClick: () => {
+                if (width <= FIELD_LAYOUT_MIN_WIDTH)
+                    toast.warn('Your screen is too small')
+            }
+        },
+        {
+            id: 1,
+            label: 'List',
+            Component: <TeamList team={user.team} />
         }
-    },
-    "List": {
-        "Component": <TeamList team={user.team} />,
-    }
-  }
+  ]
 
   const columns = [
-    { 
+    {
+        id: 0,
         path: "team",
         content: (p) => <PlayerJersey team={p.team} width="60px" />
     },
-    { 
+    {
+        id: 1,
         path: "name",
         content: (p) => (
             <>
@@ -59,6 +81,7 @@ const UserTeam = ({ user }) => {
         )
     },
     {
+        id: 2,
         content: () => (
             <div className="text-center">
                 <FontAwesomeIcon className="fa-3x clickable text-primary" icon={faCirclePlus} />
@@ -137,11 +160,11 @@ const UserTeam = ({ user }) => {
                     </div>
                     <h2 className="py-3 centered-flex">
                         Players Selected:
-                        <div className={`bg-light-${selectedPlayersBackground()} mx-3 p-2 rounded`}> {players} / 11 </div>
+                        <div className={`bg-light-${selectedPlayersBackground()} mx-3 p-2 rounded`}> {chosenPlayers} / 11 </div>
                     </h2>
                 </div>
 
-                <TabChoice tabs={tabs} defaultTab={tabs.Field} />
+                <TabChoice tabs={tabs} defaultTab={tabs[0]} />
             </Col>
             <Col className="ps-1" >
                 <Search onChange={(v) => setQuery(v)} value={query} />

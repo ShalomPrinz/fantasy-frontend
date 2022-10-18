@@ -36,9 +36,9 @@ const TeamLayout = ({ team }) => {
         </Col>
     );
 
-    const rowCallback = (role) => (
+    const rowCallback = ({ players }) => (
         <Row className={rowMargin}>
-            <ConditionalList itemCallback={columnCallback} list={role} />
+            <ConditionalList itemCallback={columnCallback} list={players} />
         </Row>
     );
 
@@ -46,7 +46,7 @@ const TeamLayout = ({ team }) => {
         <div className="position-relative" ref={fieldRef}>
             <Image className="w-100" src={field} alt="Team Field Background" rounded />
             <Container className="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden" >
-                <ConditionalList itemCallback={rowCallback} list={Object.values(team)} />
+                <ConditionalList itemCallback={rowCallback} list={team} />
             </Container>
         </div>       
     )

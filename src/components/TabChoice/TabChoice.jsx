@@ -8,7 +8,7 @@ const TabChoice = ({ tabs, defaultTab }) => {
 
     const [view, setView] = useState(defaultTab?.Component);
 
-    const tabCallback = useCallback(([name, {Component, OnClick}]) => (
+    const tabCallback = useCallback(({label, Component, OnClick}) => (
         <button 
             className="fs-2 bg-default py-2 px-5 tab-choice"
             onClick={() => {
@@ -18,7 +18,7 @@ const TabChoice = ({ tabs, defaultTab }) => {
             }}
             type="button"
         >
-            {name}
+            {label}
         </button>
     ), []);
     
@@ -27,7 +27,7 @@ const TabChoice = ({ tabs, defaultTab }) => {
             <div className="centered-flex py-4">
                 <ConditionalList 
                     itemCallback={tabCallback}
-                    list={Object.entries(tabs)}
+                    list={tabs}
                 />
             </div>
             {view}

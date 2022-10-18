@@ -5,6 +5,7 @@ import _ from "lodash";
 import ConditionalList from "./ConditionalList";
 
 interface TableColumn {
+  id: number,
   path: string,
   content?: Function
 }

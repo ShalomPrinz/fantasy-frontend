@@ -11,7 +11,7 @@ beforeEach(() => {
 describe('Table', () => {
     it('should render a scrollable table', () => {
         const data = [{ id: 1, props: { label: 'Label' } }]
-        const columns = [{ path: 'label'}]
+        const columns = [{ id: 0, path: 'label'}]
 
         tree = getJSON(<Table data={data} columns={columns} scrollable />)
 
@@ -20,7 +20,7 @@ describe('Table', () => {
     
     it('should render a styled table', () => {
         const data = [{ id: 1, props: { label: 'Label' } }]
-        const columns = [{ path: 'label'}]
+        const columns = [{ id: 0, path: 'label'}]
 
         tree = getJSON(<Table data={data} columns={columns} className="bg-default" />)
 
