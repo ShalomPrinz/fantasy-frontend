@@ -1,63 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table should render a column by content callback 1`] = `
-<div
-  className="table-responsive mt-0"
->
-  <table
-    className="table rounded bg-default"
+<DocumentFragment>
+  <div
+    class="table-responsive mt-0"
   >
-    <tbody>
-      <tr>
-        <td
-          className="align-middle"
-        >
-          <h1>
-            Label
-          </h1>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <table
+      class="table rounded bg-default"
+    >
+      <tbody>
+        <tr>
+          <td
+            class="align-middle"
+          >
+            <h1>
+              Label
+            </h1>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`Table should render a scrollable table 1`] = `
-<div
-  className="table-responsive mt-0 border-bottom scrollable"
->
-  <table
-    className="table rounded"
+<DocumentFragment>
+  <div
+    class="table-responsive mt-0 border-bottom scrollable"
   >
-    <tbody>
-      <tr>
-        <td
-          className="align-middle"
-        >
-          Label
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <table
+      class="table rounded"
+    >
+      <tbody>
+        <tr>
+          <td
+            class="align-middle"
+          >
+            Label
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`Table should render a styled table 1`] = `
-<div
-  className="table-responsive mt-0"
->
-  <table
-    className="table rounded bg-default"
+<DocumentFragment>
+  <div
+    class="table-responsive mt-0"
   >
-    <tbody>
-      <tr>
-        <td
-          className="align-middle"
-        >
-          Label
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <table
+      class="table rounded bg-default"
+    >
+      <tbody>
+        <tr>
+          <td
+            class="align-middle"
+          >
+            Label
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
 `;

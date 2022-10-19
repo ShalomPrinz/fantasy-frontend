@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Search should render Search component 1`] = `
-<input
-  className="form-control my-3 fs-1 p-4"
-  onChange={[Function]}
-  placeholder="Search..."
-  type="text"
-  value=""
-/>
+<DocumentFragment>
+  <input
+    class="form-control my-3 fs-1 p-4"
+    placeholder="Search..."
+    type="text"
+    value=""
+  />
+</DocumentFragment>
 `;

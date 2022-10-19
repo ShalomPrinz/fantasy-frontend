@@ -1,28 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Player should render Player component 1`] = `
-<div
-  className="text-center"
-  style={
-    Object {
-      "width": "14px",
-    }
-  }
->
-  <img
-    className=""
-    src="Dortmund.png"
-    style={
-      Object {
-        "width": "10px",
-      }
-    }
-    title="Dortmund"
-  />
+<DocumentFragment>
   <div
-    className="text-truncate bg-default rounded p-1 w-100"
+    class="text-center"
+    style="width: 14px;"
   >
-    Shalom
+    <img
+      class=""
+      src="Dortmund.png"
+      style="width: 10px;"
+      title="Dortmund"
+    />
+    <div
+      class="text-truncate bg-default rounded p-1 w-100"
+    >
+      Shalom
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;

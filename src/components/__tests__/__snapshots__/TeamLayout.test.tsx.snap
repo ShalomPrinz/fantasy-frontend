@@ -1,143 +1,125 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TeamLayout should render TeamLayout component 1`] = `
-<div
-  className="position-relative"
->
-  <img
-    alt="Team Field Background"
-    className="w-100 rounded"
-    src="field.png"
-  />
+<DocumentFragment>
   <div
-    className="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
+    class="position-relative"
   >
+    <img
+      alt="Team Field Background"
+      class="w-100 rounded"
+      src="field.png"
+    />
     <div
-      className="my-1 row"
+      class="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
     >
       <div
-        className="mx-auto col"
+        class="my-1 row"
       >
         <div
-          className="text-center"
-          style={
-            Object {
-              "width": "77px",
-            }
-          }
+          class="mx-auto col"
         >
-          <img
-            className=""
-            src="Barcelona.png"
-            style={
-              Object {
-                "width": "55px",
-              }
-            }
-            title="Barcelona"
-          />
           <div
-            className="text-truncate bg-default rounded p-1 w-100"
+            class="text-center"
+            style="width: 77px;"
           >
-            Ter Stegen
+            <img
+              class=""
+              src="Barcelona.png"
+              style="width: 55px;"
+              title="Barcelona"
+            />
+            <div
+              class="text-truncate bg-default rounded p-1 w-100"
+            >
+              Ter Stegen
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`TeamLayout should render TeamList component 1`] = `
-<div
-  className="container"
->
+<DocumentFragment>
   <div
-    className="row"
+    class="container"
   >
     <div
-      className="w-50 col"
+      class="row"
     >
-      <h1
-        className="centered-flex pt-4"
-      >
-         
-        GK
-         
-      </h1>
       <div
-        className="d-flex align-items-center ps-5"
+        class="w-50 col"
       >
-        <img
-          className=""
-          src="Barcelona.png"
-          style={
-            Object {
-              "width": "60px",
-            }
-          }
-          title="Barcelona"
-        />
-        <h4
-          className="text-truncate ps-2 my-0"
+        <h1
+          class="centered-flex pt-4"
         >
-           
-          Ter Stegen
-           
-        </h4>
+           GK 
+        </h1>
+        <div
+          class="d-flex align-items-center ps-5"
+        >
+          <img
+            class=""
+            src="Barcelona.png"
+            style="width: 60px;"
+            title="Barcelona"
+          />
+          <h4
+            class="text-truncate ps-2 my-0"
+          >
+             Ter Stegen 
+          </h4>
+        </div>
       </div>
     </div>
+    <div
+      class="row"
+    />
   </div>
-  <div
-    className="row"
-  />
-</div>
+</DocumentFragment>
 `;
 
 exports[`TeamLayout should render bigger row margin if field width is higher than 600px 1`] = `
-<div
-  className="position-relative"
->
-  <img
-    alt="Team Field Background"
-    className="w-100 rounded"
-    src="field.png"
-  />
+<DocumentFragment>
   <div
-    className="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
+    class="position-relative"
   >
+    <img
+      alt="Team Field Background"
+      class="w-100 rounded"
+      src="field.png"
+    />
     <div
-      className="my-3 row"
+      class="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
     >
       <div
-        className="mx-auto col"
+        class="my-3 row"
       >
         <div
-          className="text-center"
-          style={
-            Object {
-              "width": "84.14px",
-            }
-          }
+          class="mx-auto col"
         >
-          <img
-            className=""
-            src="Barcelona.png"
-            style={
-              Object {
-                "width": "60.1px",
-              }
-            }
-            title="Barcelona"
-          />
           <div
-            className="text-truncate bg-default rounded p-1 w-100"
+            class="text-center"
+            style="width: 84.14px;"
           >
-            Ter Stegen
+            <img
+              class=""
+              src="Barcelona.png"
+              style="width: 60.1px;"
+              title="Barcelona"
+            />
+            <div
+              class="text-truncate bg-default rounded p-1 w-100"
+            >
+              Ter Stegen
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

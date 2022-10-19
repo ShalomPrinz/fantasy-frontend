@@ -5,21 +5,20 @@
 import '@testing-library/jest-dom';
 import { ReactElement } from 'react';
 
-import { act, create, ReactTestRenderer } from 'react-test-renderer';
+import { render as renderToScreen, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-type TestComponent = ReactTestRenderer | null
-
-const render = (Component: ReactElement) => {
-    let root: TestComponent = null
-    act(() => { root = create(Component) })
-    return root
-}
+const render = (Component: ReactElement) => renderToScreen(Component)
 
 const setProperty = (obj: Object, prop: string, value: number) =>
     Object.defineProperty(obj, prop, 
         { writable: true, configurable: true, value: value })
 
-const clickButton = (root: TestComponent, index: number) => 
-    act(root?.root.findAllByType('button')[index].props.onClick)
+const clickButton = (element: HTMLElement) => {
+    userEvent.click(element)
+}
 
-export { clickButton, render, setProperty, TestComponent }
+const typeElement = (element: HTMLElement, input: string) =>
+    userEvent.type(element, input)
+
+export { clickButton, render, setProperty, screen, typeElement }

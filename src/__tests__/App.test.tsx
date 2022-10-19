@@ -1,23 +1,16 @@
 import { BrowserRouter } from 'react-router-dom';
+import { render } from 'setupTests'
 
 import App from '../App';
-import { render, TestComponent } from '../setupTests'
-
-let root: TestComponent = null;
-
-beforeEach(() => {
-    root = null
-})
 
 describe('App', () => {
     it('should render App component', () => {
-        root = render(
+        const { asFragment } = render(
             <BrowserRouter>
                 <App />
             </BrowserRouter>
         );
 
-        // @ts-ignore root should never be null
-        expect(root.toJSON()).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
     })
 })

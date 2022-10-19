@@ -1,78 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TabChoice should render TabChoice component 1`] = `
-Array [
+<DocumentFragment>
   <div
-    className="centered-flex py-4"
+    class="centered-flex py-4"
   >
     <button
-      className="fs-2 bg-default py-2 px-5 tab-choice"
-      onClick={[Function]}
+      class="fs-2 bg-default py-2 px-5 tab-choice"
       type="button"
     >
       One
     </button>
-  </div>,
+  </div>
   <h1>
     Hello
-  </h1>,
-]
+  </h1>
+</DocumentFragment>
 `;
 
 exports[`TabChoice should render empty div 1`] = `
-<div
-  className="centered-flex py-4"
-/>
+<DocumentFragment>
+  <div
+    class="centered-flex py-4"
+  />
+</DocumentFragment>
 `;
 
 exports[`TabChoice when tab is clicked should show the clicked tab component 1`] = `
-Array [
+<DocumentFragment>
   <div
-    className="centered-flex py-4"
+    class="centered-flex py-4"
   >
     <button
-      className="fs-2 bg-default py-2 px-5 tab-choice"
-      onClick={[Function]}
+      class="fs-2 bg-default py-2 px-5 tab-choice"
       type="button"
     >
       One
     </button>
     <button
-      className="fs-2 bg-default py-2 px-5 tab-choice"
-      onClick={[Function]}
+      class="fs-2 bg-default py-2 px-5 tab-choice"
       type="button"
     >
       Two
     </button>
-  </div>,
+  </div>
   <h1>
     Hello
-  </h1>,
-]
+  </h1>
+</DocumentFragment>
 `;
 
 exports[`TabChoice when tab is clicked should show the clicked tab component 2`] = `
-Array [
+<DocumentFragment>
   <div
-    className="centered-flex py-4"
+    class="centered-flex py-4"
   >
     <button
-      className="fs-2 bg-default py-2 px-5 tab-choice"
-      onClick={[Function]}
+      class="fs-2 bg-default py-2 px-5 tab-choice"
       type="button"
     >
       One
     </button>
     <button
-      className="fs-2 bg-default py-2 px-5 tab-choice"
-      onClick={[Function]}
+      class="fs-2 bg-default py-2 px-5 tab-choice"
       type="button"
     >
       Two
     </button>
-  </div>,
+  </div>
   <h1>
     World
-  </h1>,
-]
+  </h1>
+</DocumentFragment>
 `;

@@ -1,11 +1,6 @@
+import { clickButton, render, screen } from 'setupTests'
+
 import TabChoice from '../TabChoice';
-import { clickButton, render, TestComponent } from 'setupTests'
-
-let root: TestComponent = null;
-
-beforeEach(() => {
-    root = null
-})
 
 interface Tab {
     id: number,
@@ -18,44 +13,39 @@ describe('TabChoice', () => {
     it('should render empty div', () => {
         const tabs: Tab[] = []
         
-        root = render(<TabChoice tabs={tabs} />);
+        const { asFragment } = render(<TabChoice tabs={tabs} />);
 
-        // @ts-ignore root should never be null
-        expect(root.toJSON()).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
     })
 
     it('should render TabChoice component', () => {
         const tabs = [{ id: 0, label: 'One', Component: <h1>Hello</h1> }]
         
-        root = render(<TabChoice tabs={tabs} />);
+        const { asFragment } = render(<TabChoice tabs={tabs} />);
 
-        // @ts-ignore root should never be null
-        expect(root.toJSON()).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
     })
     
     describe('when tab is clicked', () => {
         it('should show the clicked tab component', () => {
             const tabs = [{ id: 0, label: 'One', Component: <h1>Hello</h1> }, { id: 1, label: 'Two', Component: <h1>World</h1> }]
         
-            root = render(<TabChoice tabs={tabs} />);
+            const { asFragment } = render(<TabChoice tabs={tabs} />);
 
-            // @ts-ignore root should never be null
-            expect(root.toJSON()).toMatchSnapshot();
-            
-            // @ts-ignore root should never be null
-            clickButton(root, 1)
-            
-            // @ts-ignore root should never be null
-            expect(root.toJSON()).toMatchSnapshot();
+            expect(asFragment()).toMatchSnapshot();
+        
+            const element = screen.getByText('Two')
+            clickButton(element)
+            expect(asFragment()).toMatchSnapshot();
         })
 
         it('should call given onClick prop', () => {
             const onClick = jest.fn()
             const tabs = [{ id: 0, label: 'One', Component: <h1>Hello</h1>, onClick: onClick }]
 
-            root = render(<TabChoice tabs={tabs} />);
-            // @ts-ignore root should never be null
-            clickButton(root, 0)
+            render(<TabChoice tabs={tabs} />);
+            const element = screen.getByText('One')
+            clickButton(element)
             
             expect(onClick).toBeCalledTimes(1);
         })
