@@ -1,17 +1,13 @@
-import { render } from 'setupTests'
+import { render } from "setupTests";
 
-import { Player } from '../';
+import { Player } from "../";
 
-describe('Player', () => {
-    it ('should render Player component', () => {
-        const { asFragment } = render(
-            <Player 
-                name="Shalom"
-                team="Dortmund"
-                width={10}
-                widthUnits="px" 
-        />);
+describe("Player", () => {
+  it("should render Player component", () => {
+    const { asFragment } = render(
+      <Player name="Shalom" team="Dortmund" width={10} widthUnits="px" />
+    );
 
-        expect(asFragment()).toMatchSnapshot();
-    })
-})
+    expect(asFragment()).toMatchSnapshot();
+  });
+});

@@ -1,66 +1,68 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
-import { Player, TeamRole } from 'interfaces';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-import Row from 'react-bootstrap/Row';
+import { Player, TeamRole } from "interfaces";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
+import Row from "react-bootstrap/Row";
 
-import { FIELD_IMAGE_DEFAULT_WIDTH, FIELD_LAYOUT_MIN_WIDTH } from '../constants'; 
-import useWindowSize from '../hooks/useWindowSize';
+import {
+  FIELD_IMAGE_DEFAULT_WIDTH,
+  FIELD_LAYOUT_MIN_WIDTH,
+} from "../constants";
+import useWindowSize from "../hooks/useWindowSize";
 import field from "../res/field.png";
-import ConditionalList from './ConditionalList';
-import PlayerComponent from './Player';
-import TeamList from './TeamList';
+import ConditionalList from "./ConditionalList";
+import PlayerComponent from "./Player";
+import TeamList from "./TeamList";
 
 interface TeamLayoutProps {
-    team: TeamRole[]
+  team: TeamRole[];
 }
 
 const TeamLayout = ({ team }: TeamLayoutProps) => {
+  const [width, setWidth] = useState(FIELD_IMAGE_DEFAULT_WIDTH);
 
-    const [width, setWidth] = useState(FIELD_IMAGE_DEFAULT_WIDTH);
+  const fieldRef: React.Ref<HTMLImageElement> | null = useRef(null);
+  useEffect(() => {
+    setWidth((w) => fieldRef?.current?.offsetWidth || w);
+  }, [fieldRef?.current?.offsetWidth]);
 
-    const fieldRef: React.Ref<HTMLImageElement> | null = useRef(null)
-    useEffect(() => {
-        setWidth(w => fieldRef?.current?.offsetWidth || w)
-    }, [fieldRef?.current?.offsetWidth])
-  
-    const rowMargin = `my-${width > 600 ? 3 : 1}`;
+  const rowMargin = `my-${width > 600 ? 3 : 1}`;
 
-    const columnCallback = (player: Player) => (
-        <Col className="mx-auto">
-            <PlayerComponent 
-                {...player}
-                width={width / 10}
-                widthUnits='px'
-            />
-        </Col>
-    );
+  const columnCallback = (player: Player) => (
+    <Col className="mx-auto">
+      <PlayerComponent {...player} width={width / 10} widthUnits="px" />
+    </Col>
+  );
 
-    const rowCallback = ({ players }: TeamRole) => (
-        <Row className={rowMargin}>
-            <ConditionalList itemCallback={columnCallback} list={players} />
-        </Row>
-    );
+  const rowCallback = ({ players }: TeamRole) => (
+    <Row className={rowMargin}>
+      <ConditionalList itemCallback={columnCallback} list={players} />
+    </Row>
+  );
 
-    return (
-        <div className="position-relative">
-            <Image className="w-100" src={field} ref={fieldRef} alt="Team Field Background" rounded />
-            <Container className="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden" >
-                <ConditionalList itemCallback={rowCallback} list={team} />
-            </Container>
-        </div>       
-    )
-}
+  return (
+    <div className="position-relative">
+      <Image
+        className="w-100"
+        src={field}
+        ref={fieldRef}
+        alt="Team Field Background"
+        rounded
+      />
+      <Container className="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden">
+        <ConditionalList itemCallback={rowCallback} list={team} />
+      </Container>
+    </div>
+  );
+};
 
 const TeamLayoutWrapper = ({ team }: TeamLayoutProps) => {
+  const { width } = useWindowSize();
+  if (width < FIELD_LAYOUT_MIN_WIDTH) return <TeamList team={team} />;
 
-    const { width } = useWindowSize();
-    if (width < FIELD_LAYOUT_MIN_WIDTH) 
-        return (<TeamList team={team} />);
-    
-    return (<TeamLayout team={team} />);
-}
+  return <TeamLayout team={team} />;
+};
 
 export default TeamLayoutWrapper;

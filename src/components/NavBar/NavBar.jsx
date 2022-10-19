@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "react-bootstrap/Image";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -15,39 +15,42 @@ const pages = [
   {
     id: 0,
     name: "My Team",
-    url: "/team"
+    url: "/team",
   },
   {
     id: 1,
     name: "Second",
-    url: "/"
+    url: "/",
   },
   {
     id: 2,
     name: "Third",
-    url: "/"
-  }
-]
+    url: "/",
+  },
+];
 
 function NavBar() {
   const [expanded, setExpanded] = useState(false);
 
-  const pageCallback = useCallback((page) => (
-    <NavLink className="nav-item nav-links fw-light" to={page.url}>
-      {page.name}
-    </NavLink>
-  ), []);
+  const pageCallback = useCallback(
+    (page) => (
+      <NavLink className="nav-item nav-links fw-light" to={page.url}>
+        {page.name}
+      </NavLink>
+    ),
+    []
+  );
 
   const icon = expanded ? faTimes : faBars;
 
   return (
     <Navbar className="navbar bg-default" expand="lg" expanded={expanded}>
       <NavLink className="navbar-brand fs-1" to="/">
-        <Image 
+        <Image
           height="90px"
-          className="p-2 m-3 filter-invert" 
-          src={cl_logo} 
-          title="Champions League" 
+          className="p-2 m-3 filter-invert"
+          src={cl_logo}
+          title="Champions League"
         />
         Fantasy
       </NavLink>

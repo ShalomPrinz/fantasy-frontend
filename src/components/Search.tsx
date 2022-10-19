@@ -1,6 +1,6 @@
 interface SearchProps {
-  onChange: Function,
-  value: string
+  onChange: Function;
+  value: string;
 }
 
 const Search = ({ onChange, value }: SearchProps) => (
