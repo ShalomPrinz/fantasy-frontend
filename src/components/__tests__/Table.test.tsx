@@ -1,11 +1,10 @@
-import { getJSON, TestRendererJSON } from 'setupTests';
-
 import { Table } from '../';
+import { render, TestComponent } from '../../setupTests'
 
-let tree: TestRendererJSON = null;
+let root: TestComponent = null;
 
 beforeEach(() => {
-    tree = null
+    root = null
 })
 
 describe('Table', () => {
@@ -13,18 +12,20 @@ describe('Table', () => {
         const data = [{ id: 1, props: { label: 'Label' } }]
         const columns = [{ id: 0, path: 'label'}]
 
-        tree = getJSON(<Table data={data} columns={columns} scrollable />)
+        root = render(<Table data={data} columns={columns} scrollable />);
 
-        expect(tree).toMatchSnapshot();
+        // @ts-ignore root should never be null
+        expect(root.toJSON()).toMatchSnapshot();
     })
     
     it('should render a styled table', () => {
         const data = [{ id: 1, props: { label: 'Label' } }]
         const columns = [{ id: 0, path: 'label'}]
 
-        tree = getJSON(<Table data={data} columns={columns} className="bg-default" />)
+        root = render(<Table data={data} columns={columns} className="bg-default" />)
 
-        expect(tree).toMatchSnapshot();
+        // @ts-ignore root should never be null
+        expect(root.toJSON()).toMatchSnapshot();
     })
 
     it('should render a column by content callback', () => {
@@ -32,8 +33,9 @@ describe('Table', () => {
         const content = ({ label }: { [key: string]: string }) => (<h1>{label}</h1>)
         const columns = [{ id: 0, path: 'label', content: content}]
 
-        tree = getJSON(<Table data={data} columns={columns} className="bg-default" />)
+        root = render(<Table data={data} columns={columns} className="bg-default" />)
 
-        expect(tree).toMatchSnapshot();
+        // @ts-ignore root should never be null
+        expect(root.toJSON()).toMatchSnapshot();
     })
 })

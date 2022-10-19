@@ -1,17 +1,17 @@
-import { getJSON, TestRendererJSON } from 'setupTests';
-
 import { Player } from '../';
+import { render, TestComponent } from '../../setupTests'
 
-let tree: TestRendererJSON = null;
+let root: TestComponent = null;
 
 beforeEach(() => {
-    tree = null
+    root = null
 })
 
 describe('Player', () => {
     it ('should render Player component', () => {
-        tree = getJSON(<Player name="Shalom" team="Dortmund" width={10} widthUnits="px" />);
+        root = render(<Player name="Shalom" team="Dortmund" width={10} widthUnits="px" />);
 
-        expect(tree).toMatchSnapshot();
+        // @ts-ignore root should never be null
+        expect(root.toJSON()).toMatchSnapshot();
     })
 })

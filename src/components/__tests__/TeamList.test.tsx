@@ -1,18 +1,19 @@
 import { TeamList } from '../';
-import { getJSON, TestRendererJSON } from '../../setupTests'
+import { render, TestComponent } from '../../setupTests'
 
-let tree: TestRendererJSON = null;
+let root: TestComponent = null;
 
 beforeEach(() => {
-    tree = null
+    root = null
 })
 
 describe('TeamList', () => {
     it('should render TeamList component', () => {
         const team = [{ id: 0, label: 'GK', players: [{id: 0, name: 'Ter Stegen', team: 'Barcelona'}] }]
 
-        tree = getJSON(<TeamList team={team} />);
+        root = render(<TeamList team={team} />);
 
-        expect(tree).toMatchSnapshot();
+        // @ts-ignore root should never be null
+        expect(root.toJSON()).toMatchSnapshot();
     })
 })

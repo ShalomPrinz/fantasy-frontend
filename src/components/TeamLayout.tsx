@@ -60,7 +60,7 @@ const TeamLayout = ({ team }: TeamLayoutProps) => {
 const TeamLayoutWrapper = ({ team }: TeamLayoutProps) => {
 
     const { width } = useWindowSize();
-    if (width <= FIELD_LAYOUT_MIN_WIDTH) 
+    if (width < FIELD_LAYOUT_MIN_WIDTH) 
         return (<TeamList team={team} />);
     
     return (<TeamLayout team={team} />);

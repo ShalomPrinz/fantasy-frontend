@@ -1,21 +1,23 @@
 import { BrowserRouter } from 'react-router-dom';
 
 import App from '../App';
-import { getJSON, TestRendererJSON } from '../setupTests';
+import { render, TestComponent } from '../setupTests'
 
-let tree: TestRendererJSON = null;
+let root: TestComponent = null;
 
 beforeEach(() => {
-    tree = null
+    root = null
 })
 
 describe('App', () => {
-    it('should render app component', () => {
-        tree = getJSON(
+    it('should render App component', () => {
+        root = render(
             <BrowserRouter>
                 <App />
             </BrowserRouter>
         );
-        expect(tree).toMatchSnapshot();
-    });
+
+        // @ts-ignore root should never be null
+        expect(root.toJSON()).toMatchSnapshot();
+    })
 })

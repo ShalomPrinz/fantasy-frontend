@@ -5,7 +5,15 @@
 import '@testing-library/jest-dom';
 import { ReactElement } from 'react';
 
-import renderer, { ReactTestRendererJSON } from 'react-test-renderer';
+import { act, create, ReactTestRenderer } from 'react-test-renderer';
 
-export type TestRendererJSON = null | ReactTestRendererJSON | ReactTestRendererJSON[];
-export const getJSON = (Component: ReactElement) => renderer.create(Component).toJSON()
+export type TestComponent = ReactTestRenderer | null
+export const render = (Component: ReactElement) => {
+    let root: TestComponent = null
+    act(() => { root = create(Component) })
+    return root
+}
+
+export const setProperty = (obj: Object, prop: string, value: number) =>
+    Object.defineProperty(obj, prop, 
+        { writable: true, configurable: true, value: value })
