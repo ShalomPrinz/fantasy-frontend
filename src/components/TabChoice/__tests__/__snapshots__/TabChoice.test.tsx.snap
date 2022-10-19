@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabChoice should render TabChoice component 1`] = `
+Array [
+  <div
+    className="centered-flex py-4"
+  >
+    <button
+      className="fs-2 bg-default py-2 px-5 tab-choice"
+      onClick={[Function]}
+      type="button"
+    >
+      One
+    </button>
+  </div>,
+  <h1>
+    Hello
+  </h1>,
+]
+`;
+
+exports[`TabChoice should render empty div 1`] = `
+<div
+  className="centered-flex py-4"
+/>
+`;
+
+exports[`TabChoice when tab is clicked should show the clicked tab component 1`] = `
+Array [
+  <div
+    className="centered-flex py-4"
+  >
+    <button
+      className="fs-2 bg-default py-2 px-5 tab-choice"
+      onClick={[Function]}
+      type="button"
+    >
+      One
+    </button>
+    <button
+      className="fs-2 bg-default py-2 px-5 tab-choice"
+      onClick={[Function]}
+      type="button"
+    >
+      Two
+    </button>
+  </div>,
+  <h1>
+    Hello
+  </h1>,
+]
+`;
+
+exports[`TabChoice when tab is clicked should show the clicked tab component 2`] = `
+Array [
+  <div
+    className="centered-flex py-4"
+  >
+    <button
+      className="fs-2 bg-default py-2 px-5 tab-choice"
+      onClick={[Function]}
+      type="button"
+    >
+      One
+    </button>
+    <button
+      className="fs-2 bg-default py-2 px-5 tab-choice"
+      onClick={[Function]}
+      type="button"
+    >
+      Two
+    </button>
+  </div>,
+  <h1>
+    World
+  </h1>,
+]
+`;

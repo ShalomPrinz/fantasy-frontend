@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { Player, TeamRole } from 'interfaces';
 import Col from 'react-bootstrap/Col';
@@ -21,13 +21,10 @@ const TeamLayout = ({ team }: TeamLayoutProps) => {
 
     const [width, setWidth] = useState(FIELD_IMAGE_DEFAULT_WIDTH);
 
-    const { width: windowWidth } = useWindowSize();
-
-    const fieldRef = useCallback((node: HTMLDivElement) => {
-        if (node !== null) {
-            setWidth(node.getBoundingClientRect().width);
-        }
-    }, [windowWidth]);
+    const fieldRef: React.Ref<HTMLImageElement> | null = useRef(null)
+    useEffect(() => {
+        setWidth(w => fieldRef?.current?.offsetWidth || w)
+    }, [fieldRef?.current?.offsetWidth])
   
     const rowMargin = `my-${width > 600 ? 3 : 1}`;
 
@@ -48,8 +45,8 @@ const TeamLayout = ({ team }: TeamLayoutProps) => {
     );
 
     return (
-        <div className="position-relative" ref={fieldRef}>
-            <Image className="w-100" src={field} alt="Team Field Background" rounded />
+        <div className="position-relative">
+            <Image className="w-100" src={field} ref={fieldRef} alt="Team Field Background" rounded />
             <Container className="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden" >
                 <ConditionalList itemCallback={rowCallback} list={team} />
             </Container>

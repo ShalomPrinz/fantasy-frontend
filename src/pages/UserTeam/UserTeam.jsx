@@ -52,7 +52,7 @@ const UserTeam = ({ user }) => {
             id: 0,
             label: 'Field',
             Component: <TeamLayout team={user.team}/>,
-            OnClick: () => {
+            onClick: () => {
                 if (width <= FIELD_LAYOUT_MIN_WIDTH)
                     toast.warn('Your screen is too small')
             }
@@ -164,7 +164,7 @@ const UserTeam = ({ user }) => {
                     </h2>
                 </div>
 
-                <TabChoice tabs={tabs} defaultTab={tabs[0]} />
+                <TabChoice tabs={tabs} />
             </Col>
             <Col className="ps-1" >
                 <Search onChange={(v) => setQuery(v)} value={query} />

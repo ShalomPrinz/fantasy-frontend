@@ -7,13 +7,19 @@ import { ReactElement } from 'react';
 
 import { act, create, ReactTestRenderer } from 'react-test-renderer';
 
-export type TestComponent = ReactTestRenderer | null
-export const render = (Component: ReactElement) => {
+type TestComponent = ReactTestRenderer | null
+
+const render = (Component: ReactElement) => {
     let root: TestComponent = null
     act(() => { root = create(Component) })
     return root
 }
 
-export const setProperty = (obj: Object, prop: string, value: number) =>
+const setProperty = (obj: Object, prop: string, value: number) =>
     Object.defineProperty(obj, prop, 
         { writable: true, configurable: true, value: value })
+
+const clickButton = (root: TestComponent, index: number) => 
+    act(root?.root.findAllByType('button')[index].props.onClick)
+
+export { clickButton, render, setProperty, TestComponent }
