@@ -7,8 +7,12 @@ import { ReactElement } from "react";
 
 import { render as renderToScreen, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { UserEvent } from "@testing-library/user-event/dist/types/setup/setup";
 
-const render = (Component: ReactElement) => renderToScreen(Component);
+const render = (Component: ReactElement) => ({
+  ...renderToScreen(Component),
+  user: userEvent.setup(),
+});
 
 const setProperty = (obj: Object, prop: string, value: number) =>
   Object.defineProperty(obj, prop, {
@@ -17,11 +21,10 @@ const setProperty = (obj: Object, prop: string, value: number) =>
     value: value,
   });
 
-const clickButton = (element: HTMLElement) => {
-  userEvent.click(element);
-};
+const clickButton = (user: UserEvent, element: HTMLElement) =>
+  user.click(element);
 
-const typeElement = (element: HTMLElement, input: string) =>
-  userEvent.type(element, input);
+const typeElement = (user: UserEvent, element: HTMLElement, input: string) =>
+  user.type(element, input);
 
 export { clickButton, render, setProperty, screen, typeElement };

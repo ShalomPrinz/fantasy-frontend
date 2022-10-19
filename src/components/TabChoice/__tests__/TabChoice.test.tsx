@@ -27,30 +27,30 @@ describe("TabChoice", () => {
   });
 
   describe("when tab is clicked", () => {
-    it("should show the clicked tab component", () => {
+    it("should show the clicked tab component", async () => {
       const tabs = [
         { id: 0, label: "One", Component: <h1>Hello</h1> },
         { id: 1, label: "Two", Component: <h1>World</h1> },
       ];
 
-      const { asFragment } = render(<TabChoice tabs={tabs} />);
+      const { user, asFragment } = render(<TabChoice tabs={tabs} />);
 
       expect(asFragment()).toMatchSnapshot();
 
       const element = screen.getByText("Two");
-      clickButton(element);
+      await clickButton(user, element);
       expect(asFragment()).toMatchSnapshot();
     });
 
-    it("should call given onClick prop", () => {
+    it("should call given onClick prop", async () => {
       const onClick = jest.fn();
       const tabs = [
         { id: 0, label: "One", Component: <h1>Hello</h1>, onClick: onClick },
       ];
 
-      render(<TabChoice tabs={tabs} />);
+      const { user } = render(<TabChoice tabs={tabs} />);
       const element = screen.getByText("One");
-      clickButton(element);
+      await clickButton(user, element);
 
       expect(onClick).toBeCalledTimes(1);
     });

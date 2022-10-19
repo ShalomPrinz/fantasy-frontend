@@ -13,14 +13,14 @@ describe("Search", () => {
   });
 
   describe("when input changes", () => {
-    it("should call onChange with the new input as argument", () => {
+    it("should call onChange with the new input as argument", async () => {
       let value = "";
       const onChange = (v: string) => (value += v);
-      render(<Search onChange={onChange} value={value} />);
+      const { user } = render(<Search onChange={onChange} value={value} />);
 
       const element = screen.getByRole("textbox");
       const input = "NEW INPUT";
-      typeElement(element, input);
+      await typeElement(user, element, input);
 
       expect(value).toBe(input);
     });
