@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +10,12 @@ import { NavLink } from "react-router-dom";
 import { cl_logo } from "../../res";
 import ConditionalList from "../ConditionalList";
 import "./NavBar.css";
+
+interface Page {
+  id: number;
+  name: string;
+  url: string;
+}
 
 const pages = [
   {
@@ -33,19 +39,20 @@ function NavBar() {
   const [expanded, setExpanded] = useState(false);
 
   const pageCallback = useCallback(
-    (page) => (
-      <NavLink className="nav-item nav-links fw-light" to={page.url}>
-        {page.name}
+    ({ name, url }: Page) => (
+      <NavLink className="nav-item nav-links fw-light" to={url}>
+        {name}
       </NavLink>
     ),
     []
   );
 
   const icon = expanded ? faTimes : faBars;
+  const setNotExpanded = () => expanded && setExpanded(!expanded);
 
   return (
     <Navbar className="navbar bg-default" expand="lg" expanded={expanded}>
-      <NavLink className="navbar-brand fs-1" to="/">
+      <NavLink onClick={setNotExpanded} className="navbar-brand fs-1" to="/">
         <Image
           height="90px"
           className="p-2 m-3 filter-invert"
@@ -61,7 +68,7 @@ function NavBar() {
         <FontAwesomeIcon color="white" icon={icon} />
       </Navbar.Toggle>
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav onClick={() => expanded && setExpanded(!expanded)}>
+        <Nav onClick={setNotExpanded}>
           <ConditionalList itemCallback={pageCallback} list={pages} />
         </Nav>
       </Navbar.Collapse>

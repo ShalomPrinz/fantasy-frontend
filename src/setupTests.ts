@@ -21,10 +21,10 @@ const setProperty = (obj: Object, prop: string, value: number) =>
     value: value,
   });
 
-const clickButton = (user: UserEvent, element: HTMLElement) =>
+const clickElement = (user: UserEvent, element: HTMLElement) =>
   user.click(element);
 
 const typeElement = (user: UserEvent, element: HTMLElement, input: string) =>
   user.type(element, input);
 
-export { clickButton, render, setProperty, screen, typeElement };
+export { clickElement, render, setProperty, screen, typeElement };

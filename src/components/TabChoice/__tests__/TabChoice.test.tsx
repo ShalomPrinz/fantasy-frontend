@@ -1,4 +1,4 @@
-import { clickButton, render, screen } from "setupTests";
+import { clickElement, render, screen } from "setupTests";
 
 import TabChoice from "../TabChoice";
 
@@ -38,7 +38,7 @@ describe("TabChoice", () => {
       expect(asFragment()).toMatchSnapshot();
 
       const element = screen.getByText("Two");
-      await clickButton(user, element);
+      await clickElement(user, element);
       expect(asFragment()).toMatchSnapshot();
     });
 
@@ -50,7 +50,7 @@ describe("TabChoice", () => {
 
       const { user } = render(<TabChoice tabs={tabs} />);
       const element = screen.getByText("One");
-      await clickButton(user, element);
+      await clickElement(user, element);
 
       expect(onClick).toBeCalledTimes(1);
     });
