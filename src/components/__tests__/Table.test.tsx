@@ -4,7 +4,7 @@ import { Table } from "../";
 
 describe("Table", () => {
   it("should render a scrollable table", () => {
-    const data = [{ id: 1, props: { label: "Label" } }];
+    const data = [{ id: 1, label: "Label" }];
     const columns = [{ id: 0, path: "label" }];
 
     const { asFragment } = render(
@@ -15,7 +15,7 @@ describe("Table", () => {
   });
 
   it("should render a styled table", () => {
-    const data = [{ id: 1, props: { label: "Label" } }];
+    const data = [{ id: 1, label: "Label" }];
     const columns = [{ id: 0, path: "label" }];
 
     const { asFragment } = render(
@@ -26,7 +26,7 @@ describe("Table", () => {
   });
 
   it("should render a column by content callback", () => {
-    const data = [{ id: 1, props: { label: "Label" } }];
+    const data = [{ id: 1, label: "Label" }];
     const content = ({ label }: { [key: string]: string }) => <h1>{label}</h1>;
     const columns = [{ id: 0, path: "label", content: content }];
 

@@ -1,23 +1,24 @@
 import { useEffect, useRef, useState } from "react";
 
-import { Player, TeamRole } from "interfaces";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 
+import Team from "../classes/Team";
 import {
   FIELD_IMAGE_DEFAULT_WIDTH,
   FIELD_LAYOUT_MIN_WIDTH,
 } from "../constants";
 import useWindowSize from "../hooks/useWindowSize";
+import { Player } from "../interfaces";
 import field from "../res/field.png";
 import ConditionalList from "./ConditionalList";
 import PlayerComponent from "./Player";
 import TeamList from "./TeamList";
 
 interface TeamLayoutProps {
-  team: TeamRole[];
+  team: Team;
 }
 
 const TeamLayout = ({ team }: TeamLayoutProps) => {
@@ -36,9 +37,9 @@ const TeamLayout = ({ team }: TeamLayoutProps) => {
     </Col>
   );
 
-  const rowCallback = ({ players }: TeamRole) => (
+  const rowCallback = (role: Player[]) => (
     <Row className={rowMargin}>
-      <ConditionalList itemCallback={columnCallback} list={players} />
+      <ConditionalList itemCallback={columnCallback} list={role} />
     </Row>
   );
 
@@ -52,7 +53,11 @@ const TeamLayout = ({ team }: TeamLayoutProps) => {
         rounded
       />
       <Container className="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden">
-        <ConditionalList itemCallback={rowCallback} list={team} />
+        <ConditionalList
+          itemCallback={rowCallback}
+          indexAsKey
+          list={Object.values(team.players)}
+        />
       </Container>
     </div>
   );

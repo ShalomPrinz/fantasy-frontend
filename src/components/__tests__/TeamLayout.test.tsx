@@ -1,3 +1,5 @@
+import Team from "classes/Team";
+import { Player } from "interfaces";
 import { render, setProperty } from "setupTests";
 
 import { TeamLayout } from "../";
@@ -9,13 +11,10 @@ const setWindowSize = (value: number) =>
 
 describe("TeamLayout", () => {
   it("should render TeamList component", () => {
-    const team = [
-      {
-        id: 0,
-        label: "GK",
-        players: [{ id: 0, name: "Ter Stegen", team: "Barcelona" }],
-      },
+    const players: Player[] = [
+      { id: 0, name: "Ter Stegen", role: "GK", team: "Barcelona" },
     ];
+    const team = new Team(players);
 
     setWindowSize(FIELD_LAYOUT_MIN_WIDTH - 1);
     const { asFragment } = render(<TeamLayout team={team} />);
@@ -24,13 +23,10 @@ describe("TeamLayout", () => {
   });
 
   it("should render TeamLayout component", () => {
-    const team = [
-      {
-        id: 0,
-        label: "GK",
-        players: [{ id: 0, name: "Ter Stegen", team: "Barcelona" }],
-      },
+    const players: Player[] = [
+      { id: 0, name: "Ter Stegen", role: "GK", team: "Barcelona" },
     ];
+    const team = new Team(players);
 
     setWindowSize(FIELD_LAYOUT_MIN_WIDTH);
     const { asFragment } = render(<TeamLayout team={team} />);
@@ -39,13 +35,10 @@ describe("TeamLayout", () => {
   });
 
   it("should render bigger row margin if field width is higher than 600px", () => {
-    const team = [
-      {
-        id: 0,
-        label: "GK",
-        players: [{ id: 0, name: "Ter Stegen", team: "Barcelona" }],
-      },
+    const players: Player[] = [
+      { id: 0, name: "Ter Stegen", role: "GK", team: "Barcelona" },
     ];
+    const team = new Team(players);
 
     setWindowSize(FIELD_LAYOUT_MIN_WIDTH);
     setProperty(constants, "FIELD_IMAGE_DEFAULT_WIDTH", 601);

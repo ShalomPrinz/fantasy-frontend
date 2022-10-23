@@ -1,20 +1,21 @@
-import { useCallback } from "react";
-
 import _ from "lodash";
 
 import ConditionalList from "./ConditionalList";
 
-interface TableColumn {
+interface TableDataColumn {
   id: number;
   path: string;
-  content?: Function;
 }
 
-type TableDataProps = { [key: string]: string };
+interface TableCallbackColumn {
+  id: number;
+  content: Function;
+}
+
+type TableColumn = TableDataColumn | TableCallbackColumn;
 
 interface TableData {
-  id: number;
-  props: TableDataProps;
+  [key: string]: string | number;
 }
 
 export interface TableBodyProps {
@@ -23,11 +24,8 @@ export interface TableBodyProps {
 }
 
 const TableBody = ({ columns, data }: TableBodyProps) => {
-  const columnCallback = useCallback(
-    (item: TableData, column: TableColumn) => (
-      <td className="align-middle">{renderCell(item.props, column)}</td>
-    ),
-    []
+  const columnCallback = (item: TableData, column: TableColumn) => (
+    <td className="align-middle">{renderCell(item, column)}</td>
   );
 
   const rowCallback = (item: TableData) => (
@@ -46,7 +44,7 @@ const TableBody = ({ columns, data }: TableBodyProps) => {
   );
 };
 
-const renderCell = (props: TableDataProps, column: TableColumn) =>
-  column.content ? column.content(props) : _.get(props, column.path);
+const renderCell = (item: TableData, column: TableColumn) =>
+  "content" in column ? column.content(item) : _.get(item, column.path);
 
 export default TableBody;
