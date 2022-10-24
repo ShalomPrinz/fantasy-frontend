@@ -5,16 +5,15 @@ import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 
-import Team from "../classes/Team";
 import {
   FIELD_IMAGE_DEFAULT_WIDTH,
   FIELD_LAYOUT_MIN_WIDTH,
 } from "../constants";
 import useWindowSize from "../hooks/useWindowSize";
-import { Player } from "../interfaces";
 import field from "../res/field.png";
-import ConditionalList from "./ConditionalList";
-import PlayerComponent from "./Player";
+import { Player, Team } from "../types";
+import ConditionalList from "./common/ConditionalList";
+import PlayerComponent from "./common/Player";
 import TeamList from "./TeamList";
 
 interface TeamLayoutProps {

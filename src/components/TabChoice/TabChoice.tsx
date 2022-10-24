@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import ConditionalList from "../ConditionalList";
+import { ConditionalList } from "../";
 
 import "./TabChoice.css";
 

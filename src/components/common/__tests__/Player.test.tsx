@@ -1,6 +1,6 @@
 import { render } from "setupTests";
 
-import { Player } from "../";
+import { Player } from "../..";
 
 describe("Player", () => {
   it("should render Player component", () => {

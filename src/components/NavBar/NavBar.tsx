@@ -7,8 +7,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 
+import { ConditionalList } from "../";
 import { cl_logo } from "../../res";
-import ConditionalList from "../ConditionalList";
 import "./NavBar.css";
 
 interface Page {

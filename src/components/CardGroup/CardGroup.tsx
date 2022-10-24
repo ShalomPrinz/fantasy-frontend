@@ -2,7 +2,7 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "react-bootstrap/Card";
 
-import ConditionalList from "../ConditionalList";
+import { ConditionalList } from "../";
 
 import "./CardGroup.css";
 

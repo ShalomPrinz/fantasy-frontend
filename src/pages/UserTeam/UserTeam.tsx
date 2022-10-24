@@ -6,7 +6,6 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { toast } from "react-toastify";
 
-import User from "../../classes/User";
 import {
   PlayerJersey,
   Search,
@@ -17,7 +16,7 @@ import {
 } from "../../components";
 import { FIELD_LAYOUT_MIN_WIDTH } from "../../constants";
 import useWindowSize from "../../hooks/useWindowSize";
-import { Player } from "../../interfaces";
+import { Player, User } from "../../types";
 import "./UserTeam.css";
 
 const columns = [

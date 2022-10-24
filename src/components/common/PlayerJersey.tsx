@@ -8,7 +8,7 @@ interface PlayerJerseyProps {
 const PlayerJersey = ({ team, width }: PlayerJerseyProps) => (
   <Image
     style={{ width: width }}
-    src={require(`../res/jersey/${team}.png`)}
+    src={require(`../../res/jersey/${team}.png`)}
     title={team}
   />
 );

@@ -1,8 +1,7 @@
-import Team from "classes/Team";
-import { Player } from "interfaces";
 import { render } from "setupTests";
 
 import { TeamList } from "../";
+import { Player, Team } from "../../types";
 
 describe("TeamList", () => {
   it("should render TeamList component", () => {

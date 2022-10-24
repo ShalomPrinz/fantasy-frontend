@@ -2,11 +2,9 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Team from "./classes/Team";
-import User from "./classes/User";
 import { NavBar } from "./components";
-import { Player } from "./interfaces";
 import { Home, UserTeam } from "./pages";
+import { Player, Team, User } from "./types";
 
 import "./App.css";
 

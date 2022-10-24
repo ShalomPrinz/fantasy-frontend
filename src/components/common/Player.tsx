@@ -1,4 +1,4 @@
-import { PlayerJersey } from "./";
+import PlayerJersey from "./PlayerJersey";
 
 interface PlayerProps {
   name: string;

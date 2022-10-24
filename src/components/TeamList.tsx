@@ -2,10 +2,9 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
-import Team, { PlayerPairs } from "../classes/Team";
-import { Player } from "../interfaces";
-import ConditionalList from "./ConditionalList";
-import PlayerJersey from "./PlayerJersey";
+import { Player, PlayerPairs, Team } from "../types";
+import ConditionalList from "./common/ConditionalList";
+import PlayerJersey from "./common/PlayerJersey";
 
 interface TeamListProps {
   team: Team;

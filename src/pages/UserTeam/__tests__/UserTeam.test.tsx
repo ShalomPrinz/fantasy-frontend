@@ -1,9 +1,7 @@
-import Team from "classes/Team";
-import User from "classes/User";
-import { Player } from "interfaces";
 import { clickElement, render, screen, setWindowSize } from "setupTests";
 
 import { FIELD_LAYOUT_MIN_WIDTH } from "../../../constants";
+import { Player, Team, User } from "../../../types";
 import UserTeam from "../UserTeam";
 
 describe("UserTeam", () => {
