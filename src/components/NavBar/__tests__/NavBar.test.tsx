@@ -22,8 +22,8 @@ describe("NavBar", () => {
 
       expect(asFragment()).toMatchSnapshot();
 
-      const element = screen.queryByRole("button");
-      if (element) await clickElement(user, element);
+      const element = screen.getByRole("button");
+      await clickElement(user, element);
 
       expect(asFragment()).toMatchSnapshot();
     });
@@ -34,17 +34,17 @@ describe("NavBar", () => {
       const firstRender = asFragment();
       expect(firstRender).toMatchSnapshot();
 
-      const mainLink = screen.queryAllByRole("link")[0];
-      if (mainLink) await clickElement(user, mainLink);
+      const mainLink = screen.getAllByRole("link")[0];
+      await clickElement(user, mainLink);
 
       expect(asFragment()).toEqual(firstRender);
 
-      const toggleButton = screen.queryByRole("button");
-      if (toggleButton) await clickElement(user, toggleButton);
+      const toggleButton = screen.getByRole("button");
+      await clickElement(user, toggleButton);
 
       expect(asFragment()).not.toEqual(firstRender);
 
-      if (mainLink) await clickElement(user, mainLink);
+      await clickElement(user, mainLink);
 
       // This differs a little from firstRender
       expect(asFragment()).toMatchSnapshot();

@@ -1,13 +1,10 @@
 import Team from "classes/Team";
 import { Player } from "interfaces";
-import { render, setProperty } from "setupTests";
+import { render, setProperty, setWindowSize } from "setupTests";
 
 import { TeamLayout } from "../";
 import { FIELD_LAYOUT_MIN_WIDTH } from "../../constants";
 import * as constants from "../../constants";
-
-const setWindowSize = (value: number) =>
-  setProperty(window, "innerWidth", value);
 
 describe("TeamLayout", () => {
   it("should render TeamList component", () => {
