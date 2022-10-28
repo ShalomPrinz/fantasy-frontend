@@ -1,4 +1,4 @@
-import _ from "lodash";
+import { get } from "lodash";
 
 import ConditionalList from "./ConditionalList";
 
@@ -45,6 +45,6 @@ const TableBody = ({ columns, data }: TableBodyProps) => {
 };
 
 const renderCell = (item: TableData, column: TableColumn) =>
-  "content" in column ? column.content(item) : _.get(item, column.path);
+  "content" in column ? column.content(item) : get(item, column.path);
 
 export default TableBody;

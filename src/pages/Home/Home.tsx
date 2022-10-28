@@ -1,8 +1,3 @@
-import {
-  faImage,
-  faRankingStar,
-  faTrophy,
-} from "@fortawesome/free-solid-svg-icons";
 import { Image } from "react-bootstrap";
 
 import { CardGroup } from "../../components";
@@ -13,19 +8,19 @@ const cards = [
     id: 0,
     title: "Create your league",
     text: "play the ultimate fantasy game with friends",
-    icon: faTrophy,
+    icon: "trophy",
   },
   {
     id: 1,
     title: "Podium",
     text: "observe some interesting stats",
-    icon: faRankingStar,
+    icon: "rankingStar",
   },
   {
     id: 2,
     title: "Another thing",
     text: "wow another one",
-    icon: faImage,
+    icon: "image",
   },
 ];
 
