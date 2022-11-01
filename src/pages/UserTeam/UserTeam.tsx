@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useQuery } from "@tanstack/react-query";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { toast } from "react-toastify";
@@ -16,6 +17,7 @@ import {
 } from "../../components";
 import { FIELD_LAYOUT_MIN_WIDTH } from "../../constants";
 import useWindowSize from "../../hooks/useWindowSize";
+import { getPlayers } from "../../services/user";
 import { Player, User } from "../../types";
 import "./UserTeam.css";
 
@@ -50,50 +52,14 @@ const columns = [
   },
 ];
 
-const data = [
-  {
-    id: 0,
-    name: "Pena",
-    role: "GK",
-    team: "Barcelona",
-  },
-  {
-    id: 1,
-    name: "Hummels",
-    role: "DEF",
-    team: "Dortmund",
-  },
-  {
-    id: 2,
-    name: "Pedri",
-    role: "MID",
-    team: "Barcelona",
-  },
-  {
-    id: 3,
-    name: "Dembele",
-    role: "ATT",
-    team: "Barcelona",
-  },
-  {
-    id: 4,
-    name: "Ansu Fati",
-    role: "ATT",
-    team: "Barcelona",
-  },
-  {
-    id: 5,
-    name: "Mokuku",
-    role: "ATT",
-    team: "Dortmund",
-  },
-];
-
 interface UserTeamProps {
   user: User;
 }
 
 const UserTeam = ({ user }: UserTeamProps) => {
+  const { data } = useQuery(["players"], getPlayers);
+  const players = data?.data?.players || [];
+
   const { width } = useWindowSize();
   const [query, setQuery] = useState("");
 
@@ -151,7 +117,7 @@ const UserTeam = ({ user }: UserTeamProps) => {
         </Col>
         <Col className="ps-1">
           <Search onChange={(v: string) => setQuery(v)} value={query} />
-          <Table className="bg-white" columns={columns} data={data} />
+          <Table className="bg-white" columns={columns} data={players} />
         </Col>
       </Row>
     </main>
