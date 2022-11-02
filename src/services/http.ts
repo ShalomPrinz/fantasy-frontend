@@ -1,6 +1,8 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:8080";
+import { baseURL } from "../constants";
+
+axios.defaults.baseURL = baseURL;
 
 axios.interceptors.response.use(undefined, (error) => {
   const expectedError =

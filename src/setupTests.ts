@@ -3,38 +3,18 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom";
-import { ReactElement } from "react";
+import { setupServer } from "msw/node";
 
-import { render as renderToScreen, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { UserEvent } from "@testing-library/user-event/dist/types/setup/setup";
+import { handlers, setProperty } from "../test";
+import * as constants from "./constants";
 
-const render = (Component: ReactElement) => ({
-  ...renderToScreen(Component),
-  user: userEvent.setup(),
-});
+jest.setTimeout(10000);
 
-const setProperty = (obj: Object, prop: string, value: number) =>
-  Object.defineProperty(obj, prop, {
-    writable: true,
-    configurable: true,
-    value: value,
-  });
+setProperty(constants, "baseURL", "");
 
-const setWindowSize = (value: number) =>
-  setProperty(window, "innerWidth", value);
+const server = setupServer(...handlers);
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
 
-const clickElement = (user: UserEvent, element: HTMLElement) =>
-  user.click(element);
-
-const typeElement = (user: UserEvent, element: HTMLElement, input: string) =>
-  user.type(element, input);
-
-export {
-  clickElement,
-  render,
-  screen,
-  setProperty,
-  setWindowSize,
-  typeElement,
-};
+export * from "../test";
