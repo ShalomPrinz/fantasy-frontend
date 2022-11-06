@@ -18,5 +18,6 @@ axios.interceptors.response.use(undefined, (error) => {
 });
 
 const get = axios.get;
+const post = axios.post;
 
-export { get };
+export { get, post };

@@ -52,7 +52,7 @@ tbody > tr:last-child > td {
 }
 
 .bg-default {
-  background-color: #0E1E5B;
+  background-color: #0e1e5b;
   color: white;
 }
 
@@ -62,6 +62,20 @@ tbody > tr:last-child > td {
 
 .bg-light-success {
   background-color: #3eec98;
+}
+
+.button-border-focus:focus {
+  border: 3px solid white;
+  outline: none;
+}
+
+.button-border-focus:hover {
+  border: 5px solid white;
+  color: white;
+}
+
+.button-border-focus:disabled {
+  border: none;
 }
 
 .centered-flex {

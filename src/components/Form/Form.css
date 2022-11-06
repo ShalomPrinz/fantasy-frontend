@@ -1,0 +1,16 @@
+.form-text-input {
+  padding: 10px;
+  border: 2px solid black;
+  background-color: white;
+  color: #2d3748;
+  border-radius: 10px;
+}
+
+.form-text-input:invalid {
+  border: 4px solid #ff7d87;
+  box-shadow: none;
+}
+
+.form-text-input:focus {
+  outline: none;
+}

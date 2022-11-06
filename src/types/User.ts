@@ -10,4 +10,11 @@ class User {
   }
 }
 
+export interface RegisterUser {
+  fullName: string;
+  nickname: string;
+  email: string;
+  password: string;
+}
+
 export default User;

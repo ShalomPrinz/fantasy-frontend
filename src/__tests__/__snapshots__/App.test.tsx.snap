@@ -55,11 +55,10 @@ exports[`App should render App component 1`] = `
           My Team
         </a>
         <a
-          aria-current="page"
-          class="nav-item nav-links fw-light active"
-          href="/"
+          class="nav-item nav-links fw-light"
+          href="/register"
         >
-          Second
+          Register
         </a>
         <a
           aria-current="page"

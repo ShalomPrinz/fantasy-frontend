@@ -55,11 +55,10 @@ exports[`NavBar should render NavBar component 1`] = `
           My Team
         </a>
         <a
-          aria-current="page"
-          class="nav-item nav-links fw-light active"
-          href="/"
+          class="nav-item nav-links fw-light"
+          href="/register"
         >
-          Second
+          Register
         </a>
         <a
           aria-current="page"
@@ -129,11 +128,10 @@ exports[`NavBar when navbar expands should allow collapse via main link 1`] = `
           My Team
         </a>
         <a
-          aria-current="page"
-          class="nav-item nav-links fw-light active"
-          href="/"
+          class="nav-item nav-links fw-light"
+          href="/register"
         >
-          Second
+          Register
         </a>
         <a
           aria-current="page"
@@ -204,11 +202,10 @@ exports[`NavBar when navbar expands should allow collapse via main link 2`] = `
           My Team
         </a>
         <a
-          aria-current="page"
-          class="nav-item nav-links fw-light active"
-          href="/"
+          class="nav-item nav-links fw-light"
+          href="/register"
         >
-          Second
+          Register
         </a>
         <a
           aria-current="page"
@@ -278,11 +275,10 @@ exports[`NavBar when navbar expands should change navbar layout 1`] = `
           My Team
         </a>
         <a
-          aria-current="page"
-          class="nav-item nav-links fw-light active"
-          href="/"
+          class="nav-item nav-links fw-light"
+          href="/register"
         >
-          Second
+          Register
         </a>
         <a
           aria-current="page"
@@ -353,11 +349,10 @@ exports[`NavBar when navbar expands should change navbar layout 2`] = `
           My Team
         </a>
         <a
-          aria-current="page"
-          class="nav-item nav-links fw-light active"
-          href="/"
+          class="nav-item nav-links fw-light"
+          href="/register"
         >
-          Second
+          Register
         </a>
         <a
           aria-current="page"

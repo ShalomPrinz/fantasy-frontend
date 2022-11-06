@@ -25,8 +25,8 @@ const pages = [
   },
   {
     id: 1,
-    name: "Second",
-    url: "/",
+    name: "Register",
+    url: "/register",
   },
   {
     id: 2,

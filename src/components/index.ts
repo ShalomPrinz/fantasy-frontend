@@ -1,5 +1,6 @@
 import CardGroup from "./CardGroup/CardGroup";
 import { ConditionalList, Player, PlayerJersey, Search, Table } from "./common";
+import Form from "./Form/Form";
 import NavBar from "./NavBar/NavBar";
 import TabChoice from "./TabChoice/TabChoice";
 import TeamLayout from "./TeamLayout";
@@ -8,6 +9,7 @@ import TeamList from "./TeamList";
 export {
   CardGroup,
   ConditionalList,
+  Form,
   NavBar,
   TabChoice,
   Player,
