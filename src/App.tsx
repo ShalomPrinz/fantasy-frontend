@@ -3,7 +3,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { NavBar } from "./components";
-import { Home, Register, UserTeam } from "./pages";
+import { Home, Login, Register, UserTeam } from "./pages";
 import { Player, Team, User } from "./types";
 
 import "./App.css";
@@ -30,6 +30,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/team" element={<UserTeam user={user} />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );

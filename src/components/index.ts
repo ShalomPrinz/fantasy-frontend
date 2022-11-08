@@ -1,3 +1,4 @@
+import AuthForm from "./AuthForm";
 import CardGroup from "./CardGroup/CardGroup";
 import { ConditionalList, Player, PlayerJersey, Search, Table } from "./common";
 import Form from "./Form/Form";
@@ -6,7 +7,10 @@ import TabChoice from "./TabChoice/TabChoice";
 import TeamLayout from "./TeamLayout";
 import TeamList from "./TeamList";
 
+export type { TextInput } from "./Form/FormTextInput";
+
 export {
+  AuthForm,
   CardGroup,
   ConditionalList,
   Form,
