@@ -8,6 +8,7 @@ import TeamLayout from "./TeamLayout";
 import TeamList from "./TeamList";
 
 export type { TextInput } from "./Form/FormTextInput";
+export type { AuthProps } from "./AuthForm";
 
 export {
   AuthForm,

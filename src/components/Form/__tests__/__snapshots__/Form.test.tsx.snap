@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form should render Form component 1`] = `
+<DocumentFragment>
+  <form
+    action="#"
+    class="container"
+  >
+    <div
+      class="row"
+    >
+      <h1>
+        Test Form
+      </h1>
+    </div>
+    <div
+      class="row"
+    >
+      <button
+        class="fs-2 bg-default py-2 px-auto mt-3 rounded button-border-focus "
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`Form should render Form component with text input 1`] = `
+<DocumentFragment>
+  <form
+    action="#"
+    class="container"
+  >
+    <div
+      class="row"
+    >
+      <h1>
+        Test Form
+      </h1>
+    </div>
+    <div
+      class="mx-2 p-2 row"
+    >
+      <label
+        for="firstInput"
+      >
+        first input
+      </label>
+      <input
+        class="form-text-input"
+        id="0"
+        name="firstInput"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="row"
+    >
+      <button
+        class="fs-2 bg-default py-2 px-auto mt-3 rounded button-border-focus "
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;

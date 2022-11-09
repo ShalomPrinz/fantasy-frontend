@@ -30,8 +30,8 @@ const pages = [
   },
   {
     id: 2,
-    name: "Third",
-    url: "/",
+    name: "Log In",
+    url: "/login",
   },
 ];
 

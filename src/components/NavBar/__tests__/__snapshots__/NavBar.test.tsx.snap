@@ -61,11 +61,10 @@ exports[`NavBar should render NavBar component 1`] = `
           Register
         </a>
         <a
-          aria-current="page"
-          class="nav-item nav-links fw-light active"
-          href="/"
+          class="nav-item nav-links fw-light"
+          href="/login"
         >
-          Third
+          Log In
         </a>
       </div>
     </div>
@@ -134,11 +133,10 @@ exports[`NavBar when navbar expands should allow collapse via main link 1`] = `
           Register
         </a>
         <a
-          aria-current="page"
-          class="nav-item nav-links fw-light active"
-          href="/"
+          class="nav-item nav-links fw-light"
+          href="/login"
         >
-          Third
+          Log In
         </a>
       </div>
     </div>
@@ -208,11 +206,10 @@ exports[`NavBar when navbar expands should allow collapse via main link 2`] = `
           Register
         </a>
         <a
-          aria-current="page"
-          class="nav-item nav-links fw-light active"
-          href="/"
+          class="nav-item nav-links fw-light"
+          href="/login"
         >
-          Third
+          Log In
         </a>
       </div>
     </div>
@@ -281,11 +278,10 @@ exports[`NavBar when navbar expands should change navbar layout 1`] = `
           Register
         </a>
         <a
-          aria-current="page"
-          class="nav-item nav-links fw-light active"
-          href="/"
+          class="nav-item nav-links fw-light"
+          href="/login"
         >
-          Third
+          Log In
         </a>
       </div>
     </div>
@@ -355,11 +351,10 @@ exports[`NavBar when navbar expands should change navbar layout 2`] = `
           Register
         </a>
         <a
-          aria-current="page"
-          class="nav-item nav-links fw-light active"
-          href="/"
+          class="nav-item nav-links fw-light"
+          href="/login"
         >
-          Third
+          Log In
         </a>
       </div>
     </div>

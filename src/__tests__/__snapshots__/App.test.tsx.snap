@@ -61,11 +61,10 @@ exports[`App should render App component 1`] = `
           Register
         </a>
         <a
-          aria-current="page"
-          class="nav-item nav-links fw-light active"
-          href="/"
+          class="nav-item nav-links fw-light"
+          href="/login"
         >
-          Third
+          Log In
         </a>
       </div>
     </div>

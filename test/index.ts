@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import { render as renderToScreen, screen } from "@testing-library/react";
+import { act, render as renderToScreen, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 const render = (Component: ReactElement) => ({
@@ -8,7 +8,7 @@ const render = (Component: ReactElement) => ({
   user: userEvent.setup(),
 });
 
-export { render, screen };
+export { act, render, screen };
 export { setProperty, setWindowSize } from "./setConstants";
 export { sleep } from "./time";
 export { clickElement, typeElement } from "./userInteraction";

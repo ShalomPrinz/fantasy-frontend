@@ -1,6 +1,7 @@
 import * as Yup from "yup";
 
-import { AuthForm } from "../../components";
+import { AuthForm, AuthProps } from "../../components";
+import { loginUser } from "../../services/user";
 
 const schema = Yup.object({
   email: Yup.string().email("Invalid email address").required("Required"),
@@ -26,8 +27,20 @@ const textInputs = [
   },
 ];
 
+const props: AuthProps = {
+  mutationFn: loginUser,
+  other: {
+    message: "If you don't have a user already, you should register first",
+    title: "Register",
+    url: "/register",
+  },
+  title: "Log In",
+  toastError: "Couldn't log in. Please try again later",
+  toastSuccess: "Successfully logged in. Enjoy!",
+};
+
 const Login = () => (
-  <AuthForm authType="login" schema={schema} textInputs={textInputs} />
+  <AuthForm authProps={props} schema={schema} textInputs={textInputs} />
 );
 
 export default Login;

@@ -38,10 +38,8 @@ const AppForm = ({
       initialValues={initialValues}
       validationSchema={schema}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          onSubmit(values);
-          setSubmitting(false);
-        }, 400);
+        onSubmit(values);
+        setSubmitting(false);
       }}
     >
       <Form className="container">

@@ -4,51 +4,38 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { SchemaLike } from "yup/lib/types";
 
-import { loginUser, registerUser } from "../services/user";
-import type { LoginUser, RegisterUser } from "../types";
-
 import { Form } from "./";
 import type { TextInput } from "./";
 
-const auth = {
-  login: {
-    message: "If you don't have a user already, you should register first",
-    mutationFn: (userInfo: LoginUser) => loginUser(userInfo),
-    title: "Log In",
-    toastSuccess: "Successfully logged in. Enjoy!",
-    toastError: "Couldn't log in. Please try again later",
-    url: "/login",
-  },
-  register: {
-    message: "If you already have a user, you should log in instead",
-    mutationFn: (userInfo: RegisterUser) => registerUser(userInfo),
-    title: "Register",
-    toastSuccess: "Successfully registered. Enjoy!",
-    toastError: "Couldn't register. Please try again later",
-    url: "/register",
-  },
-};
+export interface AuthProps {
+  mutationFn: (values: {}) => Promise<any>;
+  other: {
+    message: string;
+    title: string;
+    url: string;
+  };
+  toastError: string;
+  toastSuccess: string;
+  title: string;
+}
 
 interface AuthFormProps {
-  authType: "login" | "register";
+  authProps: AuthProps;
   schema: SchemaLike;
   textInputs: Array<TextInput>;
 }
 
-const AuthForm = ({ authType, schema, textInputs }: AuthFormProps) => {
-  const alterAuth = authType === "login" ? auth.register : auth.login;
-  const currentAuth = authType === "login" ? auth.login : auth.register;
-
+const AuthForm = ({ authProps: auth, schema, textInputs }: AuthFormProps) => {
   const navigate = useNavigate();
   const authMutation = useMutation({
-    mutationFn: currentAuth.mutationFn,
+    mutationFn: auth.mutationFn,
     onSuccess: (v) => {
-      toast.success(currentAuth.toastSuccess);
+      toast.success(auth.toastSuccess);
       navigate("/team");
       console.log("Auth Success", v);
     },
     onError: (e) => {
-      toast.error(currentAuth.toastError);
+      toast.error(auth.toastError);
       console.error("Auth Error", e);
     },
   });
@@ -62,19 +49,19 @@ const AuthForm = ({ authType, schema, textInputs }: AuthFormProps) => {
             schema={schema}
             submitDisabled={authMutation.isLoading}
             textInputs={textInputs}
-            title={currentAuth.title}
+            title={auth.title}
           />
           {authMutation.isLoading && (
             <h2 className="mt-2 fs-2 text-center">Loading...</h2>
           )}
         </Col>
         <Col className="m-5 text-center">
-          <h3 className="p-5">{alterAuth.message}</h3>
+          <h3 className="p-5">{auth.other.message}</h3>
           <Link
             className="fs-2 bg-default py-3 px-5 rounded text-decoration-none button-border-focus"
-            to={alterAuth.url}
+            to={auth.other.url}
           >
-            {alterAuth.title}
+            {auth.other.title}
           </Link>
         </Col>
       </Row>
