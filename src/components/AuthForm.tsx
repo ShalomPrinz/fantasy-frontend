@@ -34,8 +34,8 @@ const AuthForm = ({ authProps: auth, schema, textInputs }: AuthFormProps) => {
     mutationFn: auth.mutationFn,
     onSuccess: async () => {
       toast.success(auth.toastSuccess);
-      navigate("/team");
       console.log("user", await getUserInfo());
+      navigate("/team");
     },
     onError: (e: FirebaseError) => {
       if (e.code === "auth/wrong-password")

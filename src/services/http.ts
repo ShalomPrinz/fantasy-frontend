@@ -1,8 +1,16 @@
 import axios from "axios";
 
 import { baseURL } from "../constants";
+import { loadIdToken } from "./firebase";
 
 axios.defaults.baseURL = baseURL;
+
+axios.interceptors.request.use((config) => {
+  let idToken = loadIdToken();
+  if (config.headers && process.env.REACT_APP_SESSION_HEADER && idToken)
+    config.headers[process.env.REACT_APP_SESSION_HEADER] = idToken;
+  return config;
+});
 
 axios.interceptors.response.use(undefined, (error) => {
   const expectedError =

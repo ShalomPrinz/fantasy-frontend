@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import {
+  browserLocalPersistence,
   getAuth,
-  inMemoryPersistence,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
@@ -16,6 +16,18 @@ const app = initializeApp({
 });
 
 const auth = getAuth(app);
-auth.setPersistence(inMemoryPersistence);
+auth.setPersistence(browserLocalPersistence);
 
-export { auth, signInWithEmailAndPassword };
+const loadIdToken = () => {
+  const auth = localStorage.getItem(
+    `firebase:authUser:${process.env.REACT_APP_FIREBASE_API_KEY}:[DEFAULT]`
+  );
+  return auth !== null
+    ? JSON.parse(auth).stsTokenManager.accessToken
+    : undefined;
+};
+
+const signIn = async (email: string, password: string) =>
+  await signInWithEmailAndPassword(auth, email, password);
+
+export { loadIdToken, signIn };
