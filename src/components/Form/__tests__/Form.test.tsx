@@ -59,7 +59,7 @@ describe("Form", () => {
       );
 
       let errorElement = screen.queryByText(errorMessage);
-      expect(errorElement).toBe(null);
+      expect(errorElement).not.toBeInTheDocument();
 
       const input = screen.getByRole("textbox");
       await typeElement(user, input, "a".repeat(minChars - 1));
@@ -71,7 +71,7 @@ describe("Form", () => {
       await typeElement(user, input, "a".repeat(minChars));
 
       errorElement = screen.queryByText(errorMessage);
-      expect(errorElement).toBe(null);
+      expect(errorElement).not.toBeInTheDocument();
     });
   });
 

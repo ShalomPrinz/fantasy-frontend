@@ -1,8 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
+import { FirebaseError } from "firebase/app";
 import { Col, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { SchemaLike } from "yup/lib/types";
+
+import { getUserInfo } from "../services/user";
 
 import { Form } from "./";
 import type { TextInput } from "./";
@@ -29,14 +32,16 @@ const AuthForm = ({ authProps: auth, schema, textInputs }: AuthFormProps) => {
   const navigate = useNavigate();
   const authMutation = useMutation({
     mutationFn: auth.mutationFn,
-    onSuccess: (v) => {
+    onSuccess: async () => {
       toast.success(auth.toastSuccess);
       navigate("/team");
-      console.log("Auth Success", v);
+      console.log("user", await getUserInfo());
     },
-    onError: (e) => {
-      toast.error(auth.toastError);
-      console.error("Auth Error", e);
+    onError: (e: FirebaseError) => {
+      if (e.code === "auth/wrong-password")
+        toast.error("Couldn't log in, password isn't correct");
+      else toast.error(auth.toastError);
+      console.log("Auth Error", e.code);
     },
   });
 
