@@ -5,8 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { SchemaLike } from "yup/lib/types";
 
-import { getUserInfo } from "../services/user";
-
 import { Form } from "./";
 import type { TextInput } from "./";
 
@@ -34,7 +32,6 @@ const AuthForm = ({ authProps: auth, schema, textInputs }: AuthFormProps) => {
     mutationFn: auth.mutationFn,
     onSuccess: async () => {
       toast.success(auth.toastSuccess);
-      console.log("user", await getUserInfo());
       navigate("/team");
     },
     onError: (e: FirebaseError) => {

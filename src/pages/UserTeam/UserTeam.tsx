@@ -16,8 +16,9 @@ import {
   TeamList,
 } from "../../components";
 import { FIELD_LAYOUT_MIN_WIDTH } from "../../constants";
+import { useUser } from "../../contexts/UserContext";
 import useWindowSize from "../../hooks/useWindowSize";
-import { getPlayers } from "../../services/user";
+import { getPlayers } from "../../services";
 import { Player, User } from "../../types";
 import "./UserTeam.css";
 
@@ -124,4 +125,20 @@ const UserTeam = ({ user }: UserTeamProps) => {
   );
 };
 
-export default UserTeam;
+const UserTeamWrapper = () => {
+  const { loading, user } = useUser();
+
+  const Message = (color: string, text: string) => (
+    <h1 className={`text-center my-5 p-5 bg-${color} text-white w-75 mx-auto`}>
+      {text}
+    </h1>
+  );
+
+  if (user === undefined) {
+    return loading
+      ? Message("info", "Loading...")
+      : Message("danger", "Please Log In to view your team");
+  } else return <UserTeam user={user} />;
+};
+
+export default UserTeamWrapper;

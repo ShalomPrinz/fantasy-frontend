@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { baseURL } from "../constants";
-import { loadIdToken } from "./firebase";
+import { loadIdToken } from "./storage";
 
 axios.defaults.baseURL = baseURL;
 

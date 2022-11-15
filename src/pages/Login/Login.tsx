@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 import { AuthForm, AuthProps } from "../../components";
-import { loginUser } from "../../services/user";
+import { loginUser } from "../../services";
 
 const schema = Yup.object({
   email: Yup.string().email("Invalid email address").required("Required"),

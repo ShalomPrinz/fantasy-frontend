@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 import { AuthForm, AuthProps } from "../../components";
-import { registerUser } from "../../services/user";
+import { registerUser } from "../../services";
 
 const schema = Yup.object({
   fullName: Yup.string()

@@ -7,8 +7,11 @@ import {
 } from "setupTests";
 
 import { FIELD_LAYOUT_MIN_WIDTH } from "../../../constants";
+import * as UserContext from "../../../contexts/UserContext";
 import { Player, Team, User } from "../../../types";
 import UserTeam from "../UserTeam";
+
+const mock = jest.spyOn(UserContext, "useUser");
 
 describe("UserTeam", () => {
   it("should render UserTeam component", async () => {
@@ -16,8 +19,12 @@ describe("UserTeam", () => {
       { id: 0, name: "Messi", role: "ATT", team: "Barcelona" },
     ];
     const user = new User("Some Name", new Team(players));
+    mock.mockImplementation(() => ({
+      loading: false,
+      user: user,
+    }));
 
-    const { asFragment } = renderQueryClient(<UserTeam user={user} />);
+    const { asFragment } = renderQueryClient(<UserTeam />);
     await sleep();
 
     expect(asFragment()).toMatchSnapshot();
@@ -28,9 +35,13 @@ describe("UserTeam", () => {
       { id: 0, name: "Messi", role: "ATT", team: "Barcelona" },
     ];
     const appUser = new User("Some Name", new Team(players));
+    mock.mockImplementation(() => ({
+      loading: false,
+      user: appUser,
+    }));
 
     setWindowSize(FIELD_LAYOUT_MIN_WIDTH - 1);
-    const { asFragment, user } = renderQueryClient(<UserTeam user={appUser} />);
+    const { asFragment, user } = renderQueryClient(<UserTeam />);
     await sleep();
     const firstRender = asFragment();
 
