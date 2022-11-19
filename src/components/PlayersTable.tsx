@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useQuery } from "@tanstack/react-query";
 
+import { useTeamUpdate } from "../contexts/UserTeamContext";
 import { getIcon } from "../res";
 import { getPlayers } from "../services";
 import { Player } from "../types";
@@ -14,6 +15,8 @@ function PlayersTable() {
 
   const { data } = useQuery(["players"], getPlayers);
   const players = data?.data?.players || [];
+
+  const addPlayer = useTeamUpdate();
 
   const columns = [
     {
@@ -35,11 +38,12 @@ function PlayersTable() {
     },
     {
       id: 2,
-      content: () => (
+      content: (player: Player) => (
         <div className="text-center">
           <FontAwesomeIcon
             className="fa-3x clickable text-primary"
             icon={getIcon("plus")}
+            onClick={() => addPlayer(player)}
           />
         </div>
       ),

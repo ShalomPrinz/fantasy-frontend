@@ -2,7 +2,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
-import { useUser } from "../contexts/UserContext";
+import { useTeamState } from "../contexts/UserTeamContext";
 import { Player, PlayerPairs } from "../types";
 
 import { ConditionalList, PlayerJersey } from "./";
@@ -32,12 +32,12 @@ const rowCallback = (rolesPair: PlayerPairs) => (
 );
 
 const TeamList = () => {
-  const { user } = useUser();
-  const team = user?.team?.byPairs() || [];
+  const team = useTeamState();
+  const teamList = team.byPairs();
 
   return (
     <Container>
-      <ConditionalList indexAsKey itemCallback={rowCallback} list={team} />
+      <ConditionalList indexAsKey itemCallback={rowCallback} list={teamList} />
     </Container>
   );
 };

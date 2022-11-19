@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-import { useUser } from "contexts/UserContext";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
@@ -10,6 +9,7 @@ import {
   FIELD_IMAGE_DEFAULT_WIDTH,
   FIELD_LAYOUT_MIN_WIDTH,
 } from "../constants";
+import { useTeamState } from "../contexts/UserTeamContext";
 import useWindowWidth from "../hooks/useWindowWidth";
 import field from "../res/field.png";
 import { Player } from "../types";
@@ -17,8 +17,8 @@ import { Player } from "../types";
 import { ConditionalList, Player as PlayerComponent, TeamList } from "./";
 
 const TeamLayout = () => {
-  const { user } = useUser();
-  const team = Object.values(user?.team?.players || {});
+  const team = useTeamState();
+  const teamList = Object.values(team.players);
 
   const [width, setWidth] = useState(FIELD_IMAGE_DEFAULT_WIDTH);
 
@@ -50,7 +50,11 @@ const TeamLayout = () => {
         rounded
       />
       <Container className="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden">
-        <ConditionalList itemCallback={rowCallback} indexAsKey list={team} />
+        <ConditionalList
+          itemCallback={rowCallback}
+          indexAsKey
+          list={teamList}
+        />
       </Container>
     </div>
   );

@@ -8,6 +8,7 @@ import { setupServer } from "msw/node";
 
 import { handlers } from "../test";
 import * as UserContext from "./contexts/UserContext";
+import * as UserTeamContext from "./contexts/UserTeamContext";
 import { Team, User } from "./types";
 
 jest.setTimeout(10000);
@@ -19,18 +20,19 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-const mock = jest.spyOn(UserContext, "useUser");
+const userContext = jest.spyOn(UserContext, "useUser");
+const teamContext = jest.spyOn(UserTeamContext, "useTeamState");
 
-export const mockUser = (user: User) =>
-  mock.mockImplementation(() => ({
+export const mockUser = (user: User) => {
+  userContext.mockImplementation(() => ({
     loading: false,
-    user: user,
+    user,
   }));
 
-export const mockUserWithTeam = (team: Team) =>
-  mock.mockImplementation(() => ({
-    loading: false,
-    user: new User("test", team),
-  }));
+  teamContext.mockImplementation(() => user.team);
+};
+
+export const mockTeam = (team: Team) =>
+  teamContext.mockImplementation(() => team);
 
 export * from "../test";

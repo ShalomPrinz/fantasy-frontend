@@ -17,10 +17,28 @@ class Team {
 
   constructor(players: Player[]) {
     this.count = 0;
-    players.forEach((p) => {
-      this.players[p.role]?.push(p);
+    players?.forEach((p) => this.addPlayer(p));
+  }
+
+  addPlayer(p: Player) {
+    if (this.players[p.role]) {
+      this.players[p.role]!.push(p);
       this.count += 1;
-    });
+    }
+  }
+
+  contains({ id, role }: Player) {
+    if (this.players[role]) {
+      return this.players[role]!.findIndex((p) => p.id === id) !== -1;
+    } else return false;
+  }
+
+  clone() {
+    const cloned = new Team([]);
+    Object.values(this.players).forEach((arr) =>
+      arr.forEach((p) => cloned.addPlayer(p))
+    );
+    return cloned;
   }
 
   byPairs(): PlayerPairs {

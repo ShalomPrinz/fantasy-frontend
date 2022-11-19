@@ -14,11 +14,14 @@ interface UserContextValue {
   user: User | undefined;
 }
 
-const UserContext = createContext<UserContextValue>({
-  loading: false,
-  user: undefined,
-});
-const useUser = () => useContext(UserContext);
+const UserContext = createContext<UserContextValue | undefined>(undefined);
+function useUser() {
+  const context = useContext(UserContext);
+  if (context === undefined) {
+    throw new Error("useUser must be used within a UserProvider");
+  }
+  return context;
+}
 
 interface UserProviderProps {
   children: ReactNode;
