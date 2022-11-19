@@ -3,18 +3,34 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom";
+import axios from "axios";
 import { setupServer } from "msw/node";
 
-import { handlers, setProperty } from "../test";
-import * as constants from "./constants";
+import { handlers } from "../test";
+import * as UserContext from "./contexts/UserContext";
+import { Team, User } from "./types";
 
 jest.setTimeout(10000);
 
-setProperty(constants, "baseURL", "");
+axios.defaults.baseURL = "";
 
 const server = setupServer(...handlers);
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
+
+const mock = jest.spyOn(UserContext, "useUser");
+
+export const mockUser = (user: User) =>
+  mock.mockImplementation(() => ({
+    loading: false,
+    user: user,
+  }));
+
+export const mockUserWithTeam = (team: Team) =>
+  mock.mockImplementation(() => ({
+    loading: false,
+    user: new User("test", team),
+  }));
 
 export * from "../test";

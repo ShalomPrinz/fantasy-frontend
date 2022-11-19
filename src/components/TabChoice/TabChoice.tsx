@@ -1,14 +1,19 @@
 import { useState } from "react";
 
+import { toast } from "react-toastify";
+
 import { ConditionalList } from "../";
 
 import "./TabChoice.css";
 
 interface Tab {
   id: number;
+  disabled?: {
+    condition: () => boolean;
+    toast: string;
+  };
   label: string;
   Component: JSX.Element;
-  onClick?: Function;
 }
 
 interface TabChoiceProps {
@@ -19,10 +24,10 @@ const TabChoice = ({ tabs }: TabChoiceProps) => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const tabCallback = (tab: Tab) => {
-    const { label, onClick } = tab;
+    const { disabled, label } = tab;
     const handleClick = () => {
-      setActiveTab(tab);
-      if (onClick) onClick();
+      if (disabled?.condition()) toast.warn(disabled.toast);
+      else setActiveTab(tab);
     };
 
     return (

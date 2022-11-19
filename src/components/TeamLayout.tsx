@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
+import { useUser } from "contexts/UserContext";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
@@ -11,16 +12,14 @@ import {
 } from "../constants";
 import useWindowSize from "../hooks/useWindowSize";
 import field from "../res/field.png";
-import { Player, Team } from "../types";
-import ConditionalList from "./common/ConditionalList";
-import PlayerComponent from "./common/Player";
-import TeamList from "./TeamList";
+import { Player } from "../types";
 
-interface TeamLayoutProps {
-  team: Team;
-}
+import { ConditionalList, Player as PlayerComponent, TeamList } from "./";
 
-const TeamLayout = ({ team }: TeamLayoutProps) => {
+const TeamLayout = () => {
+  const { user } = useUser();
+  const team = Object.values(user?.team?.players || {});
+
   const [width, setWidth] = useState(FIELD_IMAGE_DEFAULT_WIDTH);
 
   const fieldRef: React.Ref<HTMLImageElement> | null = useRef(null);
@@ -28,14 +27,13 @@ const TeamLayout = ({ team }: TeamLayoutProps) => {
     setWidth((w) => fieldRef?.current?.offsetWidth || w);
   }, [fieldRef?.current?.offsetWidth]);
 
-  const rowMargin = `my-${width > 600 ? 3 : 1}`;
-
   const columnCallback = (player: Player) => (
     <Col className="mx-auto">
       <PlayerComponent {...player} width={width / 10} widthUnits="px" />
     </Col>
   );
 
+  const rowMargin = `my-${width > 600 ? 3 : 1}`;
   const rowCallback = (role: Player[]) => (
     <Row className={rowMargin}>
       <ConditionalList itemCallback={columnCallback} list={role} />
@@ -52,21 +50,17 @@ const TeamLayout = ({ team }: TeamLayoutProps) => {
         rounded
       />
       <Container className="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden">
-        <ConditionalList
-          itemCallback={rowCallback}
-          indexAsKey
-          list={Object.values(team.players)}
-        />
+        <ConditionalList itemCallback={rowCallback} indexAsKey list={team} />
       </Container>
     </div>
   );
 };
 
-const TeamLayoutWrapper = ({ team }: TeamLayoutProps) => {
+const TeamLayoutWrapper = () => {
   const { width } = useWindowSize();
-  if (width < FIELD_LAYOUT_MIN_WIDTH) return <TeamList team={team} />;
+  if (width < FIELD_LAYOUT_MIN_WIDTH) return <TeamList />;
 
-  return <TeamLayout team={team} />;
+  return <TeamLayout />;
 };
 
 export default TeamLayoutWrapper;

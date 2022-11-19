@@ -4,9 +4,12 @@ import TabChoice from "../TabChoice";
 
 interface Tab {
   id: number;
+  disabled?: {
+    condition: () => boolean;
+    toast: string;
+  };
   label: string;
   Component: JSX.Element;
-  onClick?: Function;
 }
 
 describe("TabChoice", () => {
@@ -42,17 +45,31 @@ describe("TabChoice", () => {
       expect(asFragment()).toMatchSnapshot();
     });
 
-    it("should call given onClick prop", async () => {
-      const onClick = jest.fn();
+    it("should not show clicked tab when its disabled", async () => {
       const tabs = [
-        { id: 0, label: "One", Component: <h1>Hello</h1>, onClick: onClick },
+        {
+          id: 0,
+          label: "One",
+          Component: <h1>Hello</h1>,
+        },
+        {
+          id: 1,
+          disabled: {
+            condition: () => true,
+            toast: "Toast",
+          },
+          label: "Two",
+          Component: <h1>Hello</h1>,
+        },
       ];
 
-      const { user } = render(<TabChoice tabs={tabs} />);
-      const element = screen.getByText("One");
-      await clickElement(user, element);
+      const { user, asFragment } = render(<TabChoice tabs={tabs} />);
 
-      expect(onClick).toBeCalledTimes(1);
+      const firstRender = asFragment();
+
+      const element = screen.getByText("Two");
+      await clickElement(user, element);
+      expect(asFragment()).toEqual(firstRender);
     });
   });
 });

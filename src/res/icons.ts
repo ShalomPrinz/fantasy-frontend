@@ -1,5 +1,6 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
+  faCirclePlus,
   faImage,
   faRankingStar,
   faTrophy,
@@ -8,6 +9,7 @@ import { get } from "lodash";
 
 const icons = {
   image: faImage,
+  plus: faCirclePlus,
   rankingStar: faRankingStar,
   trophy: faTrophy,
 };

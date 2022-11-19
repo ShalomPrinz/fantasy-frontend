@@ -1,4 +1,9 @@
-import { render, setProperty, setWindowSize } from "setupTests";
+import {
+  mockUserWithTeam,
+  render,
+  setProperty,
+  setWindowSize,
+} from "setupTests";
 
 import { TeamLayout } from "../";
 import { FIELD_LAYOUT_MIN_WIDTH } from "../../constants";
@@ -11,9 +16,10 @@ describe("TeamLayout", () => {
       { id: 0, name: "Ter Stegen", role: "GK", team: "Barcelona" },
     ];
     const team = new Team(players);
+    mockUserWithTeam(team);
 
     setWindowSize(FIELD_LAYOUT_MIN_WIDTH - 1);
-    const { asFragment } = render(<TeamLayout team={team} />);
+    const { asFragment } = render(<TeamLayout />);
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -23,9 +29,10 @@ describe("TeamLayout", () => {
       { id: 0, name: "Ter Stegen", role: "GK", team: "Barcelona" },
     ];
     const team = new Team(players);
+    mockUserWithTeam(team);
 
     setWindowSize(FIELD_LAYOUT_MIN_WIDTH);
-    const { asFragment } = render(<TeamLayout team={team} />);
+    const { asFragment } = render(<TeamLayout />);
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -35,10 +42,11 @@ describe("TeamLayout", () => {
       { id: 0, name: "Ter Stegen", role: "GK", team: "Barcelona" },
     ];
     const team = new Team(players);
+    mockUserWithTeam(team);
 
     setWindowSize(FIELD_LAYOUT_MIN_WIDTH);
     setProperty(constants, "FIELD_IMAGE_DEFAULT_WIDTH", 601);
-    const { asFragment } = render(<TeamLayout team={team} />);
+    const { asFragment } = render(<TeamLayout />);
 
     expect(asFragment()).toMatchSnapshot();
   });

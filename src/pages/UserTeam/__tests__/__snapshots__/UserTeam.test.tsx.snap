@@ -23,7 +23,7 @@ exports[`UserTeam should render UserTeam component 1`] = `
       class="row"
     >
       <div
-        class="pe-5 col-sm-8"
+        class="mx-auto col-sm-8"
       >
         <div
           class="bg-white text-center shadow-below rounded my-3"
