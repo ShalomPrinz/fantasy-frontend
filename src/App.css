@@ -87,3 +87,7 @@ tbody > tr:last-child > td {
 .clickable {
   cursor: pointer;
 }
+
+.text-light-success {
+  color: #16b065;
+}

@@ -1,9 +1,12 @@
 import { createContext, ReactNode, useContext, useReducer } from "react";
 
+import { addUserPlayer, removeUserPlayer } from "../services/user";
 import { Player, Team } from "../types";
 import { useUser } from "./UserContext";
 
-type Action = { type: "addPlayer"; payload: { player: Player } };
+type Action =
+  | { type: "addPlayer"; payload: { player: Player } }
+  | { type: "removePlayer"; payload: { player: Player } };
 type Dispatch = (action: Action) => void;
 
 const TeamContextState = createContext<Team | undefined>(undefined);
@@ -19,8 +22,14 @@ function useTeamUpdate() {
   const dispatch = useContext(TeamContextUpdate);
   if (typeof dispatch === "undefined")
     throw new Error("useTeamUpdate must be used within a TeamProvider");
-  return (player: Player) =>
-    dispatch({ type: "addPlayer", payload: { player } });
+
+  const actions = {
+    addPlayer: (player: Player) =>
+      dispatch({ type: "addPlayer", payload: { player } }),
+    removePlayer: (player: Player) =>
+      dispatch({ type: "removePlayer", payload: { player } }),
+  };
+  return actions;
 }
 
 interface TeamProviderProps {
@@ -44,8 +53,15 @@ function teamReducer(team: Team, action: Action) {
   switch (action.type) {
     case "addPlayer": {
       const { player } = action.payload;
-      if (!team.contains(player)) {
-        team.addPlayer(player);
+      if (team.addPlayer(player)) {
+        addUserPlayer(player.id);
+      }
+      return team.clone();
+    }
+    case "removePlayer": {
+      const { player } = action.payload;
+      if (team.removePlayer(player)) {
+        removeUserPlayer(player.id);
       }
       return team.clone();
     }

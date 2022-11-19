@@ -1,4 +1,10 @@
-import { playersUrl, registerUrl, userInfoUrl } from "../constants";
+import {
+  addPlayerUrl,
+  playersUrl,
+  registerUrl,
+  removePlayerUrl,
+  userInfoUrl,
+} from "../constants";
 import type { LoginUser, RegisterUser } from "../types/User";
 import { signIn } from "./firebase";
 import { get, post } from "./http";
@@ -21,4 +27,12 @@ export async function registerUser(userInfo: RegisterUser) {
     email: userInfo.email,
     password: userInfo.password,
   });
+}
+
+export function addUserPlayer(id: number) {
+  post(addPlayerUrl, { id });
+}
+
+export function removeUserPlayer(id: number) {
+  post(removePlayerUrl, { id });
 }

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useQuery } from "@tanstack/react-query";
 
-import { useTeamUpdate } from "../contexts/UserTeamContext";
+import { useTeamState, useTeamUpdate } from "../contexts/UserTeamContext";
 import { getIcon } from "../res";
 import { getPlayers } from "../services";
 import { Player } from "../types";
@@ -16,7 +16,8 @@ function PlayersTable() {
   const { data } = useQuery(["players"], getPlayers);
   const players = data?.data?.players || [];
 
-  const addPlayer = useTeamUpdate();
+  const { addPlayer, removePlayer } = useTeamUpdate();
+  const team = useTeamState();
 
   const columns = [
     {
@@ -38,15 +39,22 @@ function PlayersTable() {
     },
     {
       id: 2,
-      content: (player: Player) => (
-        <div className="text-center">
-          <FontAwesomeIcon
-            className="fa-3x clickable text-primary"
-            icon={getIcon("plus")}
-            onClick={() => addPlayer(player)}
-          />
-        </div>
-      ),
+      content: (p: Player) => {
+        const inTeam = team.contains(p);
+        const icon = inTeam ? "check" : "plus";
+        const iconStyle = inTeam ? "light-success" : "primary";
+        const onClick = () => (inTeam ? removePlayer(p) : addPlayer(p));
+
+        return (
+          <div className="text-center">
+            <FontAwesomeIcon
+              className={`fa-3x clickable text-${iconStyle}`}
+              icon={getIcon(icon)}
+              onClick={onClick}
+            />
+          </div>
+        );
+      },
     },
   ];
 

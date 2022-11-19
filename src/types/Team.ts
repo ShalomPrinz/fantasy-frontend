@@ -21,10 +21,20 @@ class Team {
   }
 
   addPlayer(p: Player) {
-    if (this.players[p.role]) {
+    if (this.players[p.role] && !this.contains(p)) {
       this.players[p.role]!.push(p);
       this.count += 1;
-    }
+      return true;
+    } else return false;
+  }
+
+  removePlayer(p: Player) {
+    if (this.players[p.role] && this.contains(p)) {
+      const index = this.players[p.role]!.findIndex((pl) => pl.id === p.id);
+      this.players[p.role]!.splice(index, 1);
+      this.count -= 1;
+      return true;
+    } else return false;
   }
 
   contains({ id, role }: Player) {

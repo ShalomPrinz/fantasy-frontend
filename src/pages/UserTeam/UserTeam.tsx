@@ -4,14 +4,16 @@ import Row from "react-bootstrap/Row";
 import { PlayersTable, TeamTabChoice } from "../../components";
 import { FULL_SCREEN_MIN_WIDTH } from "../../constants";
 import { useUser } from "../../contexts/UserContext";
-import TeamProvider from "../../contexts/UserTeamContext";
+import TeamProvider, { useTeamState } from "../../contexts/UserTeamContext";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import "./UserTeam.css";
 
-const UserTeam = () => {
-  const { user } = useUser();
-  const name = user!.name;
-  const playersCount = user!.team.count;
+interface UserTeamProps {
+  name: string;
+}
+
+const UserTeam = ({ name }: UserTeamProps) => {
+  const { count: playersCount } = useTeamState();
 
   const width = useWindowWidth();
   const contentStyle = width < FULL_SCREEN_MIN_WIDTH ? "mx-auto" : "pe-5";
@@ -70,7 +72,7 @@ const UserTeamWrapper = () => {
   } else
     return (
       <TeamProvider>
-        <UserTeam />
+        <UserTeam name={user.name} />
       </TeamProvider>
     );
 };

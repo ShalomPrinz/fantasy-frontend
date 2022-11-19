@@ -7,3 +7,5 @@ export const baseURL = "http://localhost:8080";
 export const playersUrl = "/players";
 export const registerUrl = "/register";
 export const userInfoUrl = "/user";
+export const addPlayerUrl = "/user/addplayer";
+export const removePlayerUrl = "/user/removeplayer";
