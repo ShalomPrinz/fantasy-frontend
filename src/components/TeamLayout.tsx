@@ -10,7 +10,7 @@ import {
   FIELD_IMAGE_DEFAULT_WIDTH,
   FIELD_LAYOUT_MIN_WIDTH,
 } from "../constants";
-import useWindowSize from "../hooks/useWindowSize";
+import useWindowWidth from "../hooks/useWindowWidth";
 import field from "../res/field.png";
 import { Player } from "../types";
 
@@ -57,7 +57,7 @@ const TeamLayout = () => {
 };
 
 const TeamLayoutWrapper = () => {
-  const { width } = useWindowSize();
+  const width = useWindowWidth();
   if (width < FIELD_LAYOUT_MIN_WIDTH) return <TeamList />;
 
   return <TeamLayout />;

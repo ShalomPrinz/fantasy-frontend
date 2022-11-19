@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import { PlayersTable, TeamTabChoice } from "../../components";
 import { FULL_SCREEN_MIN_WIDTH } from "../../constants";
 import { useUser } from "../../contexts/UserContext";
-import useWindowSize from "../../hooks/useWindowSize";
+import useWindowWidth from "../../hooks/useWindowWidth";
 import "./UserTeam.css";
 
 const UserTeam = () => {
@@ -12,7 +12,7 @@ const UserTeam = () => {
   const name = user!.name;
   const playersCount = user!.team.count;
 
-  const { width } = useWindowSize();
+  const width = useWindowWidth();
   const contentStyle = width < FULL_SCREEN_MIN_WIDTH ? "mx-auto" : "pe-5";
 
   const selectedPlayersBackground = playersCount === 11 ? "success" : "danger";

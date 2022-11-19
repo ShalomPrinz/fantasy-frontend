@@ -1,10 +1,10 @@
 import { FIELD_LAYOUT_MIN_WIDTH } from "../constants";
-import useWindowSize from "../hooks/useWindowSize";
+import useWindowWidth from "../hooks/useWindowWidth";
 
 import { TabChoice, TeamLayout, TeamList } from "./";
 
 function TeamTabChoice() {
-  const { width } = useWindowSize();
+  const width = useWindowWidth();
   const isSmallLayout = () => width < FIELD_LAYOUT_MIN_WIDTH;
 
   const tabs = [
