@@ -49,8 +49,8 @@ const AppForm = ({
         <ConditionalList itemCallback={inputCallback} list={textInputs} />
         <Row>
           <button
-            className={`fs-2 bg-default py-2 px-auto mt-3 rounded button-border-focus ${
-              submitDisabled ? "text-muted" : ""
+            className={`fs-2 bg-default py-2 px-auto mt-3 rounded button-border-focus${
+              submitDisabled ? " text-muted" : ""
             }`}
             disabled={submitDisabled}
             type="submit"

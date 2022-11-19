@@ -24,7 +24,9 @@ const TabChoice = ({ tabs }: TabChoiceProps) => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const tabCallback = (tab: Tab) => {
-    const { disabled, label } = tab;
+    const { id, disabled, label } = tab;
+
+    const fontWeight = id === activeTab.id ? " fw-bold" : " fw-normal";
     const handleClick = () => {
       if (disabled?.condition()) toast.warn(disabled.toast);
       else setActiveTab(tab);
@@ -32,7 +34,7 @@ const TabChoice = ({ tabs }: TabChoiceProps) => {
 
     return (
       <button
-        className="fs-2 bg-default py-2 px-5 tab-choice"
+        className={`fs-2 bg-default py-2 px-5 tab-choice${fontWeight}`}
         onClick={handleClick}
         type="button"
       >

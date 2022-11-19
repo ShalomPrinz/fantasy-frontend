@@ -17,7 +17,7 @@ exports[`Form should render Form component 1`] = `
       class="row"
     >
       <button
-        class="fs-2 bg-default py-2 px-auto mt-3 rounded button-border-focus "
+        class="fs-2 bg-default py-2 px-auto mt-3 rounded button-border-focus"
         type="submit"
       >
         Submit
@@ -60,7 +60,7 @@ exports[`Form should render Form component with text input 1`] = `
       class="row"
     >
       <button
-        class="fs-2 bg-default py-2 px-auto mt-3 rounded button-border-focus "
+        class="fs-2 bg-default py-2 px-auto mt-3 rounded button-border-focus"
         type="submit"
       >
         Submit

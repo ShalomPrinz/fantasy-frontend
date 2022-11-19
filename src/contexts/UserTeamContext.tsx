@@ -9,7 +9,7 @@ type Dispatch = (action: Action) => void;
 const TeamContextState = createContext<Team | undefined>(undefined);
 function useTeamState() {
   const team = useContext(TeamContextState);
-  if (team === undefined)
+  if (typeof team === "undefined")
     throw new Error("useTeamState must be used within a TeamProvider");
   return team;
 }
@@ -17,7 +17,7 @@ function useTeamState() {
 const TeamContextUpdate = createContext<Dispatch | undefined>(undefined);
 function useTeamUpdate() {
   const dispatch = useContext(TeamContextUpdate);
-  if (dispatch === undefined)
+  if (typeof dispatch === "undefined")
     throw new Error("useTeamUpdate must be used within a TeamProvider");
   return (player: Player) =>
     dispatch({ type: "addPlayer", payload: { player } });

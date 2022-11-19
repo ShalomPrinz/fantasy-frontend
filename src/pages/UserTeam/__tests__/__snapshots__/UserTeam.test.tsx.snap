@@ -58,13 +58,13 @@ exports[`UserTeam should render UserTeam component 1`] = `
           class="centered-flex py-4"
         >
           <button
-            class="fs-2 bg-default py-2 px-5 tab-choice"
+            class="fs-2 bg-default py-2 px-5 tab-choice fw-bold"
             type="button"
           >
             Field
           </button>
           <button
-            class="fs-2 bg-default py-2 px-5 tab-choice"
+            class="fs-2 bg-default py-2 px-5 tab-choice fw-normal"
             type="button"
           >
             List

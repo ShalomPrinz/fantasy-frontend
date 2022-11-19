@@ -63,7 +63,7 @@ const UserTeamWrapper = () => {
     </h1>
   );
 
-  if (user === undefined) {
+  if (typeof user === "undefined") {
     return loading
       ? Message("info", "Loading...")
       : Message("danger", "Please Log In to view your team");

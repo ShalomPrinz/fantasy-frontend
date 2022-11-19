@@ -6,7 +6,7 @@ exports[`TabChoice should render TabChoice component 1`] = `
     class="centered-flex py-4"
   >
     <button
-      class="fs-2 bg-default py-2 px-5 tab-choice"
+      class="fs-2 bg-default py-2 px-5 tab-choice fw-bold"
       type="button"
     >
       One
@@ -32,13 +32,13 @@ exports[`TabChoice when tab is clicked should show the clicked tab component 1`]
     class="centered-flex py-4"
   >
     <button
-      class="fs-2 bg-default py-2 px-5 tab-choice"
+      class="fs-2 bg-default py-2 px-5 tab-choice fw-bold"
       type="button"
     >
       One
     </button>
     <button
-      class="fs-2 bg-default py-2 px-5 tab-choice"
+      class="fs-2 bg-default py-2 px-5 tab-choice fw-normal"
       type="button"
     >
       Two
@@ -56,13 +56,13 @@ exports[`TabChoice when tab is clicked should show the clicked tab component 2`]
     class="centered-flex py-4"
   >
     <button
-      class="fs-2 bg-default py-2 px-5 tab-choice"
+      class="fs-2 bg-default py-2 px-5 tab-choice fw-normal"
       type="button"
     >
       One
     </button>
     <button
-      class="fs-2 bg-default py-2 px-5 tab-choice"
+      class="fs-2 bg-default py-2 px-5 tab-choice fw-bold"
       type="button"
     >
       Two
