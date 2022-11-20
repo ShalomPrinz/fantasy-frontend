@@ -1,8 +1,7 @@
 import { createContext, ReactNode, useContext, useReducer } from "react";
 
-import { addUserPlayer, removeUserPlayer } from "../services/user";
+import { addUserPlayer, removeUserPlayer } from "../services";
 import { Player, Team } from "../types";
-import { useUser } from "./UserContext";
 
 type Action =
   | { type: "addPlayer"; payload: { player: Player } }
@@ -10,6 +9,7 @@ type Action =
 type Dispatch = (action: Action) => void;
 
 const TeamContextState = createContext<Team | undefined>(undefined);
+
 function useTeamState() {
   const team = useContext(TeamContextState);
   if (typeof team === "undefined")
@@ -18,6 +18,7 @@ function useTeamState() {
 }
 
 const TeamContextUpdate = createContext<Dispatch | undefined>(undefined);
+
 function useTeamUpdate() {
   const dispatch = useContext(TeamContextUpdate);
   if (typeof dispatch === "undefined")
@@ -34,11 +35,11 @@ function useTeamUpdate() {
 
 interface TeamProviderProps {
   children: ReactNode;
+  initialTeam: Team;
 }
 
-function TeamProvider({ children }: TeamProviderProps) {
-  const { user } = useUser();
-  const [team, dispatch] = useReducer(teamReducer, user!.team);
+function TeamProvider({ children, initialTeam }: TeamProviderProps) {
+  const [team, dispatch] = useReducer(teamReducer, initialTeam);
 
   return (
     <TeamContextState.Provider value={team}>
@@ -53,14 +54,14 @@ function teamReducer(team: Team, action: Action) {
   switch (action.type) {
     case "addPlayer": {
       const { player } = action.payload;
-      if (team.addPlayer(player)) {
+      if (team.addPlayer(player) && team.isUserTeam) {
         addUserPlayer(player.id);
       }
       return team.clone();
     }
     case "removePlayer": {
       const { player } = action.payload;
-      if (team.removePlayer(player)) {
+      if (team.removePlayer(player) && team.isUserTeam) {
         removeUserPlayer(player.id);
       }
       return team.clone();

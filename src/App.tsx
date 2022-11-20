@@ -3,7 +3,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { NavBar } from "./components";
-import UserProvider from "./contexts/UserContext";
+import { UserProvider } from "./contexts";
 import { Home, Login, Register, UserTeam } from "./pages";
 
 import "./App.css";

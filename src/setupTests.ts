@@ -7,8 +7,8 @@ import axios from "axios";
 import { setupServer } from "msw/node";
 
 import { handlers } from "../test";
+import * as TeamContext from "./contexts/TeamContext";
 import * as UserContext from "./contexts/UserContext";
-import * as UserTeamContext from "./contexts/UserTeamContext";
 import { Team, User } from "./types";
 
 jest.setTimeout(10000);
@@ -21,15 +21,14 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 const userContext = jest.spyOn(UserContext, "useUser");
-const teamContext = jest.spyOn(UserTeamContext, "useTeamState");
+const teamContext = jest.spyOn(TeamContext, "useTeamState");
 
 export const mockUser = (user: User) => {
   userContext.mockImplementation(() => ({
     loading: false,
     user,
   }));
-
-  teamContext.mockImplementation(() => user.team);
+  mockTeam(user.team);
 };
 
 export const mockTeam = (team: Team) =>

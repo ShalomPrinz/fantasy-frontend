@@ -14,9 +14,11 @@ class Team {
     ATT: [],
   };
   count: number;
+  isUserTeam: boolean;
 
-  constructor(players: Player[]) {
+  constructor(players: Player[], isUserTeam?: boolean) {
     this.count = 0;
+    this.isUserTeam = Boolean(isUserTeam);
     players?.forEach((p) => this.addPlayer(p));
   }
 
@@ -44,7 +46,7 @@ class Team {
   }
 
   clone() {
-    const cloned = new Team([]);
+    const cloned = new Team([], this.isUserTeam);
     Object.values(this.players).forEach((arr) =>
       arr.forEach((p) => cloned.addPlayer(p))
     );

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useQuery } from "@tanstack/react-query";
 
-import { useTeamState, useTeamUpdate } from "../contexts/UserTeamContext";
+import { useTeamState, useTeamUpdate } from "../contexts";
 import { getIcon } from "../res";
 import { getPlayers } from "../services";
 import { Player } from "../types";

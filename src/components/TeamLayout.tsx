@@ -9,7 +9,7 @@ import {
   FIELD_IMAGE_DEFAULT_WIDTH,
   FIELD_LAYOUT_MIN_WIDTH,
 } from "../constants";
-import { useTeamState } from "../contexts/UserTeamContext";
+import { useTeamState } from "../contexts";
 import useWindowWidth from "../hooks/useWindowWidth";
 import field from "../res/field.png";
 import { Player } from "../types";

@@ -2,7 +2,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
-import { useTeamState } from "../contexts/UserTeamContext";
+import { useTeamState } from "../contexts";
 import { Player, PlayerPairs } from "../types";
 
 import { ConditionalList, PlayerJersey } from "./";

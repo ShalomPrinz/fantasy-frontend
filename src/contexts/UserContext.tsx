@@ -37,7 +37,8 @@ function UserProvider({ children }: UserProviderProps) {
       const res = await getUserInfo();
       if (res?.data?.user) {
         const { nickname, team } = res.data.user;
-        setCurrentUser(new User(nickname, new Team(team)));
+        const userTeam = new Team(team, true);
+        setCurrentUser(new User(nickname, userTeam));
       }
     }
     setLoading(false);

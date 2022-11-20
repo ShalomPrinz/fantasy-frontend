@@ -3,8 +3,7 @@ import Row from "react-bootstrap/Row";
 
 import { PlayersTable, TeamTabChoice } from "../../components";
 import { FULL_SCREEN_MIN_WIDTH } from "../../constants";
-import { useUser } from "../../contexts/UserContext";
-import TeamProvider, { useTeamState } from "../../contexts/UserTeamContext";
+import { TeamProvider, useTeamState, useUser } from "../../contexts";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import "./UserTeam.css";
 
@@ -71,7 +70,7 @@ const UserTeamWrapper = () => {
       : Message("danger", "Please Log In to view your team");
   } else
     return (
-      <TeamProvider>
+      <TeamProvider initialTeam={user.team}>
         <UserTeam name={user.name} />
       </TeamProvider>
     );
