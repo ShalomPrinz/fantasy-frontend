@@ -11,6 +11,7 @@ import TeamTabChoice from "./TeamTabChoice";
 
 export type { TextInput } from "./Form/FormTextInput";
 export type { AuthProps } from "./AuthForm";
+export type { CardGroupItem } from "./CardGroup/CardGroup";
 
 export {
   AuthForm,

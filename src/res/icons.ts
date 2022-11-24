@@ -16,5 +16,7 @@ const icons = {
   trophy: faTrophy,
 };
 
-export const getIcon = (icon: string): IconDefinition =>
+export type Icon = keyof typeof icons;
+
+export const getIcon = (icon: Icon): IconDefinition =>
   get(icons, icon, faImage);

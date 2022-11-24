@@ -1,14 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "react-bootstrap/Card";
-import { getIcon } from "res";
 
 import { ConditionalList } from "../";
+import { getIcon } from "../../res";
+import type { Icon } from "../../res";
 
 import "./CardGroup.css";
 
-interface CardGroupItem {
+export interface CardGroupItem {
   id: number;
-  icon: string;
+  icon: Icon;
   title: string;
   text: string;
 }

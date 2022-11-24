@@ -1,9 +1,10 @@
 import { Image } from "react-bootstrap";
 
 import { CardGroup } from "../../components";
+import type { CardGroupItem } from "../../components";
 import { wide_grass } from "../../res";
 
-const cards = [
+const cards: CardGroupItem[] = [
   {
     id: 0,
     title: "Create your league",

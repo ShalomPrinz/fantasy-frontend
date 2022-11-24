@@ -1,8 +1,9 @@
+import type { Jersey } from "../../res";
 import PlayerJersey from "./PlayerJersey";
 
 interface PlayerProps {
   name: string;
-  team: string;
+  team: Jersey;
   width: number;
   widthUnits: string;
 }

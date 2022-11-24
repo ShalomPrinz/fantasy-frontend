@@ -1,16 +1,15 @@
 import { Image } from "react-bootstrap";
 
-interface PlayerJerseyProps {
-  team: string;
+import { getJersey } from "../../res";
+import type { Jersey } from "../../res";
+
+export interface PlayerJerseyProps {
+  team: Jersey;
   width: string;
 }
 
 const PlayerJersey = ({ team, width }: PlayerJerseyProps) => (
-  <Image
-    style={{ width: width }}
-    src={require(`../../res/jersey/${team}.png`)}
-    title={team}
-  />
+  <Image style={{ width: width }} src={getJersey(team)} title={team} />
 );
 
 export default PlayerJersey;
