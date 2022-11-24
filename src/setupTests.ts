@@ -20,10 +20,8 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-const userContext = jest.spyOn(UserContext, "useUser");
-const teamContext = jest.spyOn(TeamContext, "useTeamState");
-
 export const mockUser = (user: User) => {
+  const userContext = jest.spyOn(UserContext, "useUser");
   userContext.mockImplementation(() => ({
     loading: false,
     user,
@@ -31,7 +29,9 @@ export const mockUser = (user: User) => {
   mockTeam(user.team);
 };
 
-export const mockTeam = (team: Team) =>
+export const mockTeam = (team: Team) => {
+  const teamContext = jest.spyOn(TeamContext, "useTeamState");
   teamContext.mockImplementation(() => team);
+};
 
 export * from "../test";

@@ -1,4 +1,8 @@
-const setProperty = (obj: Object, prop: string, value: number | string) =>
+const setProperty = (
+  obj: Object,
+  prop: string,
+  value: number | string | Function
+) =>
   Object.defineProperty(obj, prop, {
     writable: true,
     configurable: true,
