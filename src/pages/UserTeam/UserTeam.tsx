@@ -1,7 +1,7 @@
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-import { PlayersTable, TeamTabChoice } from "../../components";
+import { Message, PlayersTable, TeamTabChoice } from "../../components";
 import { FULL_SCREEN_MIN_WIDTH } from "../../constants";
 import { TeamProvider, useTeamState, useUser } from "../../contexts";
 import useWindowWidth from "../../hooks/useWindowWidth";
@@ -58,22 +58,19 @@ const UserTeam = ({ name }: UserTeamProps) => {
 const UserTeamWrapper = () => {
   const { loading, user } = useUser();
 
-  const Message = (color: string, text: string) => (
-    <h1 className={`text-center my-5 p-5 bg-${color} text-white w-75 mx-auto`}>
-      {text}
-    </h1>
-  );
-
   if (typeof user === "undefined") {
-    return loading
-      ? Message("info", "Loading...")
-      : Message("danger", "Please Log In to view your team");
-  } else
+    return loading ? (
+      <Message color="info" text="Loading..." />
+    ) : (
+      <Message color="danger" text="Please Log In to view your team" />
+    );
+  } else {
     return (
       <TeamProvider initialTeam={user.team}>
         <UserTeam name={user.name} />
       </TeamProvider>
     );
+  }
 };
 
 export default UserTeamWrapper;

@@ -1,6 +1,13 @@
 import AuthForm from "./AuthForm";
 import CardGroup from "./CardGroup/CardGroup";
-import { ConditionalList, Player, PlayerJersey, Search, Table } from "./common";
+import {
+  ConditionalList,
+  Message,
+  Player,
+  PlayerJersey,
+  Search,
+  Table,
+} from "./common";
 import Form from "./Form/Form";
 import NavBar from "./NavBar/NavBar";
 import PlayersTable from "./PlayersTable";
@@ -18,6 +25,7 @@ export {
   CardGroup,
   ConditionalList,
   Form,
+  Message,
   NavBar,
   TabChoice,
   Player,

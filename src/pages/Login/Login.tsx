@@ -1,7 +1,7 @@
 import { useUser } from "contexts";
 import * as Yup from "yup";
 
-import { AuthForm, AuthProps } from "../../components";
+import { AuthForm, AuthProps, Message } from "../../components";
 
 const schema = Yup.object({
   email: Yup.string().email("Invalid email address").required("Required"),
@@ -29,7 +29,7 @@ const textInputs = [
 
 const props: AuthProps = {
   other: {
-    message: "If you don't have a user already, you should register first",
+    message: "If you don't have a user yet, you should register first",
     title: "Register",
     url: "/register",
   },
@@ -39,15 +39,22 @@ const props: AuthProps = {
 };
 
 const Login = () => {
-  const { login } = useUser();
-  return (
-    <AuthForm
-      authProps={props}
-      mutationFn={login}
-      schema={schema}
-      textInputs={textInputs}
-    />
-  );
+  const { loading, login, user } = useUser();
+
+  if (typeof user === "undefined") {
+    return loading ? (
+      <Message color="info" text="Loading..." />
+    ) : (
+      <AuthForm
+        authProps={props}
+        mutationFn={login}
+        schema={schema}
+        textInputs={textInputs}
+      />
+    );
+  } else {
+    return <Message color="success" text="You are already logged in." />;
+  }
 };
 
 export default Login;
