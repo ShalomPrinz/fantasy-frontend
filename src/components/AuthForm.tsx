@@ -9,7 +9,6 @@ import { Form } from "./";
 import type { TextInput } from "./";
 
 export interface AuthProps {
-  mutationFn: (values: {}) => Promise<any>;
   other: {
     message: string;
     title: string;
@@ -22,14 +21,20 @@ export interface AuthProps {
 
 interface AuthFormProps {
   authProps: AuthProps;
+  mutationFn: (values: {}) => Promise<any>;
   schema: SchemaLike;
   textInputs: Array<TextInput>;
 }
 
-const AuthForm = ({ authProps: auth, schema, textInputs }: AuthFormProps) => {
+const AuthForm = ({
+  authProps: auth,
+  mutationFn,
+  schema,
+  textInputs,
+}: AuthFormProps) => {
   const navigate = useNavigate();
   const authMutation = useMutation({
-    mutationFn: auth.mutationFn,
+    mutationFn,
     onSuccess: async () => {
       toast.success(auth.toastSuccess);
       navigate("/team");

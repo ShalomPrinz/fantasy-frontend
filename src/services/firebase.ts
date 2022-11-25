@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import {
-  browserLocalPersistence,
   getAuth,
+  inMemoryPersistence,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
@@ -16,9 +16,11 @@ const app = initializeApp({
 });
 
 const auth = getAuth(app);
-auth.setPersistence(browserLocalPersistence);
+auth.setPersistence(inMemoryPersistence);
 
-const signIn = async (email: string, password: string) =>
-  await signInWithEmailAndPassword(auth, email, password);
+const signIn = async (email: string, password: string) => {
+  const { user } = await signInWithEmailAndPassword(auth, email, password);
+  return user.getIdToken();
+};
 
-export { auth, signIn };
+export { signIn };

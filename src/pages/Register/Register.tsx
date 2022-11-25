@@ -1,7 +1,7 @@
+import { useUser } from "contexts";
 import * as Yup from "yup";
 
 import { AuthForm, AuthProps } from "../../components";
-import { registerUser } from "../../services";
 
 const schema = Yup.object({
   fullName: Yup.string()
@@ -48,7 +48,6 @@ const textInputs = [
 ];
 
 const props: AuthProps = {
-  mutationFn: registerUser,
   other: {
     message: "If you already have a user, you should log in instead",
     title: "Log In",
@@ -59,7 +58,15 @@ const props: AuthProps = {
   toastSuccess: "Successfully registered. Enjoy!",
 };
 
-const Register = () => (
-  <AuthForm authProps={props} schema={schema} textInputs={textInputs} />
-);
+const Register = () => {
+  const { register } = useUser();
+  return (
+    <AuthForm
+      authProps={props}
+      mutationFn={register}
+      schema={schema}
+      textInputs={textInputs}
+    />
+  );
+};
 export default Register;

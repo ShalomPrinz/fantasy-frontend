@@ -18,12 +18,12 @@ export function getUserInfo() {
 }
 
 export async function loginUser({ email, password }: LoginUser) {
-  await signIn(email, password);
+  return await signIn(email, password);
 }
 
 export async function registerUser(userInfo: RegisterUser) {
   await post(registerUrl, userInfo);
-  await loginUser({
+  return await loginUser({
     email: userInfo.email,
     password: userInfo.password,
   });

@@ -6,15 +6,24 @@ import {
   useState,
 } from "react";
 
-import { auth, getUserInfo, loadIdToken } from "../services";
-import { Team, User } from "../types";
+import {
+  getUserInfo,
+  loadIdToken,
+  loginUser,
+  registerUser,
+  saveIdToken,
+} from "../services";
+import { LoginUser, RegisterUser, Team, User } from "../types";
 
 interface UserContextValue {
   loading: boolean;
+  login: (info: {}) => Promise<void>;
+  register: (info: {}) => Promise<void>;
   user: User | undefined;
 }
 
 const UserContext = createContext<UserContextValue | undefined>(undefined);
+
 function useUser() {
   const context = useContext(UserContext);
   if (typeof context === "undefined") {
@@ -46,13 +55,24 @@ function UserProvider({ children }: UserProviderProps) {
 
   useEffect(() => {
     loadUser();
-    return auth.onAuthStateChanged(() => {
-      loadUser();
-    });
   }, []);
+
+  const login = async (loginInfo: LoginUser) => {
+    const idToken = await loginUser(loginInfo);
+    saveIdToken(idToken);
+    loadUser();
+  };
+
+  const register = async (registerInfo: RegisterUser) => {
+    const idToken = await registerUser(registerInfo);
+    saveIdToken(idToken);
+    loadUser();
+  };
 
   const value: UserContextValue = {
     loading,
+    login,
+    register,
     user: currentUser,
   };
 

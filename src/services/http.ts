@@ -6,7 +6,7 @@ import { loadIdToken } from "./storage";
 axios.defaults.baseURL = baseURL;
 
 axios.interceptors.request.use((config) => {
-  let idToken = loadIdToken();
+  const idToken = loadIdToken();
   if (config.headers && process.env.REACT_APP_SESSION_HEADER && idToken)
     config.headers[process.env.REACT_APP_SESSION_HEADER] = idToken;
   return config;
