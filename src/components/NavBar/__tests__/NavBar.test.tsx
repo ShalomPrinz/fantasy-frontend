@@ -21,7 +21,8 @@ describe("NavBar", () => {
 
   describe("User is logged in", () => {
     it("should render other navbar menu", () => {
-      const unmockUser = mockUser(new User("Test User", new Team([])));
+      const user = new User("Test User", new Team([]));
+      const unmockUser = mockUser({ user });
       const { asFragment } = render(Component);
       expect(asFragment()).toMatchSnapshot();
       unmockUser();
@@ -29,10 +30,8 @@ describe("NavBar", () => {
 
     it("should call logout function from user context on menu logout selection", async () => {
       const logoutFn = jest.fn();
-      const unmockUser = mockUser(
-        new User("Test User", new Team([])),
-        logoutFn
-      );
+      const appUser = new User("Test User", new Team([]));
+      const unmockUser = mockUser({ user: appUser, logout: logoutFn });
 
       const { user } = render(Component);
       const menuLogout = screen.getByRole("link", { name: /Logout/i });

@@ -190,3 +190,23 @@ exports[`UserTeam should render UserTeam component 1`] = `
   </main>
 </DocumentFragment>
 `;
+
+exports[`UserTeam should render a proper message if loading user 1`] = `
+<DocumentFragment>
+  <h1
+    class="text-center my-5 p-5 bg-info text-white w-75 mx-auto"
+  >
+    Loading...
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`UserTeam should render a proper message if no user is logged in 1`] = `
+<DocumentFragment>
+  <h1
+    class="text-center my-5 p-5 bg-danger text-white w-75 mx-auto"
+  >
+    Please Log In to view your team
+  </h1>
+</DocumentFragment>
+`;

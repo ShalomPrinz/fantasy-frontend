@@ -20,20 +20,32 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-export const mockUser = (user: User, logout?: () => Promise<void>) => {
+interface MockedUserContext {
+  logout?: () => Promise<void>;
+  state?: UserContext.State;
+  user?: User;
+}
+
+export const mockUser = (context: MockedUserContext) => {
   const userContext = jest.spyOn(UserContext, "useUser");
-  const logoutFunction = logout ? logout : async () => {};
+
+  const { logout, state, user } = context;
+  const mockedLogout = typeof logout !== "undefined" ? logout : async () => {};
+  const mockedState =
+    typeof state !== "undefined" ? state : UserContext.State.LOGGED_USER;
+  const mockedUser =
+    typeof user !== "undefined" ? user : new User("", new Team([]));
 
   userContext.mockImplementation(() => ({
     loading: false,
     login: async () => {},
-    logout: logoutFunction,
+    logout: mockedLogout,
     register: async () => {},
-    state: UserContext.State.LOGGED_USER,
-    user,
+    state: mockedState,
+    user: mockedUser,
   }));
 
-  mockTeam(user.team);
+  mockTeam(mockedUser.team);
   return userContext.mockRestore;
 };
 

@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should render Login component if loading user 1`] = `
+<DocumentFragment>
+  <h1
+    class="text-center my-5 p-5 bg-info text-white w-75 mx-auto"
+  >
+    Loading...
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`Login should render Login component if no user is logged in 1`] = `
+<DocumentFragment>
+  <main
+    class="container"
+  >
+    <div
+      class="m-4 row"
+    >
+      <div
+        class="col"
+      >
+        <form
+          action="#"
+          class="container"
+        >
+          <div
+            class="row"
+          >
+            <h1>
+              Log In
+            </h1>
+          </div>
+          <div
+            class="mx-2 p-2 row"
+          >
+            <label
+              for="email"
+            >
+              Email
+            </label>
+            <input
+              class="form-text-input"
+              id="0"
+              name="email"
+              placeholder="Jane.Doe@gmail.com"
+              type="email"
+              value=""
+            />
+          </div>
+          <div
+            class="mx-2 p-2 row"
+          >
+            <label
+              for="password"
+            >
+              Password
+            </label>
+            <input
+              autocomplete="on"
+              class="form-text-input"
+              id="1"
+              name="password"
+              placeholder="******"
+              type="password"
+              value=""
+            />
+          </div>
+          <div
+            class="row"
+          >
+            <button
+              class="fs-2 bg-default py-2 px-auto mt-3 rounded button-border-focus"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+      <div
+        class="m-5 text-center col"
+      >
+        <h3
+          class="p-5"
+        >
+          If you don't have a user yet, you should register first
+        </h3>
+        <a
+          class="fs-2 bg-default py-3 px-5 rounded text-decoration-none button-border-focus"
+          href="/register"
+        >
+          Register
+        </a>
+      </div>
+    </div>
+  </main>
+</DocumentFragment>
+`;
+
+exports[`Login should render Login component if user is logged in 1`] = `
+<DocumentFragment>
+  <h1
+    class="text-center my-5 p-5 bg-success text-white w-75 mx-auto"
+  >
+    You are already logged in.
+  </h1>
+</DocumentFragment>
+`;
