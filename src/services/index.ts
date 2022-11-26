@@ -1,10 +1,10 @@
-export { signIn } from "./firebase";
-export { saveIdToken, loadIdToken } from "./storage";
+export { saveIdToken, loadIdToken, removeIdToken } from "./storage";
 export {
   addUserPlayer,
   getPlayers,
   getUserInfo,
   loginUser,
+  logoutUser,
   registerUser,
   removeUserPlayer,
 } from "./user";

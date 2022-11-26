@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import {
+  signOut as authSignOut,
   getAuth,
   inMemoryPersistence,
   signInWithEmailAndPassword,
@@ -23,4 +24,6 @@ const signIn = async (email: string, password: string) => {
   return user.getIdToken();
 };
 
-export { signIn };
+const signOut = async () => authSignOut(auth);
+
+export { signIn, signOut };

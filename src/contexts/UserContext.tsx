@@ -10,7 +10,9 @@ import {
   getUserInfo,
   loadIdToken,
   loginUser,
+  logoutUser,
   registerUser,
+  removeIdToken,
   saveIdToken,
 } from "../services";
 import { LoginUser, RegisterUser, Team, User } from "../types";
@@ -18,6 +20,7 @@ import { LoginUser, RegisterUser, Team, User } from "../types";
 interface UserContextValue {
   loading: boolean;
   login: (info: {}) => Promise<void>;
+  logout: () => Promise<void>;
   register: (info: {}) => Promise<void>;
   user: User | undefined;
 }
@@ -63,6 +66,12 @@ function UserProvider({ children }: UserProviderProps) {
     loadUser();
   };
 
+  const logout = async () => {
+    removeIdToken();
+    setCurrentUser(undefined);
+    await logoutUser();
+  };
+
   const register = async (registerInfo: RegisterUser) => {
     const idToken = await registerUser(registerInfo);
     saveIdToken(idToken);
@@ -72,6 +81,7 @@ function UserProvider({ children }: UserProviderProps) {
   const value: UserContextValue = {
     loading,
     login,
+    logout,
     register,
     user: currentUser,
   };

@@ -1,19 +1,46 @@
+import { UserProvider } from "contexts";
 import { BrowserRouter } from "react-router-dom";
-import { clickElement, render, screen } from "setupTests";
+import { clickElement, mockUser, render, screen } from "setupTests";
+import { Team, User } from "types";
 
 import NavBar from "../NavBar";
 
 const Component = (
   <BrowserRouter>
-    <NavBar />
+    <UserProvider>
+      <NavBar />
+    </UserProvider>
   </BrowserRouter>
 );
 
 describe("NavBar", () => {
   it("should render NavBar component", () => {
     const { asFragment } = render(Component);
-
     expect(asFragment()).toMatchSnapshot();
+  });
+
+  describe("User is logged in", () => {
+    it("should render other navbar menu", () => {
+      const unmockUser = mockUser(new User("Test User", new Team([])));
+      const { asFragment } = render(Component);
+      expect(asFragment()).toMatchSnapshot();
+      unmockUser();
+    });
+
+    it("should call logout function from user context on menu logout selection", async () => {
+      const logoutFn = jest.fn();
+      const unmockUser = mockUser(
+        new User("Test User", new Team([])),
+        logoutFn
+      );
+
+      const { user } = render(Component);
+      const menuLogout = screen.getByRole("link", { name: /Logout/i });
+      await clickElement(user, menuLogout);
+
+      expect(logoutFn).toBeCalled();
+      unmockUser();
+    });
   });
 
   describe("when navbar expands", () => {

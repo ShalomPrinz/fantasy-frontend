@@ -6,7 +6,7 @@ import {
   userInfoUrl,
 } from "../constants";
 import type { LoginUser, RegisterUser } from "../types/User";
-import { signIn } from "./firebase";
+import { signIn, signOut } from "./firebase";
 import { get, post } from "./http";
 
 export function getPlayers() {
@@ -27,6 +27,10 @@ export async function registerUser(userInfo: RegisterUser) {
     email: userInfo.email,
     password: userInfo.password,
   });
+}
+
+export async function logoutUser() {
+  signOut();
 }
 
 export function addUserPlayer(id: number) {

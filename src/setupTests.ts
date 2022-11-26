@@ -20,13 +20,20 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-export const mockUser = (user: User) => {
+export const mockUser = (user: User, logout?: () => Promise<void>) => {
   const userContext = jest.spyOn(UserContext, "useUser");
+  const logoutFunction = logout ? logout : async () => {};
+
   userContext.mockImplementation(() => ({
     loading: false,
+    login: async () => {},
+    logout: logoutFunction,
+    register: async () => {},
     user,
   }));
+
   mockTeam(user.team);
+  return userContext.mockRestore;
 };
 
 export const mockTeam = (team: Team) => {

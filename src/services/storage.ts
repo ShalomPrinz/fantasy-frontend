@@ -5,4 +5,6 @@ const saveIdToken = (idToken: string) =>
 
 const loadIdToken = () => localStorage.getItem(tokenKey);
 
-export { saveIdToken, loadIdToken };
+const removeIdToken = () => localStorage.removeItem(tokenKey);
+
+export { saveIdToken, loadIdToken, removeIdToken };

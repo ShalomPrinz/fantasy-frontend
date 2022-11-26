@@ -1,14 +1,15 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "react-bootstrap/Image";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { ConditionalList } from "../";
-import { cl_logo } from "../../res";
+import { useUser } from "../../contexts";
+import { cl_logo, getIcon } from "../../res";
 import "./NavBar.css";
 
 interface Page {
@@ -17,37 +18,23 @@ interface Page {
   url: string;
 }
 
-const pages = [
-  {
-    id: 0,
-    name: "My Team",
-    url: "/team",
-  },
-  {
-    id: 1,
-    name: "Register",
-    url: "/register",
-  },
-  {
-    id: 2,
-    name: "Log In",
-    url: "/login",
-  },
-];
+const navlinkClassname = "nav-item nav-links fw-light";
 
-function NavBar() {
+const pageCallback = ({ name, url }: Page) => (
+  <NavLink className={navlinkClassname} to={url}>
+    {name}
+  </NavLink>
+);
+
+interface NavBarProps {
+  handleLogout?: Function;
+  pages: Page[];
+}
+
+function NavBar({ handleLogout, pages }: NavBarProps) {
   const [expanded, setExpanded] = useState(false);
 
-  const pageCallback = useCallback(
-    ({ name, url }: Page) => (
-      <NavLink className="nav-item nav-links fw-light" to={url}>
-        {name}
-      </NavLink>
-    ),
-    []
-  );
-
-  const icon = expanded ? faTimes : faBars;
+  const icon = getIcon(expanded ? "navbarExpanded" : "navbarClosed");
   const setNotExpanded = () => expanded && setExpanded(!expanded);
 
   return (
@@ -71,9 +58,65 @@ function NavBar() {
         <Nav onClick={setNotExpanded}>
           <ConditionalList itemCallback={pageCallback} list={pages} />
         </Nav>
+        {handleLogout && (
+          <Nav onClick={setNotExpanded} className="ms-auto pe-5">
+            <NavLink
+              className={navlinkClassname}
+              to="/"
+              onClick={() => handleLogout()}
+            >
+              <FontAwesomeIcon
+                className="clickable align-middle ps-0 pe-2 fs-3"
+                icon={getIcon("logout")}
+              />
+              Logout
+            </NavLink>
+          </Nav>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );
 }
 
-export default NavBar;
+function NavBarWrapper() {
+  const { logout, user } = useUser();
+
+  if (typeof user === "undefined") {
+    const pages = [
+      {
+        id: 0,
+        name: "My Team",
+        url: "/team",
+      },
+      {
+        id: 1,
+        name: "Register",
+        url: "/register",
+      },
+      {
+        id: 2,
+        name: "Log In",
+        url: "/login",
+      },
+    ];
+
+    return <NavBar pages={pages} />;
+  } else {
+    const pages = [
+      {
+        id: 0,
+        name: `${user.name}'s team`,
+        url: "/team",
+      },
+    ];
+
+    const handleLogout = () => {
+      logout();
+      toast.info("Successfully logged out. Come back later!");
+    };
+
+    return <NavBar handleLogout={handleLogout} pages={pages} />;
+  }
+}
+
+export default NavBarWrapper;
