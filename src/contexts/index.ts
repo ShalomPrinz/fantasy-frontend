@@ -2,5 +2,5 @@ import TeamProvider from "./TeamContext";
 import UserProvider from "./UserContext";
 
 export { useTeamState, useTeamUpdate } from "./TeamContext";
-export { useUser } from "./UserContext";
+export { State as UserState, useUser } from "./UserContext";
 export { TeamProvider, UserProvider };

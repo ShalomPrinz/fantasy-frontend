@@ -29,6 +29,7 @@ export const mockUser = (user: User, logout?: () => Promise<void>) => {
     login: async () => {},
     logout: logoutFunction,
     register: async () => {},
+    state: UserContext.State.LOGGED_USER,
     user,
   }));
 

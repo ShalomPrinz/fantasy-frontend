@@ -1,7 +1,7 @@
-import { useUser } from "contexts";
 import * as Yup from "yup";
 
-import { AuthForm, AuthProps } from "../../components";
+import { AuthForm, AuthProps, Message } from "../../components";
+import { UserState, useUser } from "../../contexts";
 
 const schema = Yup.object({
   fullName: Yup.string()
@@ -59,14 +59,24 @@ const props: AuthProps = {
 };
 
 const Register = () => {
-  const { register } = useUser();
-  return (
-    <AuthForm
-      authProps={props}
-      mutationFn={register}
-      schema={schema}
-      textInputs={textInputs}
-    />
-  );
+  const { register, state } = useUser();
+
+  switch (state) {
+    case UserState.LOADING_USER:
+      return <Message color="info" text="Loading..." />;
+
+    case UserState.LOGGED_USER:
+      return <Message color="success" text="You are already logged in." />;
+
+    case UserState.NO_LOGGED_USER:
+      return (
+        <AuthForm
+          authProps={props}
+          mutationFn={register}
+          schema={schema}
+          textInputs={textInputs}
+        />
+      );
+  }
 };
 export default Register;

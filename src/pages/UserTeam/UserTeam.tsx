@@ -3,7 +3,7 @@ import Row from "react-bootstrap/Row";
 
 import { Message, PlayersTable, TeamTabChoice } from "../../components";
 import { FULL_SCREEN_MIN_WIDTH } from "../../constants";
-import { TeamProvider, useTeamState, useUser } from "../../contexts";
+import { TeamProvider, UserState, useTeamState, useUser } from "../../contexts";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import "./UserTeam.css";
 
@@ -56,20 +56,21 @@ const UserTeam = ({ name }: UserTeamProps) => {
 };
 
 const UserTeamWrapper = () => {
-  const { loading, user } = useUser();
+  const { state, user } = useUser();
 
-  if (typeof user === "undefined") {
-    return loading ? (
-      <Message color="info" text="Loading..." />
-    ) : (
-      <Message color="danger" text="Please Log In to view your team" />
-    );
-  } else {
-    return (
-      <TeamProvider initialTeam={user.team}>
-        <UserTeam name={user.name} />
-      </TeamProvider>
-    );
+  switch (state) {
+    case UserState.LOADING_USER:
+      return <Message color="info" text="Loading..." />;
+
+    case UserState.LOGGED_USER:
+      return (
+        <TeamProvider initialTeam={user!.team}>
+          <UserTeam name={user!.name} />
+        </TeamProvider>
+      );
+
+    case UserState.NO_LOGGED_USER:
+      return <Message color="danger" text="Please Log In to view your team" />;
   }
 };
 

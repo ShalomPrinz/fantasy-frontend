@@ -1,7 +1,7 @@
-import { useUser } from "contexts";
 import * as Yup from "yup";
 
 import { AuthForm, AuthProps, Message } from "../../components";
+import { UserState, useUser } from "../../contexts";
 
 const schema = Yup.object({
   email: Yup.string().email("Invalid email address").required("Required"),
@@ -39,21 +39,24 @@ const props: AuthProps = {
 };
 
 const Login = () => {
-  const { loading, login, user } = useUser();
+  const { login, state } = useUser();
 
-  if (typeof user === "undefined") {
-    return loading ? (
-      <Message color="info" text="Loading..." />
-    ) : (
-      <AuthForm
-        authProps={props}
-        mutationFn={login}
-        schema={schema}
-        textInputs={textInputs}
-      />
-    );
-  } else {
-    return <Message color="success" text="You are already logged in." />;
+  switch (state) {
+    case UserState.LOADING_USER:
+      return <Message color="info" text="Loading..." />;
+
+    case UserState.LOGGED_USER:
+      return <Message color="success" text="You are already logged in." />;
+
+    case UserState.NO_LOGGED_USER:
+      return (
+        <AuthForm
+          authProps={props}
+          mutationFn={login}
+          schema={schema}
+          textInputs={textInputs}
+        />
+      );
   }
 };
 
