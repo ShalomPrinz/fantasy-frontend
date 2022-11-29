@@ -12,12 +12,17 @@ import { UserState } from "../../../contexts";
 import { Player, Team, User } from "../../../types";
 import UserTeam from "../UserTeam";
 
+const player: Player = {
+  id: 0,
+  firstName: "",
+  lastName: "Messi",
+  role: "ATT",
+  team: "Barcelona",
+};
+
 describe("UserTeam", () => {
   it("should render UserTeam component", async () => {
-    const players: Player[] = [
-      { id: 0, name: "Messi", role: "ATT", team: "Barcelona" },
-    ];
-    const user = new User("Some Name", new Team(players));
+    const user = new User("Some Name", new Team([player]));
     mockUser({ user });
 
     const { asFragment } = renderQueryClient(<UserTeam />);
@@ -39,10 +44,7 @@ describe("UserTeam", () => {
   });
 
   it("should not allow field layout if window size is smaller than minimum", async () => {
-    const players: Player[] = [
-      { id: 0, name: "Messi", role: "ATT", team: "Barcelona" },
-    ];
-    const appUser = new User("Some Name", new Team(players));
+    const appUser = new User("Some Name", new Team([player]));
     mockUser({ user: appUser });
 
     setWindowSize(FIELD_LAYOUT_MIN_WIDTH - 1);

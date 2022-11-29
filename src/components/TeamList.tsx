@@ -3,14 +3,14 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
 import { useTeamState } from "../contexts";
-import { Player, PlayerPairs } from "../types";
+import { getFullName, Player, PlayerPairs } from "../types";
 
 import { ConditionalList, PlayerJersey } from "./";
 
-const playerCallback = ({ name, team }: Player) => (
+const playerCallback = (p: Player) => (
   <div className="d-flex align-items-center ps-5">
-    <PlayerJersey team={team} width="60px" />
-    <h4 className="text-truncate ps-2 my-0"> {name} </h4>
+    <PlayerJersey team={p.team} width="60px" />
+    <h4 className="text-truncate ps-2 my-0"> {getFullName(p)} </h4>
   </div>
 );
 

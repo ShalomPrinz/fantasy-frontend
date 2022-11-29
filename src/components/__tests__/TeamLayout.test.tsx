@@ -5,12 +5,17 @@ import { FIELD_LAYOUT_MIN_WIDTH } from "../../constants";
 import * as constants from "../../constants";
 import { Player, Team } from "../../types";
 
+const player: Player = {
+  id: 0,
+  firstName: "Ter",
+  lastName: "Stegen",
+  role: "GK",
+  team: "Barcelona",
+};
+
 describe("TeamLayout", () => {
   it("should render TeamList component", () => {
-    const players: Player[] = [
-      { id: 0, name: "Ter Stegen", role: "GK", team: "Barcelona" },
-    ];
-    const team = new Team(players);
+    const team = new Team([player]);
     mockTeam(team);
 
     setWindowSize(FIELD_LAYOUT_MIN_WIDTH - 1);
@@ -20,10 +25,7 @@ describe("TeamLayout", () => {
   });
 
   it("should render TeamLayout component", () => {
-    const players: Player[] = [
-      { id: 0, name: "Ter Stegen", role: "GK", team: "Barcelona" },
-    ];
-    const team = new Team(players);
+    const team = new Team([player]);
     mockTeam(team);
 
     setWindowSize(FIELD_LAYOUT_MIN_WIDTH);
@@ -33,10 +35,7 @@ describe("TeamLayout", () => {
   });
 
   it("should render bigger row margin if field width is higher than 600px", () => {
-    const players: Player[] = [
-      { id: 0, name: "Ter Stegen", role: "GK", team: "Barcelona" },
-    ];
-    const team = new Team(players);
+    const team = new Team([player]);
     mockTeam(team);
 
     setWindowSize(FIELD_LAYOUT_MIN_WIDTH);

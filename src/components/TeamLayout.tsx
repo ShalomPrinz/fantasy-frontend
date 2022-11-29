@@ -12,7 +12,7 @@ import {
 import { useTeamState } from "../contexts";
 import useWindowWidth from "../hooks/useWindowWidth";
 import field from "../res/field.png";
-import { Player } from "../types";
+import { getFullName, Player } from "../types";
 
 import { ConditionalList, Player as PlayerComponent, TeamList } from "./";
 
@@ -29,7 +29,12 @@ const TeamLayout = () => {
 
   const columnCallback = (player: Player) => (
     <Col className="mx-auto">
-      <PlayerComponent {...player} width={width / 10} widthUnits="px" />
+      <PlayerComponent
+        name={getFullName(player)}
+        team={player.team}
+        width={width / 10}
+        widthUnits="px"
+      />
     </Col>
   );
 

@@ -6,9 +6,10 @@ import * as userService from "../../services/user";
 
 const player: Player = {
   id: 0,
-  name: "Test Player",
+  firstName: "Test",
+  lastName: "Player",
   role: "GK",
-  team: "Test Team",
+  team: "Liverpool",
 };
 
 const TestStateComponent = () => {

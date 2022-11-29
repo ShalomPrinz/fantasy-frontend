@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useTeamState, useTeamUpdate } from "../contexts";
 import { getIcon } from "../res";
 import { getPlayers } from "../services";
-import { Player } from "../types";
+import { getFullName, Player } from "../types";
 
 import { PlayerJersey, Search, Table } from "./";
 
@@ -28,11 +28,11 @@ function PlayersTable() {
     {
       id: 1,
       path: "name",
-      content: ({ name, role, team }: Player) => (
+      content: (p: Player) => (
         <>
-          <div className="fs-4">{name}</div>
+          <div className="fs-4">{getFullName(p)}</div>
           <div className="text-muted">
-            {team}, {role}
+            {p.team}, {p.role}
           </div>
         </>
       ),

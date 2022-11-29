@@ -1,4 +1,4 @@
-import { Player, PlayerRole } from "./interfaces";
+import type { Player, PlayerRole } from "./";
 
 type Players = {
   [key in PlayerRole]?: Player[];
