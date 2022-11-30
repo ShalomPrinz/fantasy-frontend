@@ -1,20 +1,20 @@
 import { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useQuery } from "@tanstack/react-query";
 
 import { useTeamState, useTeamUpdate } from "../contexts";
 import { getIcon } from "../res";
-import { getPlayers } from "../services";
+import { queryPlayers } from "../services";
 import { getFullName, Player } from "../types";
 
 import { PlayerJersey, Search, Table } from "./";
 
 function PlayersTable() {
-  const [query, setQuery] = useState("");
+  const [players, setPlayers] = useState([]);
 
-  const { data } = useQuery(["players"], getPlayers);
-  const players = data?.data?.players || [];
+  function handleQuery(query: string) {
+    queryPlayers(query).then((res) => setPlayers(res.data.players || []));
+  }
 
   const { addPlayer, removePlayer } = useTeamUpdate();
   const team = useTeamState();
@@ -60,7 +60,7 @@ function PlayersTable() {
 
   return (
     <>
-      <Search onChange={(v: string) => setQuery(v)} value={query} />
+      <Search onChange={handleQuery} />
       <Table className="bg-white" columns={columns} data={players} />
     </>
   );

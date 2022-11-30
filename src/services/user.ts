@@ -9,8 +9,8 @@ import type { LoginUser, RegisterUser } from "../types/User";
 import { signIn, signOut } from "./firebase";
 import { get, post } from "./http";
 
-export function getPlayers() {
-  return get(playersUrl);
+export function queryPlayers(term: string) {
+  return get(playersUrl, { params: { term } });
 }
 
 export function getUserInfo() {
