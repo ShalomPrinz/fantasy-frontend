@@ -6,6 +6,8 @@ import {
   useState,
 } from "react";
 
+import { toast } from "react-toastify";
+
 import {
   getUserInfo,
   loadIdToken,
@@ -59,7 +61,17 @@ function UserProvider({ children }: UserProviderProps) {
   const loadUser = async () => {
     if (loadIdToken()) {
       setLoading(true);
-      const res = await getUserInfo();
+      const res = await getUserInfo().catch(({ response }) => {
+        if (response.status === 401) {
+          toast.error(
+            "Your saved login info is outdated. Please Log In again",
+            {
+              toastId: "outdated",
+            }
+          );
+          removeIdToken();
+        }
+      });
       if (res?.data?.user) {
         const { nickname, team } = res.data.user;
         const userTeam = new Team(team, true);

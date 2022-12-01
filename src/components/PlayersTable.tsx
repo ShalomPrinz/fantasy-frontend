@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -15,6 +15,9 @@ function PlayersTable() {
   function handleQuery(query: string) {
     queryPlayers(query).then((res) => setPlayers(res.data.players || []));
   }
+
+  // Load first players. This should be replaced later with loader from react-router
+  useEffect(() => handleQuery(""), []);
 
   const { addPlayer, removePlayer } = useTeamUpdate();
   const team = useTeamState();
@@ -61,7 +64,8 @@ function PlayersTable() {
   return (
     <>
       <Search onChange={handleQuery} />
-      <Table className="bg-white" columns={columns} data={players} />
+      <Table columns={columns} data={players} />
+      {!players.length && <h3 className="text-center">No Players Found</h3>}
     </>
   );
 }

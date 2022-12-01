@@ -6,7 +6,6 @@ exports[`Search should render Search component 1`] = `
     class="form-control my-3 fs-1 p-4"
     placeholder="Search..."
     type="text"
-    value=""
   />
 </DocumentFragment>
 `;

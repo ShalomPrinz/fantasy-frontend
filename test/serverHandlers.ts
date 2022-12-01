@@ -1,7 +1,7 @@
 import { rest } from "msw";
 
 const handlers = [
-  rest.get("/players", (_, res, ctx) => {
+  rest.get("/players/query", (_, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({

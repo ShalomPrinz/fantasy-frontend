@@ -1,69 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Table should render Table component 1`] = `
+<DocumentFragment>
+  <table
+    class="table rounded bg-white"
+  >
+    <tbody>
+      <tr>
+        <td
+          class="align-middle"
+        >
+          Label
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
+
 exports[`Table should render a column by content callback 1`] = `
 <DocumentFragment>
-  <div
-    class="table-responsive mt-0"
+  <table
+    class="table rounded bg-white"
   >
-    <table
-      class="table rounded bg-default"
-    >
-      <tbody>
-        <tr>
-          <td
-            class="align-middle"
-          >
-            <h1>
-              Label
-            </h1>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Table should render a scrollable table 1`] = `
-<DocumentFragment>
-  <div
-    class="table-responsive mt-0 border-bottom scrollable"
-  >
-    <table
-      class="table rounded"
-    >
-      <tbody>
-        <tr>
-          <td
-            class="align-middle"
-          >
+    <tbody>
+      <tr>
+        <td
+          class="align-middle"
+        >
+          <h1>
             Label
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Table should render a styled table 1`] = `
-<DocumentFragment>
-  <div
-    class="table-responsive mt-0"
-  >
-    <table
-      class="table rounded bg-default"
-    >
-      <tbody>
-        <tr>
-          <td
-            class="align-middle"
-          >
-            Label
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+          </h1>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </DocumentFragment>
 `;
