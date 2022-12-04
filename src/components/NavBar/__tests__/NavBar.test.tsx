@@ -1,21 +1,18 @@
-import { UserProvider } from "contexts";
-import { BrowserRouter } from "react-router-dom";
-import { clickElement, mockUser, render, screen } from "setupTests";
+import {
+  clickElement,
+  mockUser,
+  renderWithRouterAndUser,
+  screen,
+} from "setupTests";
 import { Team, User } from "types";
 
 import NavBar from "../NavBar";
 
-const Component = (
-  <BrowserRouter>
-    <UserProvider>
-      <NavBar />
-    </UserProvider>
-  </BrowserRouter>
-);
+const renderComponent = () => renderWithRouterAndUser(<NavBar />);
 
 describe("NavBar", () => {
   it("should render NavBar component", () => {
-    const { asFragment } = render(Component);
+    const { asFragment } = renderComponent();
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -23,7 +20,7 @@ describe("NavBar", () => {
     it("should render other navbar menu", () => {
       const user = new User("Test User", new Team([]));
       const unmockUser = mockUser({ user });
-      const { asFragment } = render(Component);
+      const { asFragment } = renderComponent();
       expect(asFragment()).toMatchSnapshot();
       unmockUser();
     });
@@ -33,7 +30,7 @@ describe("NavBar", () => {
       const appUser = new User("Test User", new Team([]));
       const unmockUser = mockUser({ user: appUser, logout: logoutFn });
 
-      const { user } = render(Component);
+      const { user } = renderComponent();
       const menuLogout = screen.getByRole("link", { name: /Logout/i });
       await clickElement(user, menuLogout);
 
@@ -44,7 +41,7 @@ describe("NavBar", () => {
 
   describe("when navbar expands", () => {
     it("should change navbar layout", async () => {
-      const { user, asFragment } = render(Component);
+      const { user, asFragment } = renderComponent();
 
       expect(asFragment()).toMatchSnapshot();
 
@@ -55,7 +52,7 @@ describe("NavBar", () => {
     });
 
     it("should allow collapse via main link", async () => {
-      const { user, asFragment } = render(Component);
+      const { user, asFragment } = renderComponent();
 
       const firstRender = asFragment();
       expect(firstRender).toMatchSnapshot();

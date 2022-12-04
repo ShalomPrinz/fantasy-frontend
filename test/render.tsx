@@ -1,20 +1,30 @@
 import { ReactElement } from "react";
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render as renderToScreen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { UserProvider } from "contexts";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 
 const render = (Component: ReactElement) => ({
   ...renderToScreen(Component),
   user: userEvent.setup(),
 });
 
-const renderQueryClient = (Component: ReactElement) => {
-  const queryClient = new QueryClient();
+const renderWithRouterAndUser = (Component: ReactElement) => {
+  const router = createBrowserRouter(
+    createRoutesFromElements(<Route path="/" element={Component} />)
+  );
 
   return render(
-    <QueryClientProvider client={queryClient}>{Component}</QueryClientProvider>
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   );
 };
 
-export { render, renderQueryClient };
+export { render, renderWithRouterAndUser };

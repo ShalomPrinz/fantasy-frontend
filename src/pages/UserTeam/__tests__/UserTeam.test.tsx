@@ -1,7 +1,7 @@
 import {
   clickElement,
   mockUser,
-  renderQueryClient,
+  render,
   screen,
   setWindowSize,
   sleep,
@@ -25,7 +25,7 @@ describe("UserTeam", () => {
     const user = new User("Some Name", new Team([player]));
     mockUser({ user });
 
-    const { asFragment } = renderQueryClient(<UserTeam />);
+    const { asFragment } = render(<UserTeam />);
     await sleep();
 
     expect(asFragment()).toMatchSnapshot();
@@ -33,13 +33,13 @@ describe("UserTeam", () => {
 
   it("should render a proper message if no user is logged in", () => {
     mockUser({ state: UserState.NO_LOGGED_USER });
-    const { asFragment } = renderQueryClient(<UserTeam />);
+    const { asFragment } = render(<UserTeam />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("should render a proper message if loading user", () => {
     mockUser({ state: UserState.LOADING_USER });
-    const { asFragment } = renderQueryClient(<UserTeam />);
+    const { asFragment } = render(<UserTeam />);
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -48,7 +48,7 @@ describe("UserTeam", () => {
     mockUser({ user: appUser });
 
     setWindowSize(FIELD_LAYOUT_MIN_WIDTH - 1);
-    const { asFragment, user } = renderQueryClient(<UserTeam />);
+    const { asFragment, user } = render(<UserTeam />);
     await sleep();
     const firstRender = asFragment();
 

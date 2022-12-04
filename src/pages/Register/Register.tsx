@@ -71,8 +71,8 @@ const Register = () => {
     case UserState.NO_LOGGED_USER:
       return (
         <AuthForm
+          authFn={register}
           authProps={props}
-          mutationFn={register}
           schema={schema}
           textInputs={textInputs}
         />

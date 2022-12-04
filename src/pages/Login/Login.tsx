@@ -51,8 +51,8 @@ const Login = () => {
     case UserState.NO_LOGGED_USER:
       return (
         <AuthForm
+          authFn={login}
           authProps={props}
-          mutationFn={login}
           schema={schema}
           textInputs={textInputs}
         />

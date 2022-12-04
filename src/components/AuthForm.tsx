@@ -1,5 +1,5 @@
-import { useMutation } from "@tanstack/react-query";
-import { FirebaseError } from "firebase/app";
+import { useState } from "react";
+
 import { Col, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -19,48 +19,40 @@ export interface AuthProps {
   title: string;
 }
 
+type AuthInfo = {};
+type AuthFn = (info: AuthInfo) => Promise<any>;
+
 interface AuthFormProps {
+  authFn: AuthFn;
   authProps: AuthProps;
-  mutationFn: (values: {}) => Promise<any>;
   schema: SchemaLike;
   textInputs: Array<TextInput>;
 }
 
 const AuthForm = ({
   authProps: auth,
-  mutationFn,
+  authFn,
   schema,
   textInputs,
 }: AuthFormProps) => {
-  const navigate = useNavigate();
-  const authMutation = useMutation({
-    mutationFn,
-    onSuccess: async () => {
-      toast.success(auth.toastSuccess);
-      navigate("/team");
-    },
-    onError: (e: FirebaseError) => {
-      if (e.code === "auth/wrong-password")
-        toast.error("Couldn't log in, password isn't correct");
-      else toast.error(auth.toastError);
-      console.log("Auth Error", e.code);
-    },
-  });
+  const { authRequest, isLoading } = useAuthRequest(
+    authFn,
+    auth.toastSuccess,
+    auth.toastError
+  );
 
   return (
     <main className="container">
       <Row className="m-4">
         <Col>
           <Form
-            onSubmit={authMutation.mutate}
+            onSubmit={authRequest}
             schema={schema}
-            submitDisabled={authMutation.isLoading}
+            submitDisabled={isLoading}
             textInputs={textInputs}
             title={auth.title}
           />
-          {authMutation.isLoading && (
-            <h2 className="mt-2 fs-2 text-center">Loading...</h2>
-          )}
+          {isLoading && <h2 className="mt-2 fs-2 text-center">Loading...</h2>}
         </Col>
         <Col className="m-5 text-center">
           <h3 className="p-5">{auth.other.message}</h3>
@@ -75,5 +67,39 @@ const AuthForm = ({
     </main>
   );
 };
+
+function useAuthRequest(
+  authFn: AuthFn,
+  toastSuccess: string,
+  toastError: string
+) {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+  const onSuccess = () => {
+    toast.success(toastSuccess);
+    navigate("/team");
+  };
+
+  const onError = (e: any) => {
+    if (e?.code === "auth/wrong-password")
+      toast.error("Couldn't log in, password isn't correct");
+    else toast.error(toastError);
+    console.log("Auth Error", e?.code);
+  };
+
+  const fn = (info: AuthInfo) => {
+    setLoading(true);
+    authFn(info)
+      .then(onSuccess)
+      .catch(onError)
+      .finally(() => setLoading(false));
+  };
+
+  return {
+    isLoading: loading,
+    authRequest: fn,
+  };
+}
 
 export default AuthForm;

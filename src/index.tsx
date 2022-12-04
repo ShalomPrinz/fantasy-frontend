@@ -1,6 +1,5 @@
 import React from "react";
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ReactDOM from "react-dom/client";
 
 import App from "./App";
@@ -9,16 +8,12 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
 // import reportWebVitals from './reportWebVitals';
 
-const queryClient = new QueryClient();
-
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
+    <App />
   </React.StrictMode>
 );
 
