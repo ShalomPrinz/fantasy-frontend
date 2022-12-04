@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 import { ConditionalList } from "../";
 import { useUser } from "../../contexts";
-import { cl_logo, getIcon } from "../../res";
+import { getIcon, getImage } from "../../res";
 import "./NavBar.css";
 
 interface Page {
@@ -43,7 +43,7 @@ function NavBar({ handleLogout, pages }: NavBarProps) {
         <Image
           height="90px"
           className="p-2 m-3 filter-invert"
-          src={cl_logo}
+          src={getImage("NAVBAR_LOGO")}
           title="Champions League"
         />
         Fantasy

@@ -11,7 +11,7 @@ import {
 } from "../constants";
 import { useTeamState } from "../contexts";
 import useWindowWidth from "../hooks/useWindowWidth";
-import field from "../res/field.png";
+import { getImage } from "../res";
 import { getFullName, Player } from "../types";
 
 import { ConditionalList, Player as PlayerComponent, TeamList } from "./";
@@ -49,7 +49,7 @@ const TeamLayout = () => {
     <div className="position-relative">
       <Image
         className="w-100"
-        src={field}
+        src={getImage("TEAM_LAYOUT_BG")}
         ref={fieldRef}
         alt="Team Field Background"
         rounded

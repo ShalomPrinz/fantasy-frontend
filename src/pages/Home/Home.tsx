@@ -2,7 +2,7 @@ import { Image } from "react-bootstrap";
 
 import { CardGroup } from "../../components";
 import type { CardGroupItem } from "../../components";
-import { wide_grass } from "../../res";
+import { getImage } from "../../res";
 
 const cards: CardGroupItem[] = [
   {
@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <>
       <div className="position-relative text-center overflow-hidden">
-        <Image src={wide_grass} alt="Original Soccer Grass" />
+        <Image src={getImage("HOME_IMAGE")} alt="Original Soccer Grass" />
         <div className="position-absolute top-50 start-50 translate-middle text-white w-100">
           <h1 className="fw-bold">Champions League Fantasy.</h1>
           <h4>Play Now</h4>
