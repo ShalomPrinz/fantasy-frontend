@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { useTeamState, useTeamUpdate } from "../contexts";
-import { getIcon } from "../res";
 import { queryPlayers } from "../services";
 import { getFullName, Player } from "../types";
 
-import { PlayerJersey, Search, Table } from "./";
+import { IconComponent, PlayerJersey, Search, Table } from "./";
 
 function PlayersTable() {
   const [players, setPlayers] = useState([]);
@@ -50,10 +47,11 @@ function PlayersTable() {
 
         return (
           <div className="text-center">
-            <FontAwesomeIcon
-              className={`fa-3x clickable text-${iconStyle}`}
-              icon={getIcon(icon)}
+            <IconComponent
+              className={`text-${iconStyle}`}
+              icon={icon}
               onClick={onClick}
+              size="3"
             />
           </div>
         );

@@ -1,15 +1,14 @@
 import { useState } from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "react-bootstrap/Image";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { ConditionalList } from "../";
+import { ConditionalList, IconComponent } from "../";
 import { useUser } from "../../contexts";
-import { getIcon, getImage } from "../../res";
+import { getImage } from "../../res";
 import "./NavBar.css";
 
 interface Page {
@@ -34,7 +33,7 @@ interface NavBarProps {
 function NavBar({ handleLogout, pages }: NavBarProps) {
   const [expanded, setExpanded] = useState(false);
 
-  const icon = getIcon(expanded ? "navbarExpanded" : "navbarClosed");
+  const icon = expanded ? "navbarExpanded" : "navbarClosed";
   const setNotExpanded = () => expanded && setExpanded(!expanded);
 
   return (
@@ -52,7 +51,7 @@ function NavBar({ handleLogout, pages }: NavBarProps) {
         aria-controls="responsive-navbar-nav"
         onClick={() => setExpanded(!expanded)}
       >
-        <FontAwesomeIcon color="white" icon={icon} />
+        <IconComponent color="white" icon={icon} />
       </Navbar.Toggle>
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav onClick={setNotExpanded}>
@@ -65,9 +64,9 @@ function NavBar({ handleLogout, pages }: NavBarProps) {
               to="/"
               onClick={() => handleLogout()}
             >
-              <FontAwesomeIcon
+              <IconComponent
                 className="clickable align-middle ps-0 pe-2 fs-3"
-                icon={getIcon("logout")}
+                icon="logout"
               />
               Logout
             </NavLink>

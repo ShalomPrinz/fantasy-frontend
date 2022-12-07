@@ -2,6 +2,7 @@ import AuthForm from "./AuthForm";
 import CardGroup from "./CardGroup/CardGroup";
 import {
   ConditionalList,
+  IconComponent,
   Message,
   Player,
   PlayerJersey,
@@ -25,6 +26,7 @@ export {
   CardGroup,
   ConditionalList,
   Form,
+  IconComponent,
   Message,
   NavBar,
   TabChoice,

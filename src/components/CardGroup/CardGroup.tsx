@@ -1,8 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "react-bootstrap/Card";
 
-import { ConditionalList } from "../";
-import { getIcon } from "../../res";
+import { ConditionalList, IconComponent } from "../";
 import type { Icon } from "../../res";
 
 import "./CardGroup.css";
@@ -21,7 +19,7 @@ interface CardGroupProps {
 function CardGroup({ cards }: CardGroupProps) {
   const cardCallback = ({ icon, text, title }: CardGroupItem) => (
     <Card className="pt-3 m-4 w-25 card-bg-image">
-      {icon && <FontAwesomeIcon className="fa-6x" icon={getIcon(icon)} />}
+      {icon && <IconComponent icon={icon} size="6" />}
       <Card.Body>
         <Card.Title> {title} </Card.Title>
         <Card.Text className="fw-light"> {text} </Card.Text>
