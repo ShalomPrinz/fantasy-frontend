@@ -10,7 +10,7 @@ interface IconProps {
   color?: string;
   icon: Icon;
   onClick?: Function;
-  size?: "1" | "3" | "6";
+  size?: "1" | "2" | "3" | "6";
 }
 
 const IconComponent = ({

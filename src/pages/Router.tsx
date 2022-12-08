@@ -8,7 +8,7 @@ import {
 
 import { NavBar } from "../components";
 
-import { Home, Login, Register, UserTeam } from "./";
+import { Home, Leagues, Login, Register, UserTeam } from "./";
 
 const Header = () => (
   <>
@@ -24,6 +24,7 @@ const router = createBrowserRouter(
       <Route path="team" element={<UserTeam />} />
       <Route path="register" element={<Register />} />
       <Route path="login" element={<Login />} />
+      <Route path="leagues" element={<Leagues />} />
     </Route>
   )
 );

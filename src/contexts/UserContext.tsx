@@ -73,9 +73,10 @@ function UserProvider({ children }: UserProviderProps) {
         }
       });
       if (res?.data?.user) {
-        const { nickname, team } = res.data.user;
+        const { leagues, nickname, team } = res.data.user;
         const userTeam = new Team(team, true);
-        setCurrentUser(new User(nickname, userTeam));
+        const user = new User(leagues, nickname, userTeam);
+        setCurrentUser(user);
       }
     }
     setLoading(false);

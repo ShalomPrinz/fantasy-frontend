@@ -103,9 +103,14 @@ function NavBarWrapper() {
   } else {
     const pages = [
       {
-        id: 0,
+        id: 3,
         name: `${user.name}'s team`,
         url: "/team",
+      },
+      {
+        id: 4,
+        name: "Leagues",
+        url: "/leagues",
       },
     ];
 

@@ -1,21 +1,11 @@
 import { get } from "lodash";
 
-import ConditionalList from "./ConditionalList";
+import { ConditionalList } from "../";
 
-interface TableDataColumn {
-  id: number;
-  path: string;
-}
-
-interface TableCallbackColumn {
-  id: number;
-  content: Function;
-}
-
-type TableColumn = TableDataColumn | TableCallbackColumn;
+import type { TableColumn } from "./";
 
 interface TableData {
-  [key: string]: string | number;
+  [key: string]: any;
 }
 
 export interface TableBodyProps {
@@ -45,6 +35,6 @@ const TableBody = ({ columns, data }: TableBodyProps) => {
 };
 
 const renderCell = (item: TableData, column: TableColumn) =>
-  "content" in column ? column.content(item) : get(item, column.path);
+  column.content ? column.content(item) : get(item, column.path!);
 
 export default TableBody;

@@ -7,12 +7,12 @@ import {
   Player,
   PlayerJersey,
   Search,
-  Table,
 } from "./common";
 import Form from "./Form/Form";
 import NavBar from "./NavBar/NavBar";
 import PlayersTable from "./PlayersTable";
 import TabChoice from "./TabChoice/TabChoice";
+import Table from "./Table/Table";
 import TeamLayout from "./TeamLayout";
 import TeamList from "./TeamList";
 import TeamTabChoice from "./TeamTabChoice";
