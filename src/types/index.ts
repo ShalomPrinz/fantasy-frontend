@@ -1,10 +1,11 @@
 import Team from "./Team";
-import User from "./User";
 
-export { Team, User };
+export { Team };
+export { parseLeague } from "./League";
 export { getFullName } from "./Player";
+export { parseUser } from "./User";
 
-export type { League } from "./League";
+export type { DetailedLeague, League } from "./League";
 export type { Player, PlayerRole } from "./Player";
 export type { PlayerPairs } from "./Team";
-export type { LoginUser, RegisterUser } from "./User";
+export type { LoginUser, RegisterUser, User } from "./User";

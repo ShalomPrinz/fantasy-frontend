@@ -1,5 +1,6 @@
 import {
   clickElement,
+  getTestUser,
   mockUser,
   render,
   screen,
@@ -9,7 +10,7 @@ import {
 
 import { FIELD_LAYOUT_MIN_WIDTH } from "../../../constants";
 import { UserState } from "../../../contexts";
-import { Player, Team, User } from "../../../types";
+import { Player } from "../../../types";
 import UserTeam from "../UserTeam";
 
 const player: Player = {
@@ -22,7 +23,7 @@ const player: Player = {
 
 describe("UserTeam", () => {
   it("should render UserTeam component", async () => {
-    const user = new User("Some Name", new Team([player]));
+    const user = getTestUser("Some Name", [player]);
     mockUser({ user });
 
     const { asFragment } = render(<UserTeam />);
@@ -44,7 +45,7 @@ describe("UserTeam", () => {
   });
 
   it("should not allow field layout if window size is smaller than minimum", async () => {
-    const appUser = new User("Some Name", new Team([player]));
+    const appUser = getTestUser("Some Name", [player]);
     mockUser({ user: appUser });
 
     setWindowSize(FIELD_LAYOUT_MIN_WIDTH - 1);

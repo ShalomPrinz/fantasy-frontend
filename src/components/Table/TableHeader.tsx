@@ -2,8 +2,7 @@ import { ConditionalList } from "../";
 
 import type { TableColumn } from "./";
 
-const headerCallback = ({ path }: TableColumn) =>
-  path ? <th>{path}</th> : <></>;
+const headerCallback = ({ path }: TableColumn) => <th>{path}</th>;
 
 interface TableHeaderProps {
   columns: TableColumn[];

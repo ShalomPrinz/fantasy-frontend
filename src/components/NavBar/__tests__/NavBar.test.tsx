@@ -1,10 +1,10 @@
 import {
   clickElement,
+  getTestUser,
   mockUser,
   renderWithRouterAndUser,
   screen,
 } from "setupTests";
-import { Team, User } from "types";
 
 import NavBar from "../NavBar";
 
@@ -18,7 +18,7 @@ describe("NavBar", () => {
 
   describe("User is logged in", () => {
     it("should render other navbar menu", () => {
-      const user = new User("Test User", new Team([]));
+      const user = getTestUser("Test User");
       const unmockUser = mockUser({ user });
       const { asFragment } = renderComponent();
       expect(asFragment()).toMatchSnapshot();
@@ -27,7 +27,7 @@ describe("NavBar", () => {
 
     it("should call logout function from user context on menu logout selection", async () => {
       const logoutFn = jest.fn();
-      const appUser = new User("Test User", new Team([]));
+      const appUser = getTestUser("Test User");
       const unmockUser = mockUser({ user: appUser, logout: logoutFn });
 
       const { user } = renderComponent();

@@ -1,5 +1,6 @@
 import {
   addPlayerUrl,
+  leagueInfoUrl,
   playersUrl,
   registerUrl,
   removePlayerUrl,
@@ -39,4 +40,8 @@ export function addUserPlayer(id: number) {
 
 export function removeUserPlayer(id: number) {
   post(removePlayerUrl, { id });
+}
+
+export function getLeagueInfo(id: string) {
+  return get(leagueInfoUrl, { params: { id } });
 }

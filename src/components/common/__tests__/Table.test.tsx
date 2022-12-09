@@ -1,6 +1,6 @@
 import { render } from "setupTests";
 
-import { Table } from "../";
+import { Table } from "../../";
 
 describe("Table", () => {
   it("should render Table component", () => {

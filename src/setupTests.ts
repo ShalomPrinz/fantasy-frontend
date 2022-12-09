@@ -9,7 +9,7 @@ import { setupServer } from "msw/node";
 import { handlers } from "../test";
 import * as TeamContext from "./contexts/TeamContext";
 import * as UserContext from "./contexts/UserContext";
-import { Team, User } from "./types";
+import { Player, Team, User } from "./types";
 
 jest.setTimeout(10000);
 
@@ -26,6 +26,13 @@ interface MockedUserContext {
   user?: User;
 }
 
+export const getTestUser = (name?: string, players?: Player[]): User => ({
+  id: "id",
+  leagues: [],
+  name: name || "",
+  team: new Team(players || []),
+});
+
 export const mockUser = (context: MockedUserContext) => {
   const userContext = jest.spyOn(UserContext, "useUser");
 
@@ -33,8 +40,7 @@ export const mockUser = (context: MockedUserContext) => {
   const mockedLogout = typeof logout !== "undefined" ? logout : async () => {};
   const mockedState =
     typeof state !== "undefined" ? state : UserContext.State.LOGGED_USER;
-  const mockedUser =
-    typeof user !== "undefined" ? user : new User("", new Team([]));
+  const mockedUser = typeof user !== "undefined" ? user : getTestUser();
 
   userContext.mockImplementation(() => ({
     loading: false,

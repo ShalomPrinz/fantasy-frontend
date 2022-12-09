@@ -17,7 +17,8 @@ import {
   removeIdToken,
   saveIdToken,
 } from "../services";
-import { LoginUser, RegisterUser, Team, User } from "../types";
+import { parseUser } from "../types";
+import type { LoginUser, RegisterUser, User } from "../types";
 
 enum State {
   LOADING_USER,
@@ -73,9 +74,7 @@ function UserProvider({ children }: UserProviderProps) {
         }
       });
       if (res?.data?.user) {
-        const { leagues, nickname, team } = res.data.user;
-        const userTeam = new Team(team, true);
-        const user = new User(leagues, nickname, userTeam);
+        const user = parseUser(res.data.user);
         setCurrentUser(user);
       }
     }

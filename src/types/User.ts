@@ -1,16 +1,11 @@
 import { League } from "./League";
 import Team from "./Team";
 
-class User {
+export interface User {
+  id: string;
   leagues: League[];
   name: string;
   team: Team;
-
-  constructor(leagues: League[], name: string, team: Team) {
-    this.leagues = leagues;
-    this.name = name;
-    this.team = team;
-  }
 }
 
 export interface RegisterUser {
@@ -25,4 +20,15 @@ export interface LoginUser {
   password: string;
 }
 
-export default User;
+/** Receive user from response, Returns app user object */
+export function parseUser(user: any) {
+  const { id, leagues, nickname, team } = user;
+  const userTeam = new Team(team, true);
+  const appUser: User = {
+    id,
+    leagues: leagues || [],
+    name: nickname,
+    team: userTeam,
+  };
+  return appUser;
+}
