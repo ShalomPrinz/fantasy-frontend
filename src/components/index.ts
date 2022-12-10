@@ -9,6 +9,7 @@ import {
   Search,
 } from "./common";
 import Form from "./Form/Form";
+import InteractiveTable from "./InteractiveTable/InteractiveTable";
 import NavBar from "./NavBar/NavBar";
 import PlayersTable from "./PlayersTable";
 import TabChoice from "./TabChoice/TabChoice";
@@ -27,6 +28,7 @@ export {
   ConditionalList,
   Form,
   IconComponent,
+  InteractiveTable,
   Message,
   NavBar,
   TabChoice,
