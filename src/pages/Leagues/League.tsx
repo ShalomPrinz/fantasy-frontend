@@ -1,43 +1,78 @@
 import { useEffect, useState } from "react";
 
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import { useLocation } from "react-router-dom";
 
-import { ConditionalList, Message } from "../../components";
-import { LEAGUE_ID_LENGTH } from "../../constants";
-import { UserState, useUser } from "../../contexts";
+import { InteractiveTable, Message, TeamLayout } from "../../components";
+import {
+  LEAGUE_ID_LENGTH,
+  LEAGUE_TEAM_LAYOUT_MAX_WIDTH,
+} from "../../constants";
+import {
+  TeamProvider,
+  UserState,
+  useTeamUpdate,
+  useUser,
+} from "../../contexts";
 import { getLeagueInfo } from "../../services";
-import { parseLeague } from "../../types";
-import type { DetailedLeague, User } from "../../types";
+import { parseLeague, User } from "../../types";
+import type { DetailedLeague } from "../../types";
 
-function LeagueComponent() {
+interface LeagueProps {
+  userId: string;
+}
+
+function LeagueComponent({ userId }: LeagueProps) {
   const { league, isLoading } = useLeagueInfo();
+  const { isActive, onRowClick } = useViewUpdate(userId);
 
   if (isLoading)
     return <Message color="info" text="Loading League Information..." />;
   if (typeof league === "undefined")
     return <Message color="danger" text="You are not member of this league." />;
 
-  const memberCallback = ({ name }: User) => {
-    return <h3>{name}</h3>;
-  };
+  const columns = [
+    {
+      id: 0,
+      label: "Nickname",
+      path: "name",
+    },
+  ];
 
   return (
-    <div className="w-50 mx-auto text-center fs-1">
-      {league.name}
-      <ConditionalList itemCallback={memberCallback} list={league.members} />
-    </div>
+    <main className="container">
+      <Row>
+        <Col sm="4">
+          <h1 className="mx-auto text-center my-4 p-3">{league.name}</h1>
+          <InteractiveTable
+            columns={columns}
+            data={league.members}
+            isActive={isActive}
+            onRowClick={onRowClick}
+          />
+        </Col>
+        <Col className="mt-5" sm="8">
+          <TeamLayout maxWidth={LEAGUE_TEAM_LAYOUT_MAX_WIDTH} />
+        </Col>
+      </Row>
+    </main>
   );
 }
 
 const LeagueWrapper = () => {
-  const { state } = useUser();
+  const { state, user } = useUser();
 
   switch (state) {
     case UserState.LOADING_USER:
       return <Message color="info" text="Loading..." />;
 
     case UserState.LOGGED_USER:
-      return <LeagueComponent />;
+      return (
+        <TeamProvider initialTeam={user!.team}>
+          <LeagueComponent userId={user!.id} />
+        </TeamProvider>
+      );
 
     case UserState.NO_LOGGED_USER:
       return <Message color="danger" text="Please Log In to view your team" />;
@@ -73,6 +108,22 @@ const useLeagueInfo = () => {
   }, [leagueId]);
 
   return { league, isLoading: loading };
+};
+
+const useViewUpdate = (userId: string) => {
+  const { switchTeam } = useTeamUpdate();
+  const [selectedUserId, setSelectedUserId] = useState(userId);
+
+  const isActive = ({ id }: User) => id === selectedUserId;
+  const onRowClick = ({ id, team }: User) => {
+    switchTeam(team);
+    setSelectedUserId(id);
+  };
+
+  return {
+    isActive,
+    onRowClick,
+  };
 };
 
 export default LeagueWrapper;

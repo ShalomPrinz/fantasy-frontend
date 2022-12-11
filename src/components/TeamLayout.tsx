@@ -16,7 +16,11 @@ import { getFullName, Player } from "../types";
 
 import { ConditionalList, Player as PlayerComponent, TeamList } from "./";
 
-const TeamLayout = () => {
+interface TeamLayoutProps {
+  maxWidth?: number;
+}
+
+const TeamLayout = ({ maxWidth }: TeamLayoutProps) => {
   const team = useTeamState();
   const teamList = Object.values(team.players);
 
@@ -48,11 +52,12 @@ const TeamLayout = () => {
   return (
     <div className="position-relative">
       <Image
-        className="w-100"
+        className="w-100 centered-image"
         src={getImage("TEAM_LAYOUT_BG")}
         ref={fieldRef}
         alt="Team Field Background"
         rounded
+        style={{ maxWidth }}
       />
       <Container className="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden">
         <ConditionalList
@@ -65,11 +70,11 @@ const TeamLayout = () => {
   );
 };
 
-const TeamLayoutWrapper = () => {
+const TeamLayoutWrapper = ({ maxWidth }: TeamLayoutProps) => {
   const width = useWindowWidth();
   if (width < FIELD_LAYOUT_MIN_WIDTH) return <TeamList />;
 
-  return <TeamLayout />;
+  return <TeamLayout maxWidth={maxWidth} />;
 };
 
 export default TeamLayoutWrapper;

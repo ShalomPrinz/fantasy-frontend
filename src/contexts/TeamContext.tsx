@@ -5,7 +5,8 @@ import { Player, Team } from "../types";
 
 type Action =
   | { type: "addPlayer"; payload: { player: Player } }
-  | { type: "removePlayer"; payload: { player: Player } };
+  | { type: "removePlayer"; payload: { player: Player } }
+  | { type: "switchTeam"; payload: { team: Team } };
 type Dispatch = (action: Action) => void;
 
 const TeamContextState = createContext<Team | undefined>(undefined);
@@ -29,6 +30,8 @@ function useTeamUpdate() {
       dispatch({ type: "addPlayer", payload: { player } }),
     removePlayer: (player: Player) =>
       dispatch({ type: "removePlayer", payload: { player } }),
+    switchTeam: (team: Team) =>
+      dispatch({ type: "switchTeam", payload: { team } }),
   };
   return actions;
 }
@@ -65,6 +68,9 @@ function teamReducer(team: Team, action: Action) {
         removeUserPlayer(player.id);
       }
       return team.clone();
+    }
+    case "switchTeam": {
+      return action.payload.team;
     }
   }
 }

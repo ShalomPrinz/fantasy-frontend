@@ -84,6 +84,11 @@ tbody > tr:last-child > td {
   justify-content: center;
 }
 
+.centered-image {
+  display: block;
+  margin: 0 auto;
+}
+
 .clickable {
   cursor: pointer;
 }

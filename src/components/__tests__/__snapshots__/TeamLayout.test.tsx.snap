@@ -7,7 +7,7 @@ exports[`TeamLayout should render TeamLayout component 1`] = `
   >
     <img
       alt="Team Field Background"
-      class="w-100 rounded"
+      class="w-100 centered-image rounded"
       src="field.png"
     />
     <div
@@ -126,7 +126,7 @@ exports[`TeamLayout should render bigger row margin if field width is higher tha
   >
     <img
       alt="Team Field Background"
-      class="w-100 rounded"
+      class="w-100 centered-image rounded"
       src="field.png"
     />
     <div

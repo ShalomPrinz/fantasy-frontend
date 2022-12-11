@@ -3,10 +3,10 @@ import TableHeader from "./TableHeader";
 
 import "./InteractiveTable.css";
 
-const Table = ({ columns, data, onRowClick }: TableBodyProps) => (
-  <table className="table rounded bg-white table-hover">
+const Table = ({ columns, ...tableBodyProps }: TableBodyProps) => (
+  <table className="table rounded bg-white table-hover fs-5 text-center">
     <TableHeader columns={columns} />
-    <TableBody data={data} columns={columns} onRowClick={onRowClick} />
+    <TableBody columns={columns} {...tableBodyProps} />
   </table>
 );
 

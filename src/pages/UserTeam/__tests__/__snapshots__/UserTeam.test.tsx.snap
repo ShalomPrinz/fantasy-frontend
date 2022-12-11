@@ -75,7 +75,7 @@ exports[`UserTeam should render UserTeam component 1`] = `
         >
           <img
             alt="Team Field Background"
-            class="w-100 rounded"
+            class="w-100 centered-image rounded"
             src="field.png"
           />
           <div

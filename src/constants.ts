@@ -1,6 +1,7 @@
 export const FIELD_IMAGE_DEFAULT_WIDTH = 550;
 export const FIELD_LAYOUT_MIN_WIDTH = 1000;
 export const FULL_SCREEN_MIN_WIDTH = 1200;
+export const LEAGUE_TEAM_LAYOUT_MAX_WIDTH = 680;
 export const LEAGUE_ID_LENGTH = 20;
 
 // My Backend Endpoints

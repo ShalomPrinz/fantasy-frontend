@@ -10,22 +10,33 @@ interface TableData {
 export interface TableBodyProps {
   columns: TableColumn[];
   data: TableData[];
+  isActive?: (item: TableData) => boolean;
   onRowClick: (item: TableData) => void;
 }
 
-const TableBody = ({ columns, data, onRowClick }: TableBodyProps) => {
+const TableBody = ({
+  columns,
+  data,
+  isActive = () => false,
+  onRowClick,
+}: TableBodyProps) => {
   const columnCallback = (item: TableData, column: TableColumn) => (
     <td className="align-middle">{renderCell(item, column)}</td>
   );
 
-  const rowCallback = (item: TableData) => (
-    <tr className="clickable" onClick={() => onRowClick(item)}>
-      <ConditionalList
-        itemCallback={(column: TableColumn) => columnCallback(item, column)}
-        list={columns}
-      />
-    </tr>
-  );
+  const rowCallback = (item: TableData) => {
+    const className = `clickable${isActive(item) ? " bg-info" : ""}`;
+    const onClick = () => onRowClick(item);
+
+    return (
+      <tr className={className} onClick={onClick}>
+        <ConditionalList
+          itemCallback={(column: TableColumn) => columnCallback(item, column)}
+          list={columns}
+        />
+      </tr>
+    );
+  };
 
   return (
     <tbody>

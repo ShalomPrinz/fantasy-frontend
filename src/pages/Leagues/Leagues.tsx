@@ -35,7 +35,7 @@ const Leagues = ({ leagues }: LeaguesProps) => {
       <h1 className="text-center my-5 align-middle">
         My Leagues <IconComponent color="steelblue" icon="trophy" size="2" />
       </h1>
-      <div className="w-50 my-2 mx-auto fs-5 text-center">
+      <div className="w-50 my-2 mx-auto">
         <InteractiveTable
           columns={columns}
           data={leagues}
