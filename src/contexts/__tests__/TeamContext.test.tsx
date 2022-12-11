@@ -12,13 +12,26 @@ const player: Player = {
   team: "Liverpool",
 };
 
+const otherPlayer: Player = {
+  id: 1,
+  firstName: "Another",
+  lastName: "Test",
+  role: "ATT",
+  team: "Tottenham",
+};
+
 const TestStateComponent = () => {
   const contextTeam = useTeamState();
 
   return (
-    <div data-testid="test-id">
-      {contextTeam.contains(player) ? "true" : "false"}
-    </div>
+    <>
+      <div data-testid="test-id">
+        {contextTeam.contains(player) ? "true" : "false"}
+      </div>
+      <div data-testid="other-test-id">
+        {contextTeam.contains(otherPlayer) ? "true" : "false"}
+      </div>
+    </>
   );
 };
 
@@ -104,6 +117,34 @@ describe("UserTeamContext", () => {
       await clickElement(user, button);
 
       expect(div).toHaveTextContent("false");
+    });
+
+    it("should switch team state to the team given by  3f398janAFSAFASFdsfhds82 UpdateContext", async () => {
+      const team = new Team([player]);
+      const otherTeam = new Team([otherPlayer]);
+
+      const TestUpdateComponent = () => {
+        const { switchTeam } = useTeamUpdate();
+        return <button onClick={() => switchTeam(otherTeam)}></button>;
+      };
+
+      const { user } = render(
+        <TeamProvider initialTeam={team}>
+          <TestUpdateComponent />
+          <TestStateComponent />
+        </TeamProvider>
+      );
+      const playerDiv = screen.getByTestId("test-id");
+      const otherPlayerDiv = screen.getByTestId("other-test-id");
+
+      expect(playerDiv).toHaveTextContent("true");
+      expect(otherPlayerDiv).toHaveTextContent("false");
+
+      const button = screen.getByRole("button");
+      await clickElement(user, button);
+
+      expect(playerDiv).toHaveTextContent("false");
+      expect(otherPlayerDiv).toHaveTextContent("true");
     });
 
     describe("User Team Update", () => {

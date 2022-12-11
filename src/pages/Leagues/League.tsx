@@ -75,7 +75,9 @@ const LeagueWrapper = () => {
       );
 
     case UserState.NO_LOGGED_USER:
-      return <Message color="danger" text="Please Log In to view your team" />;
+      return (
+        <Message color="danger" text="Please Log In to view this league" />
+      );
   }
 };
 

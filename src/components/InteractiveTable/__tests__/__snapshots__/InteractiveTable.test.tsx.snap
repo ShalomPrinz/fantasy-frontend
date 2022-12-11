@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InteractiveTable should render InteractiveTable component by content 1`] = `
+<DocumentFragment>
+  <table
+    class="table rounded bg-white table-hover fs-5 text-center"
+  >
+    <thead>
+      <tr>
+        <th
+          class="p-3"
+        >
+          First Column
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="clickable"
+      >
+        <td
+          class="align-middle"
+        >
+          name - Test Name
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
+
+exports[`InteractiveTable should render InteractiveTable component by path 1`] = `
+<DocumentFragment>
+  <table
+    class="table rounded bg-white table-hover fs-5 text-center"
+  >
+    <thead>
+      <tr>
+        <th
+          class="p-3"
+        >
+          First Column
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="clickable"
+      >
+        <td
+          class="align-middle"
+        >
+          Test Name
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
+
+exports[`InteractiveTable should render InteractiveTable with active row 1`] = `
+<DocumentFragment>
+  <table
+    class="table rounded bg-white table-hover fs-5 text-center"
+  >
+    <thead>
+      <tr>
+        <th
+          class="p-3"
+        >
+          First Column
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="clickable"
+      >
+        <td
+          class="align-middle"
+        >
+          Test Name
+        </td>
+      </tr>
+      <tr
+        class="clickable bg-info"
+      >
+        <td
+          class="align-middle"
+        >
+          Other Name
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;

@@ -1,0 +1,338 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`League If User is logged in should not allow unrecognized path to show any league content 1`] = `
+<DocumentFragment>
+  <h1
+    class="text-center my-5 p-5 bg-danger text-white w-75 mx-auto"
+  >
+    You are not member of this league.
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`League If User is logged in should show league content 1`] = `
+<DocumentFragment>
+  <main
+    class="container"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-sm-4"
+      >
+        <h1
+          class="mx-auto text-center my-4 p-3"
+        >
+          Some League
+        </h1>
+        <table
+          class="table rounded bg-white table-hover fs-5 text-center"
+        >
+          <thead>
+            <tr>
+              <th
+                class="p-3"
+              >
+                Nickname
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="clickable bg-info"
+            >
+              <td
+                class="align-middle"
+              >
+                Signed In User
+              </td>
+            </tr>
+            <tr
+              class="clickable"
+            >
+              <td
+                class="align-middle"
+              >
+                Other User
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        class="mt-5 col-sm-8"
+      >
+        <div
+          class="position-relative"
+        >
+          <img
+            alt="Team Field Background"
+            class="w-100 centered-image rounded"
+            src="field.png"
+            style="max-width: 680px;"
+          />
+          <div
+            class="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
+          >
+            <div
+              class="my-1 row"
+            />
+            <div
+              class="my-1 row"
+            />
+            <div
+              class="my-1 row"
+            />
+            <div
+              class="my-1 row"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</DocumentFragment>
+`;
+
+exports[`League If User is logged in should show loading league message 1`] = `
+<DocumentFragment>
+  <h1
+    class="text-center my-5 p-5 bg-info text-white w-75 mx-auto"
+  >
+    Loading League Information...
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`League If User is logged in should show other user team if clicked 1`] = `
+<DocumentFragment>
+  <main
+    class="container"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-sm-4"
+      >
+        <h1
+          class="mx-auto text-center my-4 p-3"
+        >
+          Some League
+        </h1>
+        <table
+          class="table rounded bg-white table-hover fs-5 text-center"
+        >
+          <thead>
+            <tr>
+              <th
+                class="p-3"
+              >
+                Nickname
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="clickable bg-info"
+            >
+              <td
+                class="align-middle"
+              >
+                Signed In User
+              </td>
+            </tr>
+            <tr
+              class="clickable"
+            >
+              <td
+                class="align-middle"
+              >
+                Other User
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        class="mt-5 col-sm-8"
+      >
+        <div
+          class="position-relative"
+        >
+          <img
+            alt="Team Field Background"
+            class="w-100 centered-image rounded"
+            src="field.png"
+            style="max-width: 680px;"
+          />
+          <div
+            class="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
+          >
+            <div
+              class="my-1 row"
+            />
+            <div
+              class="my-1 row"
+            >
+              <div
+                class="mx-auto col"
+              >
+                <div
+                  class="text-center"
+                  style="width: 77px;"
+                >
+                  <img
+                    class=""
+                    src="Barcelona.png"
+                    style="width: 55px;"
+                    title="Barcelona"
+                  />
+                  <div
+                    class="text-truncate bg-default rounded p-1 w-100"
+                  >
+                    Ronald Araujo
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="my-1 row"
+            />
+            <div
+              class="my-1 row"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</DocumentFragment>
+`;
+
+exports[`League If User is logged in should show other user team if clicked 2`] = `
+<DocumentFragment>
+  <main
+    class="container"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-sm-4"
+      >
+        <h1
+          class="mx-auto text-center my-4 p-3"
+        >
+          Some League
+        </h1>
+        <table
+          class="table rounded bg-white table-hover fs-5 text-center"
+        >
+          <thead>
+            <tr>
+              <th
+                class="p-3"
+              >
+                Nickname
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="clickable"
+            >
+              <td
+                class="align-middle"
+              >
+                Signed In User
+              </td>
+            </tr>
+            <tr
+              class="clickable bg-info"
+            >
+              <td
+                class="align-middle"
+              >
+                Other User
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        class="mt-5 col-sm-8"
+      >
+        <div
+          class="position-relative"
+        >
+          <img
+            alt="Team Field Background"
+            class="w-100 centered-image rounded"
+            src="field.png"
+            style="max-width: 680px;"
+          />
+          <div
+            class="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
+          >
+            <div
+              class="my-1 row"
+            />
+            <div
+              class="my-1 row"
+            />
+            <div
+              class="my-1 row"
+            />
+            <div
+              class="my-1 row"
+            >
+              <div
+                class="mx-auto col"
+              >
+                <div
+                  class="text-center"
+                  style="width: 77px;"
+                >
+                  <img
+                    class=""
+                    src="Paris.png"
+                    style="width: 55px;"
+                    title="Paris"
+                  />
+                  <div
+                    class="text-truncate bg-default rounded p-1 w-100"
+                  >
+                    Lionel Messi
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</DocumentFragment>
+`;
+
+exports[`League should render League component if loading user 1`] = `
+<DocumentFragment>
+  <h1
+    class="text-center my-5 p-5 bg-info text-white w-75 mx-auto"
+  >
+    Loading...
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`League should render League component if no user is logged in 1`] = `
+<DocumentFragment>
+  <h1
+    class="text-center my-5 p-5 bg-danger text-white w-75 mx-auto"
+  >
+    Please Log In to view this league
+  </h1>
+</DocumentFragment>
+`;

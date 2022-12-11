@@ -9,7 +9,7 @@ import { setupServer } from "msw/node";
 import { handlers } from "../test";
 import * as TeamContext from "./contexts/TeamContext";
 import * as UserContext from "./contexts/UserContext";
-import { Player, Team, User } from "./types";
+import { League, Player, Team, User } from "./types";
 
 jest.setTimeout(10000);
 
@@ -26,11 +26,17 @@ interface MockedUserContext {
   user?: User;
 }
 
-export const getTestUser = (name?: string, players?: Player[]): User => ({
+interface MockedUser {
+  leagues?: League[];
+  name?: string;
+  players?: Player[];
+}
+
+export const getTestUser = (user?: MockedUser): User => ({
   id: "id",
-  leagues: [],
-  name: name || "",
-  team: new Team(players || []),
+  leagues: user?.leagues || [],
+  name: user?.name || "",
+  team: new Team(user?.players || []),
 });
 
 export const mockUser = (context: MockedUserContext) => {
@@ -51,7 +57,6 @@ export const mockUser = (context: MockedUserContext) => {
     user: mockedUser,
   }));
 
-  mockTeam(mockedUser.team);
   return userContext.mockRestore;
 };
 

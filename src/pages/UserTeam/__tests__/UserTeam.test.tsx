@@ -2,10 +2,10 @@ import {
   clickElement,
   getTestUser,
   mockUser,
-  render,
+  renderEffects,
+  renderEffectsSleep,
   screen,
   setWindowSize,
-  sleep,
 } from "setupTests";
 
 import { FIELD_LAYOUT_MIN_WIDTH } from "../../../constants";
@@ -21,36 +21,38 @@ const player: Player = {
   team: "Barcelona",
 };
 
+const renderComponent = async () => await renderEffects(<UserTeam />, true);
+const renderComponentSleep = async () =>
+  await renderEffectsSleep(<UserTeam />, true);
+
 describe("UserTeam", () => {
   it("should render UserTeam component", async () => {
-    const user = getTestUser("Some Name", [player]);
+    const user = getTestUser({ name: "Some Name", players: [player] });
     mockUser({ user });
 
-    const { asFragment } = render(<UserTeam />);
-    await sleep();
+    const { asFragment } = await renderComponentSleep();
 
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("should render a proper message if no user is logged in", () => {
+  it("should render a proper message if no user is logged in", async () => {
     mockUser({ state: UserState.NO_LOGGED_USER });
-    const { asFragment } = render(<UserTeam />);
+    const { asFragment } = await renderComponent();
     expect(asFragment()).toMatchSnapshot();
   });
 
-  it("should render a proper message if loading user", () => {
+  it("should render a proper message if loading user", async () => {
     mockUser({ state: UserState.LOADING_USER });
-    const { asFragment } = render(<UserTeam />);
+    const { asFragment } = await renderComponent();
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("should not allow field layout if window size is smaller than minimum", async () => {
-    const appUser = getTestUser("Some Name", [player]);
+    const appUser = getTestUser({ name: "Some Name", players: [player] });
     mockUser({ user: appUser });
 
     setWindowSize(FIELD_LAYOUT_MIN_WIDTH - 1);
-    const { asFragment, user } = render(<UserTeam />);
-    await sleep();
+    const { asFragment, user } = await renderComponentSleep();
     const firstRender = asFragment();
 
     const element = screen.getByRole("button", { name: /Field/i });
