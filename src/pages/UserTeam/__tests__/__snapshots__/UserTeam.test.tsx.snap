@@ -3,7 +3,7 @@
 exports[`UserTeam should render UserTeam component 1`] = `
 <DocumentFragment>
   <main
-    class="container p-4 my-4 rounded bg-team-form"
+    class="container p-4 my-4"
   >
     <div
       class="row"

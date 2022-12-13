@@ -5,7 +5,6 @@ import { Message, PlayersTable, TeamTabChoice } from "../../components";
 import { FULL_SCREEN_MIN_WIDTH } from "../../constants";
 import { TeamProvider, UserState, useTeamState, useUser } from "../../contexts";
 import useWindowWidth from "../../hooks/useWindowWidth";
-import "./UserTeam.css";
 
 interface UserTeamProps {
   name: string;
@@ -20,7 +19,7 @@ const UserTeam = ({ name }: UserTeamProps) => {
   const selectedPlayersBackground = playersCount === 11 ? "success" : "danger";
 
   return (
-    <main className="container p-4 my-4 rounded bg-team-form">
+    <main className="container p-4 my-4">
       <Row>
         <Col>
           <h2 className="fw-bold"> {name}'s Team </h2>

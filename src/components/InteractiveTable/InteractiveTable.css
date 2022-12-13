@@ -1,5 +1,6 @@
 .table-hover > tbody > tr {
-  --bs-table-hover-bg: #2497cb;
+  /* Override bootstrap table hover bg and color */
+  --bs-table-hover-bg: hsl(199, 70%, 47%);
   --bs-table-hover-color: white;
 }
 

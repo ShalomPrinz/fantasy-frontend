@@ -1,12 +1,16 @@
+:root {
+  --body-background: skyblue;
+}
+
 body {
   margin: 0;
-  font-family: 'Rubik', sans-serif !important;
+  font-family: "Rubik", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: skyblue !important;
+  background: var(--body-background) !important;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

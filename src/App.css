@@ -1,40 +1,9 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+:root {
+  --bg-light-danger: hsl(0, 100%, 65%);
+  --bg-light-success: hsl(151, 82%, 58%);
+  --default-bg-color: hsl(228, 73%, 21%);
+  --default-color: white;
+  --font-light-success: hsl(151, 78%, 39%);
 }
 
 tbody > tr:last-child > td {
@@ -52,26 +21,26 @@ tbody > tr:last-child > td {
 }
 
 .bg-default {
-  background-color: #0e1e5b;
-  color: white;
+  background-color: var(--default-bg-color);
+  color: var(--default-color);
 }
 
 .bg-light-danger {
-  background-color: #ff4e4e;
+  background-color: var(--bg-light-danger);
 }
 
 .bg-light-success {
-  background-color: #3eec98;
+  background-color: var(--bg-light-success);
 }
 
 .button-border-focus:focus {
-  border: 3px solid white;
+  border: 3px solid var(--default-color);
   outline: none;
 }
 
 .button-border-focus:hover {
-  border: 5px solid white;
-  color: white;
+  border: 5px solid var(--default-color);
+  color: var(--default-color);
 }
 
 .button-border-focus:disabled {
@@ -94,5 +63,5 @@ tbody > tr:last-child > td {
 }
 
 .text-light-success {
-  color: #16b065;
+  color: var(--font-light-success);
 }
