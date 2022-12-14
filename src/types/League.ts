@@ -1,14 +1,18 @@
 import { parseUser, User } from "./User";
 
-interface League {
+interface LeagueInfo {
   id: string;
-  members: string[];
+  membersCount: number;
   name: string;
 }
 
 interface DetailedLeague {
   id: string;
   members: User[];
+  name: string;
+}
+
+interface CreateLeague {
   name: string;
 }
 
@@ -25,4 +29,4 @@ export function parseLeague(league: any) {
   return appLeague;
 }
 
-export type { DetailedLeague, League };
+export type { CreateLeague, DetailedLeague, LeagueInfo };

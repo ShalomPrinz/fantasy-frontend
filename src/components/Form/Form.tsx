@@ -7,12 +7,6 @@ import type { TextInput } from "./FormTextInput";
 import { FormTextInput } from "./FormTextInput";
 import "./Form.css";
 
-const inputCallback = (item: TextInput) => (
-  <Row className="mx-2 p-2">
-    <FormTextInput {...item} />
-  </Row>
-);
-
 interface FormProps {
   onSubmit: (values: {}) => void;
   schema: SchemaLike;
@@ -31,6 +25,13 @@ const AppForm = ({
   const initialValues = textInputs.reduce(
     (o, key) => ({ ...o, [key.name]: "" }),
     {}
+  );
+
+  const spaceBetweenInputs = textInputs.length === 1 ? "4" : "2";
+  const inputCallback = (item: TextInput) => (
+    <Row className={`mx-2 px-2 py-${spaceBetweenInputs}`}>
+      <FormTextInput {...item} />
+    </Row>
   );
 
   return (

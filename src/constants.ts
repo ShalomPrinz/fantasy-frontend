@@ -12,3 +12,4 @@ export const userInfoUrl = "/user";
 export const addPlayerUrl = "/user/addplayer";
 export const removePlayerUrl = "/user/removeplayer";
 export const leagueInfoUrl = "/league";
+export const createLeagueUrl = "/newleague";

@@ -1,9 +1,9 @@
-import { League } from "./League";
+import type { LeagueInfo } from "./League";
 import Team from "./Team";
 
 export interface User {
   id: string;
-  leagues: League[];
+  leagues: LeagueInfo[];
   name: string;
   team: Team;
 }

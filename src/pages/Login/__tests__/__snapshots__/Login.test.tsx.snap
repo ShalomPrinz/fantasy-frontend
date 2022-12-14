@@ -33,7 +33,7 @@ exports[`Login should render Login component if no user is logged in 1`] = `
             </h1>
           </div>
           <div
-            class="mx-2 p-2 row"
+            class="mx-2 px-2 py-2 row"
           >
             <label
               for="email"
@@ -50,7 +50,7 @@ exports[`Login should render Login component if no user is logged in 1`] = `
             />
           </div>
           <div
-            class="mx-2 p-2 row"
+            class="mx-2 px-2 py-2 row"
           >
             <label
               for="password"

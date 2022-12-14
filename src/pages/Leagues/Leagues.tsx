@@ -2,15 +2,16 @@ import { useNavigate } from "react-router-dom";
 
 import { IconComponent, InteractiveTable, Message } from "../../components";
 import { UserState, useUser } from "../../contexts";
-import { League } from "../../types";
+import { LeagueInfo } from "../../types";
 
 interface LeaguesProps {
-  leagues: League[];
+  leagues: LeagueInfo[];
 }
 
 const Leagues = ({ leagues }: LeaguesProps) => {
   const navigate = useNavigate();
-  const onLeagueSelection = ({ id }: League) => navigate(id);
+  const onLeagueSelection = ({ id }: LeagueInfo) => navigate(id);
+  const onNewLeagueClick = () => navigate("/new-league");
 
   if (!leagues.length)
     return (
@@ -26,15 +27,13 @@ const Leagues = ({ leagues }: LeaguesProps) => {
     {
       id: 1,
       label: "Members Number",
-      content: ({ members }: League) => members.length,
+      content: ({ membersCount }: LeagueInfo) => membersCount,
     },
   ];
 
   return (
     <>
-      <h1 className="text-center my-5 align-middle">
-        My Leagues <IconComponent color="steelblue" icon="trophy" size="2" />
-      </h1>
+      <div className="text-center my-5 fs-1">My Leagues</div>
       <div className="w-50 my-2 mx-auto">
         <InteractiveTable
           columns={columns}
@@ -42,6 +41,17 @@ const Leagues = ({ leagues }: LeaguesProps) => {
           onRowClick={onLeagueSelection}
         />
       </div>
+      <button
+        className="fs-3 bg-default rounded m-5 p-4 button-border-focus position-absolute bottom-0 start-0"
+        onClick={onNewLeagueClick}
+      >
+        New League
+        <IconComponent
+          className="ms-3 pt-1 pb-2 align-middle"
+          icon="plus"
+          size="2"
+        />
+      </button>
     </>
   );
 };

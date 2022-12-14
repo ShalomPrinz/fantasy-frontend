@@ -27,6 +27,7 @@ enum State {
 }
 
 interface UserContextValue {
+  invalidate: () => Promise<void>;
   loading: boolean;
   login: (info: {}) => Promise<void>;
   logout: () => Promise<void>;
@@ -104,6 +105,7 @@ function UserProvider({ children }: UserProviderProps) {
   };
 
   const value: UserContextValue = {
+    invalidate: loadUser,
     loading,
     login,
     logout,

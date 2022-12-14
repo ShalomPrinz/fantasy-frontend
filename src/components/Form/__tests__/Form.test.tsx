@@ -12,6 +12,13 @@ const textInput = [
   },
 ];
 
+const otherTextInput = {
+  id: 1,
+  label: "second input",
+  name: "secondInput",
+  type: "text",
+};
+
 describe("Form", () => {
   it("should render Form component", () => {
     const { asFragment } = render(
@@ -34,6 +41,20 @@ describe("Form", () => {
         schema={Yup.object()}
         submitDisabled={false}
         textInputs={textInput}
+        title={"Test Form"}
+      />
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it("should render Form component with more than one input", () => {
+    const { asFragment } = render(
+      <Form
+        onSubmit={() => {}}
+        schema={Yup.object()}
+        submitDisabled={false}
+        textInputs={[...textInput, otherTextInput]}
         title={"Test Form"}
       />
     );

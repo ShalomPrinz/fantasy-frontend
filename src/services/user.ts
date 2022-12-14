@@ -1,12 +1,13 @@
 import {
   addPlayerUrl,
+  createLeagueUrl,
   leagueInfoUrl,
   playersUrl,
   registerUrl,
   removePlayerUrl,
   userInfoUrl,
 } from "../constants";
-import type { LoginUser, RegisterUser } from "../types/User";
+import type { CreateLeague, LoginUser, RegisterUser } from "../types";
 import { signIn, signOut } from "./firebase";
 import { get, post } from "./http";
 
@@ -44,4 +45,8 @@ export function removeUserPlayer(id: number) {
 
 export function getLeagueInfo(id: string) {
   return get(leagueInfoUrl, { params: { id } });
+}
+
+export function createLeague({ name }: CreateLeague) {
+  return post(createLeagueUrl, { name });
 }
