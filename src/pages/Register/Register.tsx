@@ -7,7 +7,7 @@ const schema = Yup.object({
   fullName: Yup.string()
     .max(30, "Must be 30 characters or less")
     .required("Required"),
-  nickname: Yup.string()
+  username: Yup.string()
     .max(10, "Must be 10 characters or less")
     .required("Required"),
   email: Yup.string().email("Invalid email address").required("Required"),
@@ -26,8 +26,8 @@ const textInputs = [
   },
   {
     id: 1,
-    label: "Nickname",
-    name: "nickname",
+    label: "Username",
+    name: "username",
     type: "text",
     placeholder: "Jane",
   },

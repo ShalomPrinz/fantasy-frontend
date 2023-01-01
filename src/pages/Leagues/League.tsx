@@ -35,7 +35,7 @@ function LeagueComponent({ userId }: LeagueProps) {
   const columns = [
     {
       id: 0,
-      label: "Nickname",
+      label: "Username",
       path: "name",
     },
   ];

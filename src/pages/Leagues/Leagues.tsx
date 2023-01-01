@@ -15,7 +15,10 @@ const Leagues = ({ leagues }: LeaguesProps) => {
 
   if (!leagues.length)
     return (
-      <Message color="info" text="You are not a member of any league yet" />
+      <>
+        <Message color="info" text="You are not a member of any league yet" />
+        <NewLeagueButton onNewLeagueClick={onNewLeagueClick} />
+      </>
     );
 
   const columns = [
@@ -41,20 +44,30 @@ const Leagues = ({ leagues }: LeaguesProps) => {
           onRowClick={onLeagueSelection}
         />
       </div>
-      <button
-        className="fs-3 bg-default rounded m-5 p-4 button-border-focus position-absolute bottom-0 start-0"
-        onClick={onNewLeagueClick}
-      >
-        New League
-        <IconComponent
-          className="ms-3 pt-1 pb-2 align-middle"
-          icon="plus"
-          size="2"
-        />
-      </button>
+      <NewLeagueButton onNewLeagueClick={onNewLeagueClick} />
     </>
   );
 };
+
+interface NewLeagueButtonProps {
+  onNewLeagueClick: () => void;
+}
+
+function NewLeagueButton({ onNewLeagueClick }: NewLeagueButtonProps) {
+  return (
+    <button
+      className="fs-3 bg-default rounded m-5 p-4 button-border-focus position-absolute bottom-0 start-0"
+      onClick={onNewLeagueClick}
+    >
+      New League
+      <IconComponent
+        className="ms-3 pt-1 pb-2 align-middle"
+        icon="plus"
+        size="2"
+      />
+    </button>
+  );
+}
 
 const LeaguesWrapper = () => {
   const { state, user } = useUser();

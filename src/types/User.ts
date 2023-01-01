@@ -10,7 +10,7 @@ export interface User {
 
 export interface RegisterUser {
   fullName: string;
-  nickname: string;
+  username: string;
   email: string;
   password: string;
 }
@@ -22,12 +22,12 @@ export interface LoginUser {
 
 /** Receive user from response, Returns app user object */
 export function parseUser(user: any) {
-  const { id, leagues, nickname, team } = user;
+  const { id, leagues, username, team } = user;
   const userTeam = new Team(team, true);
   const appUser: User = {
     id,
     leagues: leagues || [],
-    name: nickname,
+    name: username,
     team: userTeam,
   };
   return appUser;

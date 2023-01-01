@@ -53,14 +53,14 @@ exports[`Register should render Register component if no user is logged in 1`] =
             class="mx-2 px-2 py-2 row"
           >
             <label
-              for="nickname"
+              for="username"
             >
-              Nickname
+              Username
             </label>
             <input
               class="form-text-input"
               id="1"
-              name="nickname"
+              name="username"
               placeholder="Jane"
               type="text"
               value=""

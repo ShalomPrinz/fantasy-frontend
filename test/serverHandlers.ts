@@ -28,7 +28,7 @@ const handlers = [
           members: [
             {
               id: "id",
-              nickname: "Signed In User",
+              username: "Signed In User",
               team: [
                 {
                   id: 0,
@@ -41,7 +41,7 @@ const handlers = [
             },
             {
               id: "OTHER USER ID",
-              nickname: "Other User",
+              username: "Other User",
               team: [
                 {
                   id: 1,

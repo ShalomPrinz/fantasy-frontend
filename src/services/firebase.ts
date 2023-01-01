@@ -1,11 +1,14 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from "@firebase/app";
 import {
   signOut as authSignOut,
-  getAuth,
+  connectAuthEmulator,
+  initializeAuth,
   inMemoryPersistence,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
+// Firestore online database
+/*
 const app = initializeApp({
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -18,6 +21,19 @@ const app = initializeApp({
 
 const auth = getAuth(app);
 auth.setPersistence(inMemoryPersistence);
+*/
+
+// Emulator
+// /*
+const testApp = initializeApp({
+  apiKey: "testkey",
+  projectId: "demo-test-fantasy",
+});
+
+const auth = initializeAuth(testApp);
+auth.setPersistence(inMemoryPersistence);
+connectAuthEmulator(auth, "http://localhost:8110");
+// */
 
 const signIn = async (email: string, password: string) => {
   const { user } = await signInWithEmailAndPassword(auth, email, password);
