@@ -10,7 +10,7 @@ import {
   FIELD_LAYOUT_MIN_WIDTH,
 } from "../constants";
 import { useTeamState } from "../contexts";
-import useWindowWidth from "../hooks/useWindowWidth";
+import { useWindowWidth } from "../hooks";
 import { getImage } from "../res";
 import { getFullName, Player } from "../types";
 

@@ -1,5 +1,5 @@
 import { FIELD_LAYOUT_MIN_WIDTH } from "../constants";
-import useWindowWidth from "../hooks/useWindowWidth";
+import { useWindowWidth } from "../hooks";
 
 import { TabChoice, TeamLayout, TeamList } from "./";
 

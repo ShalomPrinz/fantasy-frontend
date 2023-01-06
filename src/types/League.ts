@@ -1,4 +1,11 @@
-import { parseUser, User } from "./User";
+import Team from "./Team";
+
+interface Member {
+  id: string;
+  name: string;
+  team: Team;
+  role: string;
+}
 
 interface LeagueInfo {
   id: string;
@@ -8,7 +15,7 @@ interface LeagueInfo {
 
 interface DetailedLeague {
   id: string;
-  members: User[];
+  members: Member[];
   name: string;
 }
 
@@ -16,11 +23,29 @@ interface CreateLeague {
   name: string;
 }
 
+function isLeagueAdmin(league: DetailedLeague | undefined, userId: string) {
+  const member = league?.members.find((m) => m.id === userId);
+  return member?.role === "admin";
+}
+
+/** Receive member from response, Returns app member object */
+function parseMember(member: any) {
+  const { id, username, team, role } = member;
+  const memberTeam = new Team(team, true);
+  const appMember: Member = {
+    id,
+    name: username,
+    team: memberTeam,
+    role,
+  };
+  return appMember;
+}
+
 /** Receive league from response, Returns app league object */
 export function parseLeague(league: any) {
   if (typeof league === "undefined") return undefined;
   const { id, name, members } = league;
-  const leagueMembers = members.map((m: any) => parseUser(m));
+  const leagueMembers = members.map((m: any) => parseMember(m));
   const appLeague: DetailedLeague = {
     id,
     name,
@@ -29,4 +54,5 @@ export function parseLeague(league: any) {
   return appLeague;
 }
 
+export { isLeagueAdmin };
 export type { CreateLeague, DetailedLeague, LeagueInfo };

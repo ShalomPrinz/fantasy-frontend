@@ -1,8 +1,8 @@
 import { ConditionalList } from "../";
 import type { TableColumn } from "./types";
 
-const headerCallback = ({ label }: TableColumn) => (
-  <th className="p-3">{label}</th>
+const headerCallback = ({ label, labelComponent }: TableColumn) => (
+  <th className="p-3">{labelComponent ? labelComponent : label}</th>
 );
 
 interface TableHeaderProps {

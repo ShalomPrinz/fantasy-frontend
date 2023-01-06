@@ -1,30 +1,32 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import { InteractiveTable, Message, TeamLayout } from "../../components";
 import {
-  LEAGUE_ID_LENGTH,
-  LEAGUE_TEAM_LAYOUT_MAX_WIDTH,
-} from "../../constants";
+  IconComponent,
+  InteractiveTable,
+  Message,
+  TeamLayout,
+} from "../../components";
+import type { InteractiveTableColumn } from "../../components";
+import { LEAGUE_TEAM_LAYOUT_MAX_WIDTH } from "../../constants";
 import {
   TeamProvider,
   UserState,
   useTeamUpdate,
   useUser,
 } from "../../contexts";
-import { getLeagueInfo } from "../../services";
-import { parseLeague, User } from "../../types";
-import type { DetailedLeague } from "../../types";
+import { useLeagueInfo } from "../../hooks";
+import { User } from "../../types";
 
 interface LeagueProps {
   userId: string;
 }
 
 function LeagueComponent({ userId }: LeagueProps) {
-  const { league, isLoading } = useLeagueInfo();
+  const { league, isAdmin, isLoading } = useLeagueInfo(userId);
   const { isActive, onRowClick } = useViewUpdate(userId);
 
   if (isLoading)
@@ -32,19 +34,21 @@ function LeagueComponent({ userId }: LeagueProps) {
   if (typeof league === "undefined")
     return <Message color="danger" text="You are not member of this league." />;
 
-  const columns = [
+  const columns: InteractiveTableColumn[] = [
     {
       id: 0,
-      label: "Username",
+      label: "Members",
       path: "name",
     },
   ];
 
+  if (isAdmin) columns[0].labelComponent = <InviteMembersLabel />;
+
   return (
     <main className="container">
       <Row>
-        <Col sm="4">
-          <h1 className="mx-auto text-center my-4 p-3">{league.name}</h1>
+        <Col className="text-center" sm="4">
+          <h1 className="mx-auto my-4 p-3">{league.name}</h1>
           <InteractiveTable
             columns={columns}
             data={league.members}
@@ -57,6 +61,24 @@ function LeagueComponent({ userId }: LeagueProps) {
         </Col>
       </Row>
     </main>
+  );
+}
+
+function InviteMembersLabel() {
+  const navigate = useNavigate();
+
+  return (
+    <div className="d-flex align-items-center">
+      <h3 className="pt-2 ms-auto me-2">Members</h3>
+      <button
+        className="fs-4 bg-default rounded py-2 px-3 ms-auto"
+        onClick={() => navigate("invite")}
+        type="button"
+      >
+        Invite
+        <IconComponent className="pe-0 ps-2" icon="invite" />
+      </button>
+    </div>
   );
 }
 
@@ -79,37 +101,6 @@ const LeagueWrapper = () => {
         <Message color="danger" text="Please Log In to view this league" />
       );
   }
-};
-
-const getLeagueIdFromPath = (path: string) => {
-  const split = path.split("/");
-  const slashCount = split.length - 1;
-  if (slashCount < 2 || slashCount > 2) return "";
-  return split[2];
-};
-
-const useLeagueInfo = () => {
-  const { pathname } = useLocation();
-  const leagueId = getLeagueIdFromPath(pathname);
-
-  const [loading, setLoading] = useState(true);
-  const [league, setLeague] = useState<DetailedLeague | undefined>(undefined);
-
-  useEffect(() => {
-    setLoading(true);
-    if (leagueId.length === LEAGUE_ID_LENGTH) {
-      getLeagueInfo(leagueId)
-        .then((res) => {
-          const league = parseLeague(res?.data?.league);
-          setLeague(league);
-        })
-        .finally(() => setLoading(false));
-    } else {
-      setLoading(false);
-    }
-  }, [leagueId]);
-
-  return { league, isLoading: loading };
 };
 
 const useViewUpdate = (userId: string) => {

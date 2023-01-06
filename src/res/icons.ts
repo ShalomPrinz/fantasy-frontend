@@ -4,6 +4,7 @@ import {
   faCircleCheck,
   faCirclePlus,
   faImage,
+  faPlus,
   faRankingStar,
   faRightFromBracket,
   faTimes,
@@ -14,6 +15,7 @@ import { get } from "lodash";
 const icons = {
   check: faCircleCheck,
   image: faImage,
+  invite: faPlus,
   logout: faRightFromBracket,
   navbarClosed: faBars,
   navbarExpanded: faTimes,

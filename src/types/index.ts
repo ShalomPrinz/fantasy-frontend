@@ -1,7 +1,7 @@
 import Team from "./Team";
 
 export { Team };
-export { parseLeague } from "./League";
+export { isLeagueAdmin, parseLeague } from "./League";
 export { getFullName } from "./Player";
 export { parseUser } from "./User";
 
