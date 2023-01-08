@@ -8,6 +8,11 @@ export interface User {
   team: Team;
 }
 
+export interface QueriedUser {
+  id: string;
+  username: string;
+}
+
 export interface RegisterUser {
   fullName: string;
   username: string;

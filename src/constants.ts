@@ -7,9 +7,11 @@ export const LEAGUE_ID_LENGTH = 20;
 // My Backend Endpoints
 export const baseURL = "http://localhost:8080";
 export const playersUrl = "/players/query";
+export const usernamesUrl = "/users/query";
 export const registerUrl = "/register";
 export const userInfoUrl = "/user";
 export const addPlayerUrl = "/user/addplayer";
 export const removePlayerUrl = "/user/removeplayer";
 export const leagueInfoUrl = "/league";
 export const createLeagueUrl = "/newleague";
+export const inviteLeagueMemberUrl = "/leagueinvite";

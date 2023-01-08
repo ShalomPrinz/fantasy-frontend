@@ -19,10 +19,10 @@ exports[`League If User is logged in should show league content 1`] = `
       class="row"
     >
       <div
-        class="col-sm-4"
+        class="text-center col-sm-4"
       >
         <h1
-          class="mx-auto text-center my-4 p-3"
+          class="mx-auto my-4 p-3"
         >
           Some League
         </h1>
@@ -34,7 +34,7 @@ exports[`League If User is logged in should show league content 1`] = `
               <th
                 class="p-3"
               >
-                Username
+                Members
               </th>
             </tr>
           </thead>
@@ -114,10 +114,10 @@ exports[`League If User is logged in should show other user team if clicked 1`] 
       class="row"
     >
       <div
-        class="col-sm-4"
+        class="text-center col-sm-4"
       >
         <h1
-          class="mx-auto text-center my-4 p-3"
+          class="mx-auto my-4 p-3"
         >
           Some League
         </h1>
@@ -129,7 +129,7 @@ exports[`League If User is logged in should show other user team if clicked 1`] 
               <th
                 class="p-3"
               >
-                Username
+                Members
               </th>
             </tr>
           </thead>
@@ -220,10 +220,10 @@ exports[`League If User is logged in should show other user team if clicked 2`] 
       class="row"
     >
       <div
-        class="col-sm-4"
+        class="text-center col-sm-4"
       >
         <h1
-          class="mx-auto text-center my-4 p-3"
+          class="mx-auto my-4 p-3"
         >
           Some League
         </h1>
@@ -235,7 +235,7 @@ exports[`League If User is logged in should show other user team if clicked 2`] 
               <th
                 class="p-3"
               >
-                Username
+                Members
               </th>
             </tr>
           </thead>

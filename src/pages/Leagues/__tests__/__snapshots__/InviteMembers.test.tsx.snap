@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InviteMembers If User is logged in should render InviteMembers component if user is not a member of the league 1`] = `
+<DocumentFragment>
+  <h1
+    class="text-center my-5 p-5 bg-danger text-white w-75 mx-auto"
+  >
+    You are not member of this league.
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`InviteMembers should render InviteMembers component if loading user 1`] = `
+<DocumentFragment>
+  <h1
+    class="text-center my-5 p-5 bg-info text-white w-75 mx-auto"
+  >
+    Loading...
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`InviteMembers should render InviteMembers component if no user is logged in 1`] = `
+<DocumentFragment>
+  <h1
+    class="text-center my-5 p-5 bg-danger text-white w-75 mx-auto"
+  >
+    Please Log In to invite members to your league
+  </h1>
+</DocumentFragment>
+`;

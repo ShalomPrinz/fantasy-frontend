@@ -8,4 +8,4 @@ export { parseUser } from "./User";
 export type { CreateLeague, DetailedLeague, LeagueInfo } from "./League";
 export type { Player, PlayerRole } from "./Player";
 export type { PlayerPairs } from "./Team";
-export type { LoginUser, RegisterUser, User } from "./User";
+export type { LoginUser, RegisterUser, QueriedUser, User } from "./User";

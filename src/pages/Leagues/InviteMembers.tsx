@@ -1,6 +1,15 @@
-import { Message } from "../../components";
+import { useState } from "react";
+
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import { Message, Search, Table } from "../../components";
 import { UserState, useUser } from "../../contexts";
 import { useLeagueInfo } from "../../hooks";
+import { inviteLeagueMember, queryUsers } from "../../services";
+import { QueriedUser } from "../../types";
 
 interface InviteMembersProps {
   userId: string;
@@ -8,18 +17,107 @@ interface InviteMembersProps {
 
 const InviteMembers = ({ userId }: InviteMembersProps) => {
   const { league, isLoading } = useLeagueInfo(userId);
+  const { invited, inviteMember, isInviting } = useInviteMembers(
+    league?.id,
+    league?.name
+  );
+  const navigate = useNavigate();
+  const [users, setUsers] = useState([]);
+
+  function handleQuery(query: string) {
+    queryUsers(query).then((res) => setUsers(res.data.users || []));
+  }
 
   if (isLoading)
     return <Message color="info" text="Loading League Information..." />;
   if (typeof league === "undefined")
     return <Message color="danger" text="You are not member of this league." />;
 
+  const inviteTableColumns = [
+    {
+      id: 0,
+      label: "Username",
+      path: "username",
+    },
+    {
+      id: 1,
+      label: "Invite",
+      content: ({ username }: QueriedUser) => {
+        return (
+          <button
+            className="fs-4 bg-default rounded py-2 px-3"
+            disabled={isInviting}
+            onClick={() => inviteMember(username)}
+            type="button"
+          >
+            Invite
+          </button>
+        );
+      },
+    },
+  ];
+
   return (
-    <div className="w-50 mx-auto m-5">
-      <h1>Invite new members to {league!.name}</h1>
-    </div>
+    <main className="container mt-5 text-center">
+      <Row>
+        <h1 className="mb-5">Invite new members to {league!.name}</h1>
+      </Row>
+      <Row>
+        <Col sm="3" className="mx-auto">
+          <h3 className="m-4">Members: {league!.members.length}</h3>
+          <h3 className="m-4">Invited: {invited.length}</h3>
+          <button
+            className="fs-2 bg-default rounded py-3 px-4 button-border-focus"
+            onClick={() => navigate(-1)}
+            type="button"
+          >
+            {league!.name}
+          </button>
+        </Col>
+        <Col sm="6" className="mx-auto">
+          <Search onChange={handleQuery} />
+          <div className="w-75 mx-auto mt-4 fs-3">
+            <Table columns={inviteTableColumns} data={users} />
+            {!users.length && "No Users Found"}
+          </div>
+        </Col>
+      </Row>
+    </main>
   );
 };
+
+function useInviteMembers(
+  leagueId: string | undefined,
+  leagueName: string | undefined
+) {
+  const [invited, setInvited] = useState<string[]>([]);
+  const [isInviting, setIsInviting] = useState(false);
+
+  function inviteMember(username: string) {
+    if (leagueId && !isInviting) {
+      setIsInviting(true);
+      if (!invited.includes(username)) {
+        inviteLeagueMember(username, leagueId)
+          .then(() => {
+            toast.success(`Successfully invited ${username} to ${leagueName}`);
+            setInvited([...invited, username]);
+          })
+          .finally(() => {
+            setIsInviting(false);
+          });
+      } else {
+        toast.warn(`You already invited ${username}!`);
+        setIsInviting(false);
+      }
+    }
+  }
+
+  return {
+    invited,
+    inviteMember,
+    isInviting,
+  };
+}
 
 const InviteMembersWrapper = () => {
   const { state, user } = useUser();
