@@ -60,6 +60,12 @@ exports[`NavBar User is logged in should render other navbar menu 1`] = `
         >
           Leagues
         </a>
+        <a
+          class="nav-item nav-links fw-light"
+          href="/inbox"
+        >
+          Inbox
+        </a>
       </div>
       <div
         class="ms-auto pe-5 navbar-nav"

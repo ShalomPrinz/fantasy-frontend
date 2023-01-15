@@ -112,6 +112,11 @@ function NavBarWrapper() {
         name: "Leagues",
         url: "/leagues",
       },
+      {
+        id: 5,
+        name: "Inbox",
+        url: "/inbox",
+      },
     ];
 
     const handleLogout = () => {

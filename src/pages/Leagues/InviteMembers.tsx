@@ -17,7 +17,7 @@ interface InviteMembersProps {
 
 const InviteMembers = ({ userId }: InviteMembersProps) => {
   const { league, isLoading } = useLeagueInfo(userId);
-  const { invited, inviteMember, isInviting } = useInviteMembers(
+  const { inviteMember, isInviting } = useInviteMembers(
     league?.id,
     league?.name
   );
@@ -42,12 +42,12 @@ const InviteMembers = ({ userId }: InviteMembersProps) => {
     {
       id: 1,
       label: "Invite",
-      content: ({ username }: QueriedUser) => {
+      content: ({ id, username }: QueriedUser) => {
         return (
           <button
             className="fs-4 bg-default rounded py-2 px-3"
             disabled={isInviting}
-            onClick={() => inviteMember(username)}
+            onClick={() => inviteMember(id, username)}
             type="button"
           >
             Invite
@@ -65,7 +65,6 @@ const InviteMembers = ({ userId }: InviteMembersProps) => {
       <Row>
         <Col sm="3" className="mx-auto">
           <h3 className="m-4">Members: {league!.members.length}</h3>
-          <h3 className="m-4">Invited: {invited.length}</h3>
           <button
             className="fs-2 bg-default rounded py-3 px-4 button-border-focus"
             onClick={() => navigate(-1)}
@@ -90,30 +89,22 @@ function useInviteMembers(
   leagueId: string | undefined,
   leagueName: string | undefined
 ) {
-  const [invited, setInvited] = useState<string[]>([]);
   const [isInviting, setIsInviting] = useState(false);
 
-  function inviteMember(username: string) {
-    if (leagueId && !isInviting) {
-      setIsInviting(true);
-      if (!invited.includes(username)) {
-        inviteLeagueMember(username, leagueId)
-          .then(() => {
-            toast.success(`Successfully invited ${username} to ${leagueName}`);
-            setInvited([...invited, username]);
-          })
-          .finally(() => {
-            setIsInviting(false);
-          });
-      } else {
-        toast.warn(`You already invited ${username}!`);
+  function inviteMember(userId: string, username: string) {
+    if (!leagueId || isInviting) return;
+
+    setIsInviting(true);
+    inviteLeagueMember(userId, leagueId)
+      .then(() => {
+        toast.success(`Successfully invited ${username} to ${leagueName}`);
+      })
+      .finally(() => {
         setIsInviting(false);
-      }
-    }
+      });
   }
 
   return {
-    invited,
     inviteMember,
     isInviting,
   };

@@ -1,4 +1,5 @@
 import Home from "./Home/Home";
+import Inbox from "./Inbox/Inbox";
 import CreateLeague from "./Leagues/CreateLeague";
 import InviteMembers from "./Leagues/InviteMembers";
 import League from "./Leagues/League";
@@ -9,6 +10,7 @@ import UserTeam from "./UserTeam/UserTeam";
 
 export {
   Home,
+  Inbox,
   CreateLeague,
   InviteMembers,
   League,

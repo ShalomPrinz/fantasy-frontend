@@ -1,6 +1,7 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
   faBars,
+  faCheck,
   faCircleCheck,
   faCirclePlus,
   faImage,
@@ -9,11 +10,14 @@ import {
   faRightFromBracket,
   faTimes,
   faTrophy,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { get } from "lodash";
 
 const icons = {
+  accept: faCheck,
   check: faCircleCheck,
+  decline: faXmark,
   image: faImage,
   invite: faPlus,
   logout: faRightFromBracket,

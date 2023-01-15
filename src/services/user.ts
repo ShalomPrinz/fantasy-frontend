@@ -57,6 +57,7 @@ export function createLeague({ name }: CreateLeague) {
   return post(createLeagueUrl, { name });
 }
 
+/** @param {string} to User Id  */
 export function inviteLeagueMember(to: string, leagueId: string) {
   return post(inviteLeagueMemberUrl, { to, leagueId });
 }

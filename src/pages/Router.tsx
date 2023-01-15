@@ -11,6 +11,7 @@ import { NavBar } from "../components";
 import {
   CreateLeague,
   Home,
+  Inbox,
   InviteMembers,
   League,
   Leagues,
@@ -37,6 +38,7 @@ const router = createBrowserRouter(
       <Route path="leagues/:leagueId" element={<League />} />
       <Route path="leagues/:leagueId/invite" element={<InviteMembers />} />
       <Route path="new-league" element={<CreateLeague />} />
+      <Route path="inbox" element={<Inbox />} />
     </Route>
   )
 );
