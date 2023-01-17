@@ -1,10 +1,7 @@
-import {
-  IconComponent,
-  Message as MessageComponent,
-  Table,
-} from "../../components";
+import { Message as MessageComponent, Table } from "../../components";
 import { UserState, useUser } from "../../contexts";
 import { Message } from "../../types";
+import LeagueInviteResponse from "./LeagueInviteResponse";
 
 interface InboxProps {
   messages: Message[];
@@ -16,26 +13,28 @@ function Inbox({ messages }: InboxProps) {
       id: 0,
       content: ({ from, league }: Message) => {
         return (
-          <h5 className="ps-5">
+          <span className="ps-5 fs-5">
             <span className="fw-bold">{from} </span>
             invited you to
             <span className="fw-bold"> {league.name}</span>
-          </h5>
+          </span>
         );
       },
     },
     {
       id: 1,
       content: ({ league }: Message) => (
-        <h5>
+        <span className="fs-5">
           <span className="fw-bold">{league.membersCount} </span>
           Member{league.membersCount > 1 && "s"}
-        </h5>
+        </span>
       ),
     },
     {
       id: 2,
-      content: () => <InviteResponse />,
+      content: ({ id, league }: Message) => (
+        <LeagueInviteResponse leagueName={league.name} messageId={id} />
+      ),
     },
   ];
 
@@ -46,29 +45,6 @@ function Inbox({ messages }: InboxProps) {
         <Table columns={columns} data={messages} />
       </div>
     </>
-  );
-}
-
-function InviteResponse() {
-  return (
-    <div className="d-flex align-items-center py-1 pe-5">
-      <button
-        className="fs-4 bg-light-danger rounded py-2 px-3 ms-auto"
-        onClick={() => console.log("declined")}
-        type="button"
-      >
-        Decline
-        <IconComponent className="pe-0 ps-2" icon="decline" />
-      </button>
-      <button
-        className="fs-4 bg-light-success rounded py-2 px-3 ms-auto"
-        onClick={() => console.log("accepted")}
-        type="button"
-      >
-        Accept
-        <IconComponent className="pe-0 ps-2" icon="accept" />
-      </button>
-    </div>
   );
 }
 
@@ -86,7 +62,7 @@ const InboxWrapper = () => {
       return (
         <MessageComponent
           color="danger"
-          text="Please Log In to view your team"
+          text="Please Log In to view your inbox"
         />
       );
   }

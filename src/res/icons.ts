@@ -17,7 +17,6 @@ import { get } from "lodash";
 const icons = {
   accept: faCheck,
   check: faCircleCheck,
-  decline: faXmark,
   image: faImage,
   invite: faPlus,
   logout: faRightFromBracket,
@@ -25,6 +24,7 @@ const icons = {
   navbarExpanded: faTimes,
   plus: faCirclePlus,
   rankingStar: faRankingStar,
+  reject: faXmark,
   trophy: faTrophy,
 };
 

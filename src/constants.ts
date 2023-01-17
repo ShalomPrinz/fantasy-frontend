@@ -15,3 +15,5 @@ export const removePlayerUrl = "/user/removeplayer";
 export const leagueInfoUrl = "/league";
 export const createLeagueUrl = "/newleague";
 export const inviteLeagueMemberUrl = "/leagueinvite";
+export const acceptLeagueInviteUrl = "/accept/leagueinvite";
+export const rejectLeagueInviteUrl = "/reject/leagueinvite";

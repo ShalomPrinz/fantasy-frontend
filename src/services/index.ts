@@ -1,5 +1,6 @@
 export { saveIdToken, loadIdToken, removeIdToken } from "./storage";
 export {
+  acceptLeagueInvite,
   addUserPlayer,
   createLeague,
   getLeagueInfo,
@@ -10,5 +11,6 @@ export {
   queryPlayers,
   queryUsers,
   registerUser,
+  rejectLeagueInvite,
   removeUserPlayer,
 } from "./user";

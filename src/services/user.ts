@@ -1,10 +1,12 @@
 import {
+  acceptLeagueInviteUrl,
   addPlayerUrl,
   createLeagueUrl,
   inviteLeagueMemberUrl,
   leagueInfoUrl,
   playersUrl,
   registerUrl,
+  rejectLeagueInviteUrl,
   removePlayerUrl,
   userInfoUrl,
   usernamesUrl,
@@ -60,4 +62,12 @@ export function createLeague({ name }: CreateLeague) {
 /** @param {string} to User Id  */
 export function inviteLeagueMember(to: string, leagueId: string) {
   return post(inviteLeagueMemberUrl, { to, leagueId });
+}
+
+export function acceptLeagueInvite(messageId: string) {
+  return post(acceptLeagueInviteUrl, { messageId });
+}
+
+export function rejectLeagueInvite(messageId: string) {
+  return post(rejectLeagueInviteUrl, { messageId });
 }
