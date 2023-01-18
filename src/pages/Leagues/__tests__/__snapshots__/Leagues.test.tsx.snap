@@ -68,7 +68,9 @@ exports[`Leagues If User is logged in should render all the leagues the user is 
           </td>
           <td
             class="align-middle"
-          />
+          >
+            1
+          </td>
         </tr>
       </tbody>
     </table>

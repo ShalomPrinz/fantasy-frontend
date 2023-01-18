@@ -1,0 +1,413 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Inbox If user is logged in should render Inbox component with league invitation for a league with more than one member 1`] = `
+<DocumentFragment>
+  <div
+    class="text-center my-5 fs-1"
+  >
+    My Inbox
+  </div>
+  <div
+    class="w-75 my-2 mx-auto"
+  >
+    <table
+      class="table rounded bg-white"
+    >
+      <tbody>
+        <tr>
+          <td
+            class="align-middle"
+          >
+            <span
+              class="ps-5 fs-5"
+            >
+              <span
+                class="fw-bold"
+              >
+                Other User 
+              </span>
+              invited you to
+              <span
+                class="fw-bold"
+              >
+                 My League
+              </span>
+            </span>
+          </td>
+          <td
+            class="align-middle"
+          >
+            <span
+              class="fs-5"
+            >
+              <span
+                class="fw-bold"
+              >
+                2 
+              </span>
+              Members
+            </span>
+          </td>
+          <td
+            class="align-middle"
+          >
+            <span
+              class="d-flex align-items-center py-1 pe-5"
+            >
+              <button
+                class="fs-4 bg-light-danger rounded py-2 px-3 ms-auto"
+                type="button"
+              >
+                Reject
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-xmark pe-0 ps-2"
+                  data-icon="xmark"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 320 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <button
+                class="fs-4 bg-light-success rounded py-2 px-3 ms-auto"
+                type="button"
+              >
+                Accept
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-check pe-0 ps-2"
+                  data-icon="check"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Inbox If user is logged in should render Inbox component with no messages 1`] = `
+<DocumentFragment>
+  <div
+    class="text-center my-5 fs-1"
+  >
+    My Inbox
+  </div>
+  <div
+    class="w-75 my-2 mx-auto"
+  >
+    <table
+      class="table rounded bg-white"
+    >
+      <tbody />
+    </table>
+  </div>
+  <div
+    class="fs-3 text-center"
+  >
+    No New Messages
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Inbox If user is logged in should render Inbox component with the given user message 1`] = `
+<DocumentFragment>
+  <div
+    class="text-center my-5 fs-1"
+  >
+    My Inbox
+  </div>
+  <div
+    class="w-75 my-2 mx-auto"
+  >
+    <table
+      class="table rounded bg-white"
+    >
+      <tbody>
+        <tr>
+          <td
+            class="align-middle"
+          >
+            <span
+              class="ps-5 fs-5"
+            >
+              <span
+                class="fw-bold"
+              >
+                Other User 
+              </span>
+              invited you to
+              <span
+                class="fw-bold"
+              >
+                 My League
+              </span>
+            </span>
+          </td>
+          <td
+            class="align-middle"
+          >
+            <span
+              class="fs-5"
+            >
+              <span
+                class="fw-bold"
+              >
+                1 
+              </span>
+              Member
+            </span>
+          </td>
+          <td
+            class="align-middle"
+          >
+            <span
+              class="d-flex align-items-center py-1 pe-5"
+            >
+              <button
+                class="fs-4 bg-light-danger rounded py-2 px-3 ms-auto"
+                type="button"
+              >
+                Reject
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-xmark pe-0 ps-2"
+                  data-icon="xmark"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 320 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+              <button
+                class="fs-4 bg-light-success rounded py-2 px-3 ms-auto"
+                type="button"
+              >
+                Accept
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-check pe-0 ps-2"
+                  data-icon="check"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Inbox When user accepts league invitation Should remove the response buttons 1`] = `
+<DocumentFragment>
+  <div
+    class="text-center my-5 fs-1"
+  >
+    My Inbox
+  </div>
+  <div
+    class="w-75 my-2 mx-auto"
+  >
+    <table
+      class="table rounded bg-white"
+    >
+      <tbody>
+        <tr>
+          <td
+            class="align-middle"
+          >
+            <span
+              class="ps-5 fs-5"
+            >
+              <span
+                class="fw-bold"
+              >
+                Other User 
+              </span>
+              invited you to
+              <span
+                class="fw-bold"
+              >
+                 My League
+              </span>
+            </span>
+          </td>
+          <td
+            class="align-middle"
+          >
+            <span
+              class="fs-5"
+            >
+              <span
+                class="fw-bold"
+              >
+                1 
+              </span>
+              Member
+            </span>
+          </td>
+          <td
+            class="align-middle"
+          >
+            <span
+              class="fs-4 text-white bg-success p-2 rounded centered-flex"
+            >
+              Invite Accepted
+              <svg
+                aria-hidden="true"
+                class="svg-inline--fa fa-check ps-2"
+                data-icon="check"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Inbox When user rejects league invitation Should remove the response buttons 1`] = `
+<DocumentFragment>
+  <div
+    class="text-center my-5 fs-1"
+  >
+    My Inbox
+  </div>
+  <div
+    class="w-75 my-2 mx-auto"
+  >
+    <table
+      class="table rounded bg-white"
+    >
+      <tbody>
+        <tr>
+          <td
+            class="align-middle"
+          >
+            <span
+              class="ps-5 fs-5"
+            >
+              <span
+                class="fw-bold"
+              >
+                Other User 
+              </span>
+              invited you to
+              <span
+                class="fw-bold"
+              >
+                 My League
+              </span>
+            </span>
+          </td>
+          <td
+            class="align-middle"
+          >
+            <span
+              class="fs-5"
+            >
+              <span
+                class="fw-bold"
+              >
+                1 
+              </span>
+              Member
+            </span>
+          </td>
+          <td
+            class="align-middle"
+          >
+            <span
+              class="fs-4 text-white bg-danger p-2 rounded centered-flex"
+            >
+              Invite Rejected
+              <svg
+                aria-hidden="true"
+                class="svg-inline--fa fa-xmark ps-2"
+                data-icon="xmark"
+                data-prefix="fas"
+                focusable="false"
+                role="img"
+                viewBox="0 0 320 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Inbox should render Inbox component if loading user 1`] = `
+<DocumentFragment>
+  <h1
+    class="text-center my-5 p-5 bg-info text-white w-75 mx-auto"
+  >
+    Loading...
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`Inbox should render Inbox component if no user is logged in 1`] = `
+<DocumentFragment>
+  <h1
+    class="text-center my-5 p-5 bg-danger text-white w-75 mx-auto"
+  >
+    Please Log In to view your inbox
+  </h1>
+</DocumentFragment>
+`;

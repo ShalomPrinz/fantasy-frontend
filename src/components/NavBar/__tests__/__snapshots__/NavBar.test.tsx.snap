@@ -64,7 +64,12 @@ exports[`NavBar User is logged in should render other navbar menu 1`] = `
           class="nav-item nav-links fw-light"
           href="/inbox"
         >
-          Inbox
+          Inbox 
+          <span
+            class="badge bg-secondary"
+          >
+            0
+          </span>
         </a>
       </div>
       <div

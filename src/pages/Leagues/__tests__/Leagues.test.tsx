@@ -29,7 +29,7 @@ describe("Leagues", () => {
       const leagues = [
         {
           id: "League ID",
-          members: [],
+          membersCount: 1,
           name: "Big League",
         },
       ];

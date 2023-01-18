@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import Badge from "react-bootstrap/Badge";
 import Image from "react-bootstrap/Image";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -12,6 +13,7 @@ import { getImage } from "../../res";
 import "./NavBar.css";
 
 interface Page {
+  badge?: JSX.Element;
   id: number;
   name: string;
   url: string;
@@ -19,9 +21,11 @@ interface Page {
 
 const navlinkClassname = "nav-item nav-links fw-light";
 
-const pageCallback = ({ name, url }: Page) => (
+const pageCallback = ({ badge, name, url }: Page) => (
   <NavLink className={navlinkClassname} to={url}>
     {name}
+    {badge && " "}
+    {badge && badge}
   </NavLink>
 );
 
@@ -101,6 +105,8 @@ function NavBarWrapper() {
 
     return <NavBar pages={pages} />;
   } else {
+    const messages = user.inbox.length;
+    const badgeBg = messages ? "primary" : "secondary";
     const pages = [
       {
         id: 3,
@@ -113,6 +119,7 @@ function NavBarWrapper() {
         url: "/leagues",
       },
       {
+        badge: <Badge bg={badgeBg}>{messages}</Badge>,
         id: 5,
         name: "Inbox",
         url: "/inbox",

@@ -6,6 +6,12 @@ import { IconComponent } from "../../components";
 import { useUser } from "../../contexts";
 import { acceptLeagueInvite, rejectLeagueInvite } from "../../services";
 
+enum InviteResponseStatus {
+  ACCEPTED,
+  REJECTED,
+  STALL,
+}
+
 interface InviteResponseProps {
   leagueName: string;
   messageId: string;
@@ -13,9 +19,14 @@ interface InviteResponseProps {
 
 function LeagueInviteResponse({ leagueName, messageId }: InviteResponseProps) {
   const [isResponding, setIsResponding] = useState(false);
+  const [status, setStatus] = useState(InviteResponseStatus.STALL);
   const { invalidate } = useUser();
 
-  function inviteResponded() {
+  if (status !== InviteResponseStatus.STALL)
+    return <InviteRespondedMessage status={status} />;
+
+  function inviteResponded(byStatus: InviteResponseStatus) {
+    setStatus(byStatus);
     invalidate();
   }
 
@@ -26,7 +37,7 @@ function LeagueInviteResponse({ leagueName, messageId }: InviteResponseProps) {
     acceptLeagueInvite(messageId)
       .then(() => {
         toast.success(`You are now a member in ${leagueName}`);
-        inviteResponded();
+        inviteResponded(InviteResponseStatus.ACCEPTED);
       })
       .catch((res) => {
         toast.error("Something went wrong, please try again later!");
@@ -42,7 +53,7 @@ function LeagueInviteResponse({ leagueName, messageId }: InviteResponseProps) {
     rejectLeagueInvite(messageId)
       .then(() => {
         toast.success(`You rejected invitation to ${leagueName}.`);
-        inviteResponded();
+        inviteResponded(InviteResponseStatus.REJECTED);
       })
       .catch((res) => {
         toast.error("Something went wrong, please try again later!");
@@ -73,6 +84,27 @@ function LeagueInviteResponse({ leagueName, messageId }: InviteResponseProps) {
       </button>
     </span>
   );
+}
+
+interface InviteRespondedMessageProps {
+  status: InviteResponseStatus.ACCEPTED | InviteResponseStatus.REJECTED;
+}
+
+function InviteRespondedMessage({ status }: InviteRespondedMessageProps) {
+  if (status === InviteResponseStatus.ACCEPTED)
+    return (
+      <span className="fs-4 text-white bg-success p-2 rounded centered-flex">
+        Invite Accepted
+        <IconComponent className="ps-2" icon="accept" />
+      </span>
+    );
+  else
+    return (
+      <span className="fs-4 text-white bg-danger p-2 rounded centered-flex">
+        Invite Rejected
+        <IconComponent className="ps-2" icon="reject" />
+      </span>
+    );
 }
 
 export default LeagueInviteResponse;

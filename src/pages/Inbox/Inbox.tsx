@@ -44,6 +44,9 @@ function Inbox({ messages }: InboxProps) {
       <div className="w-75 my-2 mx-auto">
         <Table columns={columns} data={messages} />
       </div>
+      {!messages.length && (
+        <div className="fs-3 text-center">No New Messages</div>
+      )}
     </>
   );
 }
