@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
 
-import { Form, IconComponent } from "../../components";
-import { useUser } from "../../features/authentication";
-import { createLeague } from "../../services";
-import type { CreateLeague } from "../../types";
+import { Form, IconComponent } from "../../../components";
+import { useUser } from "../../authentication";
+import { createLeague } from "../services";
+import type { CreateLeague } from "../types";
 
 const schema = Yup.object({
   name: Yup.string()

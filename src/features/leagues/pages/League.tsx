@@ -9,13 +9,13 @@ import {
   InteractiveTable,
   Message,
   TeamLayout,
-} from "../../components";
-import type { InteractiveTableColumn } from "../../components";
-import { LEAGUE_TEAM_LAYOUT_MAX_WIDTH } from "../../constants";
-import { TeamProvider, useTeamUpdate } from "../../contexts";
-import { UserState, useUser } from "../../features/authentication";
-import { useLeagueInfo } from "../../hooks";
-import { User } from "../../types";
+} from "../../../components";
+import type { InteractiveTableColumn } from "../../../components";
+import { TeamProvider, useTeamUpdate } from "../../../contexts";
+import { User } from "../../../types";
+import { UserState, useUser } from "../../authentication";
+import { LEAGUE_TEAM_LAYOUT_MAX_WIDTH } from "../constants";
+import { useLeagueInfo } from "../hooks";
 
 interface LeagueProps {
   userId: string;

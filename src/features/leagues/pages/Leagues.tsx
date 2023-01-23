@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
-import { IconComponent, InteractiveTable, Message } from "../../components";
-import { UserState, useUser } from "../../features/authentication";
-import { LeagueInfo } from "../../types";
+import { IconComponent, InteractiveTable, Message } from "../../../components";
+import { UserState, useUser } from "../../authentication";
+import type { LeagueInfo } from "../types";
 
 interface LeaguesProps {
   leagues: LeagueInfo[];

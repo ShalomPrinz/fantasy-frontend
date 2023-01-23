@@ -18,7 +18,7 @@ import {
   Login,
   Register,
   UserTeam,
-} from "./";
+} from "./pagesIndex";
 
 const Header = () => (
   <>

@@ -9,7 +9,7 @@ import {
 } from "setupTests";
 import { Player } from "types";
 
-import { LEAGUE_ID_LENGTH } from "../../../constants";
+import { LEAGUE_ID_LENGTH } from "../../constants";
 import League from "../League";
 
 const renderComponent = async (path?: string) =>

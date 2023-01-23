@@ -8,9 +8,8 @@ import {
   setProperty,
 } from "setupTests";
 
-import Inbox from "../Inbox";
-
 import * as userService from "../../../services/user";
+import Inbox from "../Inbox";
 
 const renderComponent = () => renderWithRouterAndUser(<Inbox />);
 

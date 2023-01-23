@@ -1,9 +1,6 @@
 import {
   acceptLeagueInviteUrl,
   addPlayerUrl,
-  createLeagueUrl,
-  inviteLeagueMemberUrl,
-  leagueInfoUrl,
   playersUrl,
   registerUrl,
   rejectLeagueInviteUrl,
@@ -11,7 +8,7 @@ import {
   userInfoUrl,
   usernamesUrl,
 } from "../constants";
-import type { CreateLeague, LoginUser, RegisterUser } from "../types";
+import type { LoginUser, RegisterUser } from "../types";
 import { signIn, signOut } from "./firebase";
 import { get, post } from "./http";
 
@@ -49,19 +46,6 @@ export function addUserPlayer(id: number) {
 
 export function removeUserPlayer(id: number) {
   post(removePlayerUrl, { id });
-}
-
-export function getLeagueInfo(id: string) {
-  return get(leagueInfoUrl, { params: { id } });
-}
-
-export function createLeague({ name }: CreateLeague) {
-  return post(createLeagueUrl, { name });
-}
-
-/** @param {string} to User Id  */
-export function inviteLeagueMember(to: string, leagueId: string) {
-  return post(inviteLeagueMemberUrl, { to, leagueId });
 }
 
 export function acceptLeagueInvite(messageId: string) {

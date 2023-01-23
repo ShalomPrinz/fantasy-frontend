@@ -9,7 +9,8 @@ import { setupServer } from "msw/node";
 import { handlers } from "../test";
 import * as TeamContext from "./contexts/TeamContext";
 import * as UserContext from "./features/authentication/contexts/UserContext";
-import { LeagueInfo, Message, Player, Team, User } from "./types";
+import { LeagueInfo } from "./features/leagues/types";
+import { Message, Player, Team, User } from "./types";
 
 jest.setTimeout(10000);
 
