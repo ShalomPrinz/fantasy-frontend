@@ -1,4 +1,5 @@
 import { Login, Register } from "../features/authentication";
+import { Inbox } from "../features/inbox";
 import {
   CreateLeague,
   InviteMembers,
@@ -6,7 +7,6 @@ import {
   Leagues,
 } from "../features/leagues";
 import Home from "./Home/Home";
-import Inbox from "./Inbox/Inbox";
 import UserTeam from "./UserTeam/UserTeam";
 
 export {

@@ -2,9 +2,9 @@ import { useState } from "react";
 
 import { toast } from "react-toastify";
 
-import { IconComponent } from "../../components";
-import { useUser } from "../../features/authentication";
-import { acceptLeagueInvite, rejectLeagueInvite } from "../../services";
+import { IconComponent } from "../../../components";
+import { useUser } from "../../authentication";
+import { acceptLeagueInvite, rejectLeagueInvite } from "../services";
 
 enum InviteResponseStatus {
   ACCEPTED,

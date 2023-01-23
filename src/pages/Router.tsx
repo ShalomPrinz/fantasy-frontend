@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 
 import { NavBar } from "../components";
-
 import {
   CreateLeague,
   Home,

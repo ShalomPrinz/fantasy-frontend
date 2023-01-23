@@ -1,4 +1,4 @@
-import { LeagueInfo } from "./League";
+import { LeagueInfo } from "../../leagues";
 
 interface Message {
   id: string;

@@ -1,7 +1,7 @@
-import { Message as MessageComponent, Table } from "../../components";
-import { UserState, useUser } from "../../features/authentication";
-import { Message } from "../../types";
-import LeagueInviteResponse from "./LeagueInviteResponse";
+import { Message as MessageComponent, Table } from "../../../components";
+import { Message } from "../../../types";
+import { UserState, useUser } from "../../authentication";
+import { LeagueInviteResponse } from "../components";
 
 interface InboxProps {
   messages: Message[];

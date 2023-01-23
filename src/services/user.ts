@@ -1,9 +1,7 @@
 import {
-  acceptLeagueInviteUrl,
   addPlayerUrl,
   playersUrl,
   registerUrl,
-  rejectLeagueInviteUrl,
   removePlayerUrl,
   userInfoUrl,
   usernamesUrl,
@@ -46,12 +44,4 @@ export function addUserPlayer(id: number) {
 
 export function removeUserPlayer(id: number) {
   post(removePlayerUrl, { id });
-}
-
-export function acceptLeagueInvite(messageId: string) {
-  return post(acceptLeagueInviteUrl, { messageId });
-}
-
-export function rejectLeagueInvite(messageId: string) {
-  return post(rejectLeagueInviteUrl, { messageId });
 }

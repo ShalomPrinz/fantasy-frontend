@@ -10,5 +10,3 @@ export const registerUrl = "/register";
 export const userInfoUrl = "/user";
 export const addPlayerUrl = "/user/addplayer";
 export const removePlayerUrl = "/user/removeplayer";
-export const acceptLeagueInviteUrl = "/accept/leagueinvite";
-export const rejectLeagueInviteUrl = "/reject/leagueinvite";
