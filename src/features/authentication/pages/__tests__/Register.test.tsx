@@ -1,7 +1,7 @@
-import { UserState } from "contexts";
+import { UserState } from "features/authentication";
 import { mockUser, renderWithRouterAndUser } from "setupTests";
 
-import Register from "../Register";
+import { Register } from "../";
 
 const renderComponent = () => renderWithRouterAndUser(<Register />);
 

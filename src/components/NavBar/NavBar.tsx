@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { ConditionalList, IconComponent } from "../";
-import { useUser } from "../../contexts";
+import { useUser } from "../../features/authentication";
 import { getImage } from "../../res";
 import "./NavBar.css";
 

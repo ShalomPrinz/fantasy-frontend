@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import * as Yup from "yup";
 
 import { Form, IconComponent } from "../../components";
-import { useUser } from "../../contexts";
+import { useUser } from "../../features/authentication";
 import { createLeague } from "../../services";
 import type { CreateLeague } from "../../types";
 

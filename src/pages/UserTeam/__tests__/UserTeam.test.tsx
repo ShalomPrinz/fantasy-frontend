@@ -9,7 +9,7 @@ import {
 } from "setupTests";
 
 import { FIELD_LAYOUT_MIN_WIDTH } from "../../../constants";
-import { UserState } from "../../../contexts";
+import { UserState } from "../../../features/authentication";
 import { Player } from "../../../types";
 import UserTeam from "../UserTeam";
 

@@ -8,7 +8,7 @@ import { setupServer } from "msw/node";
 
 import { handlers } from "../test";
 import * as TeamContext from "./contexts/TeamContext";
-import * as UserContext from "./contexts/UserContext";
+import * as UserContext from "./features/authentication/contexts/UserContext";
 import { LeagueInfo, Message, Player, Team, User } from "./types";
 
 jest.setTimeout(10000);
@@ -22,7 +22,7 @@ afterAll(() => server.close());
 
 interface MockedUserContext {
   logout?: () => Promise<void>;
-  state?: UserContext.State;
+  state?: UserContext.UserState;
   user?: User;
 }
 
@@ -47,7 +47,7 @@ export const mockUser = (context: MockedUserContext) => {
   const { logout, state, user } = context;
   const mockedLogout = typeof logout !== "undefined" ? logout : async () => {};
   const mockedState =
-    typeof state !== "undefined" ? state : UserContext.State.LOGGED_USER;
+    typeof state !== "undefined" ? state : UserContext.UserState.LOGGED_USER;
   const mockedUser = typeof user !== "undefined" ? user : getTestUser();
 
   userContext.mockImplementation(() => ({

@@ -1,4 +1,3 @@
-import AuthForm from "./AuthForm";
 import CardGroup from "./CardGroup/CardGroup";
 import {
   ConditionalList,
@@ -20,11 +19,9 @@ import TeamTabChoice from "./TeamTabChoice";
 
 export type { TableColumn as InteractiveTableColumn } from "./InteractiveTable";
 export type { TextInput } from "./Form/FormTextInput";
-export type { AuthProps } from "./AuthForm";
 export type { CardGroupItem } from "./CardGroup/CardGroup";
 
 export {
-  AuthForm,
   CardGroup,
   ConditionalList,
   Form,

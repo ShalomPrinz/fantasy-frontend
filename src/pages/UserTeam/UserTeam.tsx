@@ -3,7 +3,8 @@ import Row from "react-bootstrap/Row";
 
 import { Message, PlayersTable, TeamTabChoice } from "../../components";
 import { FULL_SCREEN_MIN_WIDTH } from "../../constants";
-import { TeamProvider, UserState, useTeamState, useUser } from "../../contexts";
+import { TeamProvider, useTeamState } from "../../contexts";
+import { UserState, useUser } from "../../features/authentication";
 import { useWindowWidth } from "../../hooks";
 
 interface UserTeamProps {

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { Message, Search, Table } from "../../components";
-import { UserState, useUser } from "../../contexts";
+import { UserState, useUser } from "../../features/authentication";
 import { useLeagueInfo } from "../../hooks";
 import { inviteLeagueMember, queryUsers } from "../../services";
 import { QueriedUser } from "../../types";

@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 
 import { render as renderToScreen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { UserProvider } from "contexts";
+import { UserProvider } from "features/authentication";
 import {
   createMemoryRouter,
   createRoutesFromElements,

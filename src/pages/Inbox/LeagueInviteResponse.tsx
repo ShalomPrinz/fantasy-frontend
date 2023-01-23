@@ -3,7 +3,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 import { IconComponent } from "../../components";
-import { useUser } from "../../contexts";
+import { useUser } from "../../features/authentication";
 import { acceptLeagueInvite, rejectLeagueInvite } from "../../services";
 
 enum InviteResponseStatus {

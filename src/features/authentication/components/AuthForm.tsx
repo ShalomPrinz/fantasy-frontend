@@ -5,8 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { SchemaLike } from "yup/lib/types";
 
-import { Form } from "./";
-import type { TextInput } from "./";
+import { Form } from "../../../components";
+import type { TextInput } from "../../../components";
 
 export interface AuthProps {
   other: {

@@ -1,7 +1,7 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { UserProvider } from "./contexts";
+import { UserProvider } from "./features/authentication";
 import Router from "./pages/Router";
 
 import "./App.css";

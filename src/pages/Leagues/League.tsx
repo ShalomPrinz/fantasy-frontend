@@ -12,12 +12,8 @@ import {
 } from "../../components";
 import type { InteractiveTableColumn } from "../../components";
 import { LEAGUE_TEAM_LAYOUT_MAX_WIDTH } from "../../constants";
-import {
-  TeamProvider,
-  UserState,
-  useTeamUpdate,
-  useUser,
-} from "../../contexts";
+import { TeamProvider, useTeamUpdate } from "../../contexts";
+import { UserState, useUser } from "../../features/authentication";
 import { useLeagueInfo } from "../../hooks";
 import { User } from "../../types";
 

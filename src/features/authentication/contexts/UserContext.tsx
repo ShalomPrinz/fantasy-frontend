@@ -16,11 +16,11 @@ import {
   registerUser,
   removeIdToken,
   saveIdToken,
-} from "../services";
-import { parseUser } from "../types";
-import type { LoginUser, RegisterUser, User } from "../types";
+} from "../../../services";
+import { parseUser } from "../../../types";
+import type { LoginUser, RegisterUser, User } from "../../../types";
 
-enum State {
+enum UserState {
   LOADING_USER,
   LOGGED_USER,
   NO_LOGGED_USER,
@@ -32,7 +32,7 @@ interface UserContextValue {
   login: (info: {}) => Promise<void>;
   logout: () => Promise<void>;
   register: (info: {}) => Promise<void>;
-  state: State;
+  state: UserState;
   user: User | undefined;
 }
 
@@ -56,9 +56,9 @@ function UserProvider({ children }: UserProviderProps) {
   const state =
     typeof currentUser === "undefined"
       ? loading
-        ? State.LOADING_USER
-        : State.NO_LOGGED_USER
-      : State.LOGGED_USER;
+        ? UserState.LOADING_USER
+        : UserState.NO_LOGGED_USER
+      : UserState.LOGGED_USER;
 
   const loadUser = async () => {
     if (loadIdToken()) {
@@ -117,5 +117,4 @@ function UserProvider({ children }: UserProviderProps) {
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }
 
-export { State, useUser };
-export default UserProvider;
+export { UserProvider, UserState, useUser };

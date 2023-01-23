@@ -1,4 +1,4 @@
-import { UserState } from "contexts";
+import { UserState } from "features/authentication";
 import {
   clickElement,
   getTestUser,

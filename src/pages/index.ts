@@ -4,8 +4,7 @@ import CreateLeague from "./Leagues/CreateLeague";
 import InviteMembers from "./Leagues/InviteMembers";
 import League from "./Leagues/League";
 import Leagues from "./Leagues/Leagues";
-import Login from "./Login/Login";
-import Register from "./Register/Register";
+import { Login, Register } from "../features/authentication";
 import UserTeam from "./UserTeam/UserTeam";
 
 export {

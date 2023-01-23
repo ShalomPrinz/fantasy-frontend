@@ -1,5 +1,5 @@
 import { Message as MessageComponent, Table } from "../../components";
-import { UserState, useUser } from "../../contexts";
+import { UserState, useUser } from "../../features/authentication";
 import { Message } from "../../types";
 import LeagueInviteResponse from "./LeagueInviteResponse";
 
