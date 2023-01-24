@@ -1,7 +1,8 @@
+import { TabChoice } from "../../../components";
+import { useWindowWidth } from "../../../hooks";
 import { FIELD_LAYOUT_MIN_WIDTH } from "../constants";
-import { useWindowWidth } from "../hooks";
 
-import { TabChoice, TeamLayout, TeamList } from "./";
+import { TeamLayout, TeamList } from "./";
 
 function TeamTabChoice() {
   const width = useWindowWidth();

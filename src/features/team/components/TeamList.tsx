@@ -2,10 +2,10 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
+import { ConditionalList, PlayerJersey } from "../../../components";
+import { getFullName, Player } from "../../../types";
 import { useTeamState } from "../contexts";
-import { getFullName, Player, PlayerPairs } from "../types";
-
-import { ConditionalList, PlayerJersey } from "./";
+import { PlayerPairs } from "../types";
 
 const playerCallback = (p: Player) => (
   <div className="d-flex align-items-center ps-5">

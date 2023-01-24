@@ -4,16 +4,11 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
 
-import {
-  IconComponent,
-  InteractiveTable,
-  Message,
-  TeamLayout,
-} from "../../../components";
+import { IconComponent, InteractiveTable, Message } from "../../../components";
 import type { InteractiveTableColumn } from "../../../components";
-import { TeamProvider, useTeamUpdate } from "../../../contexts";
 import { User } from "../../../types";
 import { UserState, useUser } from "../../authentication";
+import { TeamLayout, TeamProvider, useTeamUpdate } from "../../team";
 import { LEAGUE_TEAM_LAYOUT_MAX_WIDTH } from "../constants";
 import { useLeagueInfo } from "../hooks";
 

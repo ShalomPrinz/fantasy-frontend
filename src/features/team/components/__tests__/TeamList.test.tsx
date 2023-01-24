@@ -1,7 +1,8 @@
 import { mockTeam, render } from "setupTests";
 
 import { TeamList } from "../";
-import { Player, Team } from "../../types";
+import { Player } from "../../../../types";
+import { Team } from "../../types";
 
 const player: Player = {
   id: 0,

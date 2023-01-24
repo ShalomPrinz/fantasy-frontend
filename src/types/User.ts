@@ -1,6 +1,6 @@
-import type { Message } from "./Inbox";
-import type { LeagueInfo } from "./League";
-import Team from "./Team";
+import type { Message } from "../features/inbox";
+import type { LeagueInfo } from "../features/leagues";
+import { Team } from "../features/team";
 
 export interface User {
   id: string;

@@ -13,9 +13,6 @@ import NavBar from "./NavBar/NavBar";
 import PlayersTable from "./PlayersTable";
 import TabChoice from "./TabChoice/TabChoice";
 import Table from "./Table/Table";
-import TeamLayout from "./TeamLayout";
-import TeamList from "./TeamList";
-import TeamTabChoice from "./TeamTabChoice";
 
 export type { TableColumn as InteractiveTableColumn } from "./InteractiveTable";
 export type { TextInput } from "./Form/FormTextInput";
@@ -35,7 +32,4 @@ export {
   PlayersTable,
   Search,
   Table,
-  TeamLayout,
-  TeamList,
-  TeamTabChoice,
 };

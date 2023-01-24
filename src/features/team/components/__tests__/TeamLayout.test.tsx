@@ -1,9 +1,10 @@
 import { mockTeam, render, setProperty, setWindowSize } from "setupTests";
 
 import { TeamLayout } from "../";
+import { Team } from "../../";
+import { Player } from "../../../../types";
 import { FIELD_LAYOUT_MIN_WIDTH } from "../../constants";
 import * as constants from "../../constants";
-import { Player, Team } from "../../types";
 
 const player: Player = {
   id: 0,

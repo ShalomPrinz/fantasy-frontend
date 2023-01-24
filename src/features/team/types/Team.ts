@@ -1,4 +1,4 @@
-import type { Player, PlayerRole } from "./";
+import type { Player, PlayerRole } from "../../../types";
 
 type Players = {
   [key in PlayerRole]?: Player[];

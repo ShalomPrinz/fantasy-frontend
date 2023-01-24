@@ -7,10 +7,12 @@ import axios from "axios";
 import { setupServer } from "msw/node";
 
 import { handlers } from "../test";
-import * as TeamContext from "./contexts/TeamContext";
 import * as UserContext from "./features/authentication/contexts/UserContext";
-import { LeagueInfo } from "./features/leagues/types";
-import { Message, Player, Team, User } from "./types";
+import type { Message } from "./features/inbox";
+import type { LeagueInfo } from "./features/leagues";
+import { Team } from "./features/team";
+import * as TeamContext from "./features/team/contexts/TeamContext";
+import type { Player, User } from "./types";
 
 jest.setTimeout(10000);
 

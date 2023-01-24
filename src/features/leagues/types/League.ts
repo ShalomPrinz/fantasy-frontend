@@ -1,4 +1,4 @@
-import { Team } from "../../../types";
+import { Team } from "../../team";
 
 interface Member {
   id: string;

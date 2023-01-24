@@ -1,8 +1,9 @@
 import { clickElement, render, screen, setProperty } from "setupTests";
-import { Player, Team } from "types";
 
 import { TeamProvider, useTeamState, useTeamUpdate } from "../";
-import * as userService from "../../services/user";
+import { Player } from "../../../../types";
+import * as userService from "../../services/api";
+import { Team } from "../../types";
 
 const player: Player = {
   id: 0,

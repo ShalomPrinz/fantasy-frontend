@@ -1,8 +1,6 @@
 import {
-  addPlayerUrl,
   playersUrl,
   registerUrl,
-  removePlayerUrl,
   userInfoUrl,
   usernamesUrl,
 } from "../constants";
@@ -36,12 +34,4 @@ export async function registerUser(userInfo: RegisterUser) {
 
 export async function logoutUser() {
   signOut();
-}
-
-export function addUserPlayer(id: number) {
-  post(addPlayerUrl, { id });
-}
-
-export function removeUserPlayer(id: number) {
-  post(removePlayerUrl, { id });
 }

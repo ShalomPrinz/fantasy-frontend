@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { useTeamState, useTeamUpdate } from "../contexts";
+import { useTeamState, useTeamUpdate } from "../features/team";
 import { queryPlayers } from "../services";
 import { getFullName, Player } from "../types";
 

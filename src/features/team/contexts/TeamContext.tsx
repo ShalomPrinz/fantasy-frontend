@@ -1,7 +1,8 @@
 import { createContext, ReactNode, useContext, useReducer } from "react";
 
+import type { Player } from "../../../types";
 import { addUserPlayer, removeUserPlayer } from "../services";
-import { Player, Team } from "../types";
+import { Team } from "../types";
 
 type Action =
   | { type: "addPlayer"; payload: { player: Player } }

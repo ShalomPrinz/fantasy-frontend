@@ -6,15 +6,19 @@ import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 
 import {
+  ConditionalList,
+  Player as PlayerComponent,
+} from "../../../components";
+import { useWindowWidth } from "../../../hooks";
+import { getImage } from "../../../res";
+import { getFullName, Player } from "../../../types";
+import {
   FIELD_IMAGE_DEFAULT_WIDTH,
   FIELD_LAYOUT_MIN_WIDTH,
 } from "../constants";
 import { useTeamState } from "../contexts";
-import { useWindowWidth } from "../hooks";
-import { getImage } from "../res";
-import { getFullName, Player } from "../types";
 
-import { ConditionalList, Player as PlayerComponent, TeamList } from "./";
+import { TeamList } from "./";
 
 interface TeamLayoutProps {
   maxWidth?: number;

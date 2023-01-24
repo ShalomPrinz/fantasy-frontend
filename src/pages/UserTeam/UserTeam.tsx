@@ -1,10 +1,10 @@
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-import { Message, PlayersTable, TeamTabChoice } from "../../components";
+import { Message, PlayersTable } from "../../components";
 import { FULL_SCREEN_MIN_WIDTH } from "../../constants";
-import { TeamProvider, useTeamState } from "../../contexts";
 import { UserState, useUser } from "../../features/authentication";
+import { TeamProvider, TeamTabChoice, useTeamState } from "../../features/team";
 import { useWindowWidth } from "../../hooks";
 
 interface UserTeamProps {
