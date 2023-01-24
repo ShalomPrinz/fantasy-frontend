@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { baseURL } from "../constants";
-import { loadIdToken } from "./storage";
+import { loadIdToken } from "../features/authentication";
 
 axios.defaults.baseURL = baseURL;
 

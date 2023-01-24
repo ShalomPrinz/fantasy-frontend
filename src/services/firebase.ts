@@ -1,10 +1,8 @@
 import { initializeApp } from "@firebase/app";
 import {
-  signOut as authSignOut,
   connectAuthEmulator,
   initializeAuth,
   inMemoryPersistence,
-  signInWithEmailAndPassword,
 } from "firebase/auth";
 
 // Firestore online database
@@ -35,11 +33,4 @@ auth.setPersistence(inMemoryPersistence);
 connectAuthEmulator(auth, "http://localhost:8110");
 // */
 
-const signIn = async (email: string, password: string) => {
-  const { user } = await signInWithEmailAndPassword(auth, email, password);
-  return user.getIdToken();
-};
-
-const signOut = async () => authSignOut(auth);
-
-export { signIn, signOut };
+export { auth };

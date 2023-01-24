@@ -1,32 +1,33 @@
 # File Structure
 
-**components**
-**features**
+### components
+
+### features
 
 - authentication
-  -- User context
-  -- Login, Register pages
+  - User context
+  - Login, Register pages
 - inbox
 - leagues
-  -- useLeagueInfo hook
-  -- League components
+  - useLeagueInfo hook
+  - League components
 - team
-  -- Team context
-  -- Team components
+  - Team context
+  - Team components
 
-**hooks**
-**lib (facade)**
+### hooks
 
 - http
 
-**pages**
+### pages
 
 - one file per page
 - including Router
 
-**res**
-**services (api)**
+### res
+
+### services
 
 - firebase
 
-**types**
+### types

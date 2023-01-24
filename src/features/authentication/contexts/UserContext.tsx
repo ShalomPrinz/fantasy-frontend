@@ -8,6 +8,7 @@ import {
 
 import { toast } from "react-toastify";
 
+import type { User } from "../../../types";
 import {
   getUserInfo,
   loadIdToken,
@@ -16,9 +17,9 @@ import {
   registerUser,
   removeIdToken,
   saveIdToken,
-} from "../../../services";
-import { parseUser } from "../../../types";
-import type { LoginUser, RegisterUser, User } from "../../../types";
+} from "../services";
+import { parseUser } from "../types";
+import type { LoginUser, RegisterUser } from "../types";
 
 enum UserState {
   LOADING_USER,
