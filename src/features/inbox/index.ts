@@ -1,2 +1,2 @@
 export { Inbox } from "./pages";
-export { Message } from "./types";
+export type { Message } from "./types";

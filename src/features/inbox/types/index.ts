@@ -1,1 +1,1 @@
-export { Message } from "./Inbox";
+export type { Message } from "./Inbox";

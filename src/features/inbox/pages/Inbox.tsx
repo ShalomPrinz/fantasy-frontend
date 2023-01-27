@@ -1,7 +1,7 @@
 import { Message as MessageComponent, Table } from "../../../components";
-import { Message } from "../../../types";
 import { UserState, useUser } from "../../authentication";
 import { LeagueInviteResponse } from "../components";
+import { Message } from "../types";
 
 interface InboxProps {
   messages: Message[];
