@@ -12,6 +12,7 @@ import {
 import { useWindowWidth } from "../../../hooks";
 import { getImage } from "../../../res";
 import { getFullName, Player } from "../../../types";
+import { ErrorBoundary } from "../../errors";
 import {
   FIELD_IMAGE_DEFAULT_WIDTH,
   FIELD_LAYOUT_MIN_WIDTH,
@@ -78,7 +79,11 @@ const TeamLayoutWrapper = ({ maxWidth }: TeamLayoutProps) => {
   const width = useWindowWidth();
   if (width < FIELD_LAYOUT_MIN_WIDTH) return <TeamList />;
 
-  return <TeamLayout maxWidth={maxWidth} />;
+  return (
+    <ErrorBoundary errorMessage="Team Layout Not Available" marginY="3">
+      <TeamLayout maxWidth={maxWidth} />
+    </ErrorBoundary>
+  );
 };
 
 export default TeamLayoutWrapper;

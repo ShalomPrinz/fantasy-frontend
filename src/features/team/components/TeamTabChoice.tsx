@@ -1,5 +1,6 @@
 import { TabChoice } from "../../../components";
 import { useWindowWidth } from "../../../hooks";
+import { ErrorBoundary } from "../../errors";
 import { FIELD_LAYOUT_MIN_WIDTH } from "../constants";
 
 import { TeamLayout, TeamList } from "./";
@@ -25,7 +26,11 @@ function TeamTabChoice() {
     },
   ];
 
-  return <TabChoice tabs={tabs} />;
+  return (
+    <ErrorBoundary errorMessage="Team View Not Available" marginY="5">
+      <TabChoice tabs={tabs} />
+    </ErrorBoundary>
+  );
 }
 
 export default TeamTabChoice;

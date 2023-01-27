@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 
 import { ConditionalList, PlayerJersey } from "../../../components";
 import { getFullName, Player } from "../../../types";
+import { ErrorBoundary } from "../../errors";
 import { useTeamState } from "../contexts";
 import { PlayerPairs } from "../types";
 
@@ -42,4 +43,10 @@ const TeamList = () => {
   );
 };
 
-export default TeamList;
+const TeamListWrapper = () => (
+  <ErrorBoundary errorMessage="Team List Not Available" marginY="3">
+    <TeamList />
+  </ErrorBoundary>
+);
+
+export default TeamListWrapper;

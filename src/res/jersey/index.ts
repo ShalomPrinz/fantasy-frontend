@@ -29,5 +29,7 @@ const jerseys = {
 
 export type Jersey = keyof typeof jerseys;
 
-export const getJersey = (jersey: Jersey) =>
-  get(jerseys, jersey.split(" ")[0], ErrorJersey);
+export const getJersey = (jersey: Jersey) => {
+  if (typeof jersey !== "string") return ErrorJersey;
+  return get(jerseys, jersey.split(" ")[0], ErrorJersey);
+};

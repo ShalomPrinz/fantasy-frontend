@@ -1,5 +1,158 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TeamList Runtime Errors should cause uncaught error and render Error Boundary 1`] = `
+<DocumentFragment>
+  <div
+    class="text-center my-3 p-4 bg-danger text-white w-75 mx-auto"
+  >
+    <h2>
+      Team List Not Available
+    </h2>
+    <button
+      class="fs-4 bg-white rounded"
+      type="button"
+    >
+      Refresh
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`TeamList Runtime Errors should render with damaged data: no player id 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="w-50 col"
+      >
+        <h1
+          class="centered-flex pt-4"
+        >
+           GK 
+        </h1>
+        <div
+          class="d-flex align-items-center ps-5"
+        >
+          <img
+            class=""
+            src="Barcelona.png"
+            style="width: 60px;"
+            title="Barcelona"
+          />
+          <h4
+            class="text-truncate ps-2 my-0"
+          >
+             Ter Stegen 
+          </h4>
+        </div>
+      </div>
+      <div
+        class="w-50 col"
+      >
+        <h1
+          class="centered-flex pt-4"
+        >
+           DEF 
+        </h1>
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="w-50 col"
+      >
+        <h1
+          class="centered-flex pt-4"
+        >
+           MID 
+        </h1>
+      </div>
+      <div
+        class="w-50 col"
+      >
+        <h1
+          class="centered-flex pt-4"
+        >
+           ATT 
+        </h1>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`TeamList Runtime Errors should render with damaged data: no player team 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="w-50 col"
+      >
+        <h1
+          class="centered-flex pt-4"
+        >
+           GK 
+        </h1>
+        <div
+          class="d-flex align-items-center ps-5"
+        >
+          <img
+            class=""
+            src="Error.png"
+            style="width: 60px;"
+          />
+          <h4
+            class="text-truncate ps-2 my-0"
+          >
+             Ter Stegen 
+          </h4>
+        </div>
+      </div>
+      <div
+        class="w-50 col"
+      >
+        <h1
+          class="centered-flex pt-4"
+        >
+           DEF 
+        </h1>
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="w-50 col"
+      >
+        <h1
+          class="centered-flex pt-4"
+        >
+           MID 
+        </h1>
+      </div>
+      <div
+        class="w-50 col"
+      >
+        <h1
+          class="centered-flex pt-4"
+        >
+           ATT 
+        </h1>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`TeamList should render TeamList component 1`] = `
 <DocumentFragment>
   <div

@@ -1,5 +1,124 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TeamLayout Runtime Errors should cause uncaught error and render Error Boundary 1`] = `
+<DocumentFragment>
+  <div
+    class="text-center my-3 p-4 bg-danger text-white w-75 mx-auto"
+  >
+    <h2>
+      Team Layout Not Available
+    </h2>
+    <button
+      class="fs-4 bg-white rounded"
+      type="button"
+    >
+      Refresh
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`TeamLayout Runtime Errors should render with damaged data: no player id 1`] = `
+<DocumentFragment>
+  <div
+    class="position-relative"
+  >
+    <img
+      alt="Team Field Background"
+      class="w-100 centered-image rounded"
+      src="field.png"
+    />
+    <div
+      class="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
+    >
+      <div
+        class="my-3 row"
+      >
+        <div
+          class="mx-auto col"
+        >
+          <div
+            class="text-center"
+            style="width: 84.14px;"
+          >
+            <img
+              class=""
+              src="Barcelona.png"
+              style="width: 60.1px;"
+              title="Barcelona"
+            />
+            <div
+              class="text-truncate bg-default rounded p-1 w-100"
+            >
+              Ter Stegen
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="my-3 row"
+      />
+      <div
+        class="my-3 row"
+      />
+      <div
+        class="my-3 row"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`TeamLayout Runtime Errors should render with damaged data: no player team 1`] = `
+<DocumentFragment>
+  <div
+    class="position-relative"
+  >
+    <img
+      alt="Team Field Background"
+      class="w-100 centered-image rounded"
+      src="field.png"
+    />
+    <div
+      class="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
+    >
+      <div
+        class="my-3 row"
+      >
+        <div
+          class="mx-auto col"
+        >
+          <div
+            class="text-center"
+            style="width: 84.14px;"
+          >
+            <img
+              class=""
+              src="Error.png"
+              style="width: 60.1px;"
+            />
+            <div
+              class="text-truncate bg-default rounded p-1 w-100"
+            >
+              Ter Stegen
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="my-3 row"
+      />
+      <div
+        class="my-3 row"
+      />
+      <div
+        class="my-3 row"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`TeamLayout should render TeamLayout component 1`] = `
 <DocumentFragment>
   <div
