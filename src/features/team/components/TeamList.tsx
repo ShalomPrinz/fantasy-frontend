@@ -5,8 +5,8 @@ import Row from "react-bootstrap/Row";
 import { ConditionalList, PlayerJersey } from "../../../components";
 import { getFullName, Player } from "../../../types";
 import { ErrorBoundary } from "../../errors";
+import { Team } from "../../team";
 import { useTeamState } from "../contexts";
-import { PlayerPairs } from "../types";
 
 const playerCallback = (p: Player) => (
   <div className="d-flex align-items-center ps-5">
@@ -22,23 +22,26 @@ const roleCallback = ([label, players]: [string, Player[]]) => (
   </Col>
 );
 
-const rowCallback = (rolesPair: PlayerPairs) => (
+const rowCallback = (row: [string, Player[]][]) => (
   <Row>
-    <ConditionalList
-      indexAsKey
-      itemCallback={roleCallback}
-      list={Object.entries(rolesPair)}
-    />
+    <ConditionalList indexAsKey itemCallback={roleCallback} list={row} />
   </Row>
 );
 
+const getPlayersRows = (team: Team) => {
+  const roles = Object.entries(team.players);
+  const firstRow = roles.slice(0, 2);
+  const secondRow = roles.slice(2, 4);
+  return [firstRow, secondRow];
+};
+
 const TeamList = () => {
   const team = useTeamState();
-  const teamList = team.byPairs();
+  const rows = getPlayersRows(team);
 
   return (
     <Container>
-      <ConditionalList indexAsKey itemCallback={rowCallback} list={teamList} />
+      <ConditionalList indexAsKey itemCallback={rowCallback} list={rows} />
     </Container>
   );
 };

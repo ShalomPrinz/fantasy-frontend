@@ -1,17 +1,26 @@
-import { Player } from "../";
+import { Player } from "../../../../types";
 import Team from "../Team";
 
 const player: Player = {
   id: 0,
-  name: "Test",
+  firstName: "Test",
+  lastName: "Test",
   role: "DEF",
   team: "Barcelona",
+};
+
+const other: Player = {
+  id: 1,
+  firstName: "Test2",
+  lastName: "Test2",
+  role: "ATT",
+  team: "Dortmund",
 };
 
 describe("Team", () => {
   it("should create a team with given player", () => {
     const team = new Team([player]);
-    expect(team.players.DEF![0]).toBe(player);
+    expect(team.players[player.role][0]).toBe(player);
   });
 
   describe("Players change", () => {
@@ -36,7 +45,8 @@ describe("Team", () => {
       const team = new Team([player]);
       expect(team.count).toBe(1);
 
-      team.removePlayer(player);
+      const result = team.removePlayer(player);
+      expect(result).toBe(true);
       expect(team.count).toBe(0);
     });
 
@@ -47,7 +57,7 @@ describe("Team", () => {
     });
   });
 
-  describe("Data validations", () => {
+  describe("Other Team Functions", () => {
     it("should confirm if player is in team", () => {
       const team = new Team([player]);
       expect(team.contains(player)).toBe(true);
@@ -59,15 +69,7 @@ describe("Team", () => {
     });
 
     it("should clone a team", () => {
-      const players: Player[] = [
-        player,
-        {
-          id: 1,
-          name: "Test2",
-          role: "ATT",
-          team: "Dortmund",
-        },
-      ];
+      const players: Player[] = [player, other];
       const team = new Team(players);
       const cloned = team.clone();
       expect(cloned.players).toEqual(team.players);

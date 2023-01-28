@@ -25,7 +25,9 @@ function AppErrorBoundary({
           reset={resetErrorBoundary}
         />
       )}
-      onError={() => toast.error("Unknown error occurred")}
+      onError={() =>
+        toast.error("Unknown error occurred", { toastId: "error-boundary" })
+      }
     >
       {children}
     </ErrorBoundary>

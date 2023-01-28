@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Player Hover should show full player name on hover 1`] = `
+<DocumentFragment>
+  <div
+    class="text-center"
+    style="width: 14px;"
+  >
+    <img
+      class=""
+      src="Dortmund.png"
+      style="width: 10px;"
+      title="Dortmund"
+    />
+    <div
+      aria-describedby="tooltip-top"
+      class="text-truncate bg-default rounded p-1 w-100"
+    >
+      Robert Lewandowski
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`Player should render Player component 1`] = `
 <DocumentFragment>
   <div

@@ -6,4 +6,10 @@ const clickElement = (user: UserEvent, element: HTMLElement) =>
 const typeElement = (user: UserEvent, element: HTMLElement, input: string) =>
   user.type(element, input);
 
-export { clickElement, typeElement };
+const hoverElement = (user: UserEvent, element: HTMLElement) =>
+  user.hover(element);
+
+const unhoverElement = (user: UserEvent, element: HTMLElement) =>
+  user.unhover(element);
+
+export { clickElement, hoverElement, typeElement, unhoverElement };

@@ -1,10 +1,9 @@
+import { isPlayerRole } from "../../../types";
 import type { Player, PlayerRole } from "../../../types";
 
 type Players = {
-  [key in PlayerRole]?: Player[];
+  [key in PlayerRole]: Player[];
 };
-
-type PlayerPairs = [Players, Players];
 
 class Team {
   readonly players: Players = {
@@ -23,26 +22,25 @@ class Team {
   }
 
   addPlayer(p: Player) {
-    if (this.players[p.role] && !this.contains(p)) {
-      this.players[p.role]!.push(p);
-      this.count += 1;
-      return true;
-    } else return false;
+    if (!isPlayerRole(p.role) || this.contains(p)) return false;
+
+    this.players[p.role].push(p);
+    this.count += 1;
+    return true;
   }
 
   removePlayer(p: Player) {
-    if (this.players[p.role] && this.contains(p)) {
-      const index = this.players[p.role]!.findIndex((pl) => pl.id === p.id);
-      this.players[p.role]!.splice(index, 1);
-      this.count -= 1;
-      return true;
-    } else return false;
+    if (!isPlayerRole(p.role) || !this.contains(p)) return false;
+
+    const index = this.players[p.role].findIndex((pl) => pl.id === p.id);
+    this.players[p.role].splice(index, 1);
+    this.count -= 1;
+    return true;
   }
 
   contains({ id, role }: Player) {
-    if (this.players[role]) {
-      return this.players[role]!.findIndex((p) => p.id === id) !== -1;
-    } else return false;
+    if (!isPlayerRole(role)) return false;
+    return this.players[role].findIndex((p) => p.id === id) !== -1;
   }
 
   clone() {
@@ -52,20 +50,6 @@ class Team {
     );
     return cloned;
   }
-
-  byPairs(): PlayerPairs {
-    return [
-      {
-        GK: this.players.GK,
-        DEF: this.players.DEF,
-      },
-      {
-        MID: this.players.MID,
-        ATT: this.players.ATT,
-      },
-    ];
-  }
 }
 
 export default Team;
-export { PlayerPairs };
