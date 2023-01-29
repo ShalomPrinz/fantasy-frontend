@@ -2,6 +2,7 @@ import CardGroup from "./CardGroup/CardGroup";
 import {
   ConditionalList,
   IconComponent,
+  ImageComponent,
   Message,
   Player,
   PlayerJersey,
@@ -23,6 +24,7 @@ export {
   ConditionalList,
   Form,
   IconComponent,
+  ImageComponent,
   InteractiveTable,
   Message,
   NavBar,

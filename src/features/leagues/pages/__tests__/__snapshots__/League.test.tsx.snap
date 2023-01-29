@@ -71,6 +71,7 @@ exports[`League If User is logged in should show league content 1`] = `
             class="w-100 centered-image rounded"
             src="field.png"
             style="max-width: 680px;"
+            title="Team Field Background"
           />
           <div
             class="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
@@ -166,6 +167,7 @@ exports[`League If User is logged in should show other user team if clicked 1`] 
             class="w-100 centered-image rounded"
             src="field.png"
             style="max-width: 680px;"
+            title="Team Field Background"
           />
           <div
             class="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
@@ -272,6 +274,7 @@ exports[`League If User is logged in should show other user team if clicked 2`] 
             class="w-100 centered-image rounded"
             src="field.png"
             style="max-width: 680px;"
+            title="Team Field Background"
           />
           <div
             class="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"

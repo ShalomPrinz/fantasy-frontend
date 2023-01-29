@@ -11,6 +11,6 @@ const images = {
   HOME_IMAGE: wide_grass,
 };
 
-export type AppImage = keyof typeof images;
+export type Image = keyof typeof images;
 
-export const getImage = (image: AppImage) => get(images, image, error_image);
+export const getImage = (image: Image) => get(images, image, error_image);

@@ -11,6 +11,7 @@ exports[`NavBar User is logged in should render other navbar menu 1`] = `
       href="/"
     >
       <img
+        alt="Champions League"
         class="p-2 m-3 filter-invert"
         height="90px"
         src="cl_logo.png"
@@ -114,6 +115,7 @@ exports[`NavBar should render NavBar component 1`] = `
       href="/"
     >
       <img
+        alt="Champions League"
         class="p-2 m-3 filter-invert"
         height="90px"
         src="cl_logo.png"
@@ -186,6 +188,7 @@ exports[`NavBar when navbar expands should allow collapse via main link 1`] = `
       href="/"
     >
       <img
+        alt="Champions League"
         class="p-2 m-3 filter-invert"
         height="90px"
         src="cl_logo.png"
@@ -258,6 +261,7 @@ exports[`NavBar when navbar expands should allow collapse via main link 2`] = `
       href="/"
     >
       <img
+        alt="Champions League"
         class="p-2 m-3 filter-invert"
         height="90px"
         src="cl_logo.png"
@@ -331,6 +335,7 @@ exports[`NavBar when navbar expands should change navbar layout 1`] = `
       href="/"
     >
       <img
+        alt="Champions League"
         class="p-2 m-3 filter-invert"
         height="90px"
         src="cl_logo.png"
@@ -403,6 +408,7 @@ exports[`NavBar when navbar expands should change navbar layout 2`] = `
       href="/"
     >
       <img
+        alt="Champions League"
         class="p-2 m-3 filter-invert"
         height="90px"
         src="cl_logo.png"

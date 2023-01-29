@@ -1,15 +1,13 @@
 import { useState } from "react";
 
 import Badge from "react-bootstrap/Badge";
-import Image from "react-bootstrap/Image";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { ConditionalList, IconComponent } from "../";
+import { ConditionalList, IconComponent, ImageComponent } from "../";
 import { useUser } from "../../features/authentication";
-import { getImage } from "../../res";
 import "./NavBar.css";
 
 interface Page {
@@ -43,10 +41,10 @@ function NavBar({ handleLogout, pages }: NavBarProps) {
   return (
     <Navbar className="navbar bg-default" expand="lg" expanded={expanded}>
       <NavLink onClick={setNotExpanded} className="navbar-brand fs-1" to="/">
-        <Image
+        <ImageComponent
           height="90px"
           className="p-2 m-3 filter-invert"
-          src={getImage("NAVBAR_LOGO")}
+          src={"NAVBAR_LOGO"}
           title="Champions League"
         />
         Fantasy

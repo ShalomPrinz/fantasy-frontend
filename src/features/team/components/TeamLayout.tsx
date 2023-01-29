@@ -2,15 +2,14 @@ import { useEffect, useRef, useState } from "react";
 
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 
 import {
   ConditionalList,
+  ImageComponent,
   Player as PlayerComponent,
 } from "../../../components";
 import { useWindowWidth } from "../../../hooks";
-import { getImage } from "../../../res";
 import { getFullName, Player } from "../../../types";
 import { ErrorBoundary } from "../../errors";
 import {
@@ -56,13 +55,13 @@ const TeamLayout = ({ maxWidth }: TeamLayoutProps) => {
 
   return (
     <div className="position-relative">
-      <Image
+      <ImageComponent
         className="w-100 centered-image"
-        src={getImage("TEAM_LAYOUT_BG")}
         ref={fieldRef}
-        alt="Team Field Background"
         rounded
+        src={"TEAM_LAYOUT_BG"}
         style={{ maxWidth }}
+        title="Team Field Background"
       />
       <Container className="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden">
         <ConditionalList

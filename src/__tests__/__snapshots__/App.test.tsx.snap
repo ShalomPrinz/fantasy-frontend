@@ -14,6 +14,7 @@ exports[`App should render App component 1`] = `
       href="/"
     >
       <img
+        alt="Champions League"
         class="p-2 m-3 filter-invert"
         height="90px"
         src="cl_logo.png"
@@ -79,6 +80,7 @@ exports[`App should render App component 1`] = `
       alt="Original Soccer Grass"
       class=""
       src="wide_grass.jpg"
+      title="Original Soccer Grass"
     />
     <div
       class="position-absolute top-50 start-50 translate-middle text-white w-100"

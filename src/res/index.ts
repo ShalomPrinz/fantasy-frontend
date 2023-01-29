@@ -5,4 +5,4 @@ export { getJersey } from "./jersey";
 export type { Jersey } from "./jersey";
 
 export { getImage } from "./images";
-export type { AppImage } from "./images";
+export type { Image } from "./images";

@@ -27,6 +27,7 @@ exports[`TeamLayout Runtime Errors should render with damaged data: no player id
       alt="Team Field Background"
       class="w-100 centered-image rounded"
       src="field.png"
+      title="Team Field Background"
     />
     <div
       class="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
@@ -78,6 +79,7 @@ exports[`TeamLayout Runtime Errors should render with damaged data: no player te
       alt="Team Field Background"
       class="w-100 centered-image rounded"
       src="field.png"
+      title="Team Field Background"
     />
     <div
       class="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
@@ -128,6 +130,7 @@ exports[`TeamLayout should render TeamLayout component 1`] = `
       alt="Team Field Background"
       class="w-100 centered-image rounded"
       src="field.png"
+      title="Team Field Background"
     />
     <div
       class="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
@@ -247,6 +250,7 @@ exports[`TeamLayout should render bigger row margin if field width is higher tha
       alt="Team Field Background"
       class="w-100 centered-image rounded"
       src="field.png"
+      title="Team Field Background"
     />
     <div
       class="position-absolute p-5 top-0 centered-flex flex-column h-100 overflow-hidden container"
