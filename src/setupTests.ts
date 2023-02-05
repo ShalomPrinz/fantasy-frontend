@@ -9,6 +9,7 @@ import { setupServer } from "msw/node";
 import { handlers } from "../test";
 import * as UserContext from "./features/authentication/contexts/UserContext";
 import type { Message } from "./features/inbox";
+import * as LeagueInfoHook from "./features/leagues/hooks/useLeagueInfo";
 import type { LeagueInfo } from "./features/leagues";
 import { Team } from "./features/team";
 import * as TeamContext from "./features/team/contexts/TeamContext";
@@ -66,9 +67,23 @@ export const mockUser = (context: MockedUserContext) => {
   return userContext.mockRestore;
 };
 
+export const mockUserUndefined = () => {
+  const userContext = jest.spyOn(UserContext, "useUser");
+  // @ts-expect-error undefined is not of type UserContext
+  userContext.mockImplementation(() => undefined);
+  return userContext.mockRestore;
+};
+
 export const mockTeam = (team: Team) => {
   const teamContext = jest.spyOn(TeamContext, "useTeamState");
   teamContext.mockImplementation(() => team);
+};
+
+export const mockLeagueUndefined = () => {
+  const leagueInfoHook = jest.spyOn(LeagueInfoHook, "default");
+  // @ts-expect-error league info hook does not return undefined
+  leagueInfoHook.mockImplementation(() => undefined);
+  return leagueInfoHook.mockRestore;
 };
 
 export * from "../test";

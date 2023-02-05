@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-import { LEAGUE_ID_LENGTH } from "../src/constants";
+import { LEAGUE_ID_LENGTH } from "../src/features/leagues/constants";
 
 const handlers = [
   rest.get("/players/query", (_, res, ctx) => {

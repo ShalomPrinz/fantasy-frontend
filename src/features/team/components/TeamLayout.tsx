@@ -57,7 +57,7 @@ const TeamLayout = ({ maxWidth }: TeamLayoutProps) => {
     <div className="position-relative">
       <ImageComponent
         className="w-100 centered-image"
-        ref={fieldRef}
+        imageRef={fieldRef}
         rounded
         src={"TEAM_LAYOUT_BG"}
         style={{ maxWidth }}

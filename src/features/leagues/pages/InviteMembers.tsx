@@ -9,6 +9,7 @@ import { Message, Search, Table } from "../../../components";
 import { queryUsers } from "../../../services";
 import { QueriedUser } from "../../../types";
 import { UserState, useUser } from "../../authentication";
+import { ErrorBoundary } from "../../errors";
 import { useLeagueInfo } from "../hooks";
 import { inviteLeagueMember } from "../services";
 
@@ -111,7 +112,7 @@ function useInviteMembers(
   };
 }
 
-const InviteMembersWrapper = () => {
+const InviteMembersUserState = () => {
   const { state, user } = useUser();
 
   switch (state) {
@@ -131,4 +132,10 @@ const InviteMembersWrapper = () => {
   }
 };
 
-export default InviteMembersWrapper;
+const InviteMembersErrorBoundary = () => (
+  <ErrorBoundary errorMessage="Invite Members Page Not Available" marginY="5">
+    <InviteMembersUserState />
+  </ErrorBoundary>
+);
+
+export default InviteMembersErrorBoundary;

@@ -8,6 +8,7 @@ import * as Yup from "yup";
 
 import { Form, IconComponent } from "../../../components";
 import { useUser } from "../../authentication";
+import { ErrorBoundary } from "../../errors";
 import { createLeague } from "../services";
 import type { CreateLeague } from "../types";
 
@@ -51,6 +52,12 @@ const CreateLeagueComponent = () => {
   );
 };
 
+const CreateLeagueWrapper = () => (
+  <ErrorBoundary errorMessage="Create League Page Not Available" marginY="5">
+    <CreateLeagueComponent />
+  </ErrorBoundary>
+);
+
 function useCreateLeague() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -79,4 +86,4 @@ function useCreateLeague() {
   };
 }
 
-export default CreateLeagueComponent;
+export default CreateLeagueWrapper;

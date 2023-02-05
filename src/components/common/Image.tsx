@@ -6,16 +6,22 @@ import type { Image } from "../../res";
 interface ImageProps {
   className?: string;
   height?: string;
-  ref?: React.RefObject<HTMLImageElement>;
+  imageRef?: React.RefObject<HTMLImageElement>;
   rounded?: boolean;
   src: Image;
   style?: React.CSSProperties;
   title: string;
 }
 
-function AppImage({ src, title, ...props }: ImageProps) {
+function AppImage({ imageRef, src, title, ...props }: ImageProps) {
   return (
-    <ImageComponent alt={title} src={getImage(src)} title={title} {...props} />
+    <ImageComponent
+      alt={title}
+      ref={imageRef}
+      src={getImage(src)}
+      title={title}
+      {...props}
+    />
   );
 }
 
